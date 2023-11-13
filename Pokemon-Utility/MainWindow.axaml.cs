@@ -10,5 +10,6 @@ public partial class MainWindow : Window
         InitializeComponent();
         MainInterface mainInterface = new MainInterface();
         RootPanel.Children.Add(mainInterface);
+        //comment
     }
 }
