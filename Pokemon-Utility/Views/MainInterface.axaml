@@ -1,0 +1,9 @@
+<StackPanel xmlns="https://github.com/avaloniaui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       x:Class="Pokemon_Utility.Views.MainInterface"
+       Orientation="Horizontal">
+        <StackPanel
+            Background="CornflowerBlue"
+            Width="100"
+            ></StackPanel>
+</StackPanel>
