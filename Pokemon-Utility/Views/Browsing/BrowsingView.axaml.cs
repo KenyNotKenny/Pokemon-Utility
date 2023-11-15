@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace Pokemon_Utility.Views;
+namespace Pokemon_Utility.Views.Browsing;
 
 public partial class BrowsingView : Panel
 {
