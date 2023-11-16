@@ -8,6 +8,7 @@ Có thể gọi lên Class MainContext từ bất cứ đâu, nó là 1 Singleto
 Mọi tương tác với database thông qua Singleton này mọi người đừng tạo đối tượng của Class PokemonContext. Mục đích tui tạo cái này để giữ 1 context sử dụng xuyên suốt chương trình.
 
 Class MainContext có 2 member public có thể gọi :
+  
   MainContext.Connected 
     - bool property - Để kiểm tra kết nối với database. Kết nối database có thể bị ngắt nếu không có kết nối Internet hoặc đường truyền quá chậm. Nếu là trường hợp khác thì báo cho tui để tui kiểm tra database
 
