@@ -5,7 +5,7 @@ Hướng dẫn query database:
 
 Có thể gọi lên Class MainContext từ bất cứ đâu, nó là 1 Singleton với instance được private.
 
-Mọi tương tác với database thông qua Singleton này mọi người đừng tạo đối tượng của Class PokemonContext. Mục đích tui tạo cái này để giử 1 context sử dụng xuyên suốt chương trình.
+Mọi tương tác với database thông qua Singleton này mọi người đừng tạo đối tượng của Class PokemonContext. Mục đích tui tạo cái này để giữ 1 context sử dụng xuyên suốt chương trình.
 
 Class MainContext có 2 member public có thể gọi :
   MainContext.Connected 
