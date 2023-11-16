@@ -47,5 +47,7 @@ Trong trường hợp không có kết nối
 
 Kết quả : No Connection
 
+Lưu ý : khi không có kết nối, giao điện sẽ freeze cho đến khi có kết nối hoặc sau 30s timeout . tui đang cố cải thiện phần này nhưng trong hiện tại thì mn ráng chờ 30s, ko biết sao chỉnh ko được
+
 *Gợi ý: nếu để lấy hàng theo primary key của table theo Primary Key thì dùng hàm Find() sẽ tốt hơn
 Hiện chỉ có table Pokemon và Move có Primery Key đơn là id
