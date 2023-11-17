@@ -10,16 +10,16 @@ using System.Xml.Linq;
 
 namespace Pokemon_Utility.Views.Browsing;
 
-public partial class BrowsingView : Grid
+public partial class BrowsingView : Panel
 {
     public BrowsingView()
     {
         InitializeComponent();
 
         //set the column and row to auto size
-        this.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
-        this.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
-        this.RowDefinitions.Add(new RowDefinition(GridLength.Star));
+        GridView.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
+        GridView.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
+        GridView.RowDefinitions.Add(new RowDefinition(GridLength.Star));
 
         //set up the UI
         this.BrowsingBar();
@@ -31,7 +31,7 @@ public partial class BrowsingView : Grid
     {
         StackPanel browsingBar = new StackPanel();
         //set the browsingBar as the children of the BrowsingView
-        this.Children.Add(browsingBar);
+        GridView.Children.Add(browsingBar);
         //set the browsingBar as the 1st row of the BrowsingView
         Grid.SetRow(browsingBar, 0);
 
@@ -199,7 +199,7 @@ public partial class BrowsingView : Grid
     {
         ScrollViewer pokemonList_ScrollViewer = new ScrollViewer();
         //set the pokemonList_ScrollViewer as the children of the BrowsingView
-        this.Children.Add(pokemonList_ScrollViewer);
+        GridView.Children.Add(pokemonList_ScrollViewer);
         //set the pokemonList_ScrollViewer as the 3rd row of the BrowsingView
         Grid.SetRow(pokemonList_ScrollViewer, 2);
 
