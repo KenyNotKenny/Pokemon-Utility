@@ -1,22 +1,28 @@
 ﻿<Properties StartupConfiguration="{A102F7D7-03D3-4A7E-83A0-F35CA50F9CFD}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.Pokemon-Utility PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Pokemon-Utility/Views/Browsing/BrowsingView.axaml.cs">
     <Files>
-      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingView.axaml.cs" Line="16" Column="46" />
-      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingQuery.cs" Line="17" Column="33" />
+      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingView.axaml.cs" Line="25" Column="1" />
+      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingQuery.cs" Line="37" Column="19" />
+      <File FileName="Pokemon-Utility/Views/Browsing/DataCard.cs" Line="26" Column="14" />
+      <File FileName="Pokemon-Utility/Models/Entities/PokemonType.cs" Line="5" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Option id="ShowAllFiles" value="True" />
-          <Node name="Pokemon-Utility">
+          <Node name="Pokemon-Utility" expanded="True">
             <Node name="Pokemon-Utility">
               <Node name="Models" expanded="True">
-                <Node name="Context" expanded="True" />
                 <Node name="Entities" expanded="True" />
               </Node>
-              <Node name="Views">
-                <Node name="Browsing">
+              <Node name="Views" expanded="True">
+                <Node name="Browsing" expanded="True">
                   <Node name="BrowsingView.axaml" expanded="True">
                     <Node name="BrowsingView.axaml.cs" selected="True" />
                   </Node>
@@ -34,10 +40,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
 </Properties>
