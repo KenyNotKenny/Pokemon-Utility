@@ -25,6 +25,8 @@ public partial class MainInterface : Panel
         TabBar.Items.Add("Browse");
         TabBar.Items.Add("Team");
         TabBar.SelectedIndex = 0;
+        LogoBox.Background = Design.Color.FgBlue;
+        SideBar.Background = Design.Color.FgLightBlue;
         
 
         if (MainContext.Connected)
@@ -32,13 +34,7 @@ public partial class MainInterface : Panel
             
             
             this.Children.Add(browsingView);
-            MainContext.Query(
-                onReceive: context =>
-                {
-                    tb.Text = context.Pokemons.Find(id).Name;
-                },
-                onFailure: () => tb.Text = "No Connection"
-            );
+            tb.Text = "Data";
             btn.Click += OnClick;
             TabBar.SelectionChanged += OnSelect;
 

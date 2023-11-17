@@ -1,18 +1,17 @@
 <Panel xmlns="https://github.com/avaloniaui"
        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-       x:Class="Pokemon_Utility.Views.MainInterface"
-
-       >
+       x:Class="Pokemon_Utility.Views.MainInterface">
         <StackPanel
-            Background="CornflowerBlue"
-            Width="100"
+            Width="80"
             HorizontalAlignment="Left"
-            Name="SideBar"
-        >
+            Name="SideBar">
+            <Panel
+                Width="80"
+                Height="80"
+                Name="LogoBox">
+            </Panel>
             <ListBox
-                Name="TabBar"
-                >
-                
+                Name="TabBar">
             </ListBox>
         </StackPanel>
 </Panel>
