@@ -8,5 +8,11 @@
             Width="100"
             HorizontalAlignment="Left"
             Name="SideBar"
-        ></StackPanel>
+        >
+            <ListBox
+                Name="TabBar"
+                >
+                
+            </ListBox>
+        </StackPanel>
 </Panel>
