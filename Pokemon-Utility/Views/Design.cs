@@ -2,9 +2,7 @@ using System.Drawing;
 using Avalonia;
 using Avalonia.Media;
 using Brush = Avalonia.Media.Brush;
-
 namespace Pokemon_Utility.Views;
-
 public class Design
 {
     public class Color
