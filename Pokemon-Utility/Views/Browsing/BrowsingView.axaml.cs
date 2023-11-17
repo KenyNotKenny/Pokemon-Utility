@@ -4,6 +4,7 @@ using Avalonia.Media;
 using Avalonia.Layout;
 using PokemonUtility;
 using PokemonUtility.Views.Browsing;
+using System;
 
 namespace Pokemon_Utility.Views.Browsing;
 
@@ -14,19 +15,20 @@ public partial class BrowsingView : Panel
         InitializeComponent();
 
         //set the column and row to auto size
-        GridView.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Auto));
-        GridView.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
-        GridView.RowDefinitions.Add(new RowDefinition(GridLength.Star));
+        GridView.ColumnDefinitions.Add(new ColumnDefinition(1, GridUnitType.Star));
+        GridView.RowDefinitions.Add(new RowDefinition(1, GridUnitType.Auto));
+        GridView.RowDefinitions.Add(new RowDefinition(2, GridUnitType.Star));
 
         //set up the UI
-        this.BrowsingBar(123);
         BrowsingQuery a = new BrowsingQuery();
         string[,] b = a.PokemonQuery_byName("P");
+
+        this.BrowsingBar(a.NOfPokemonFound);
         this.PokemonList(a.NOfPokemonFound, b);
 
-        //string[] b = {"1", "1", "1", "1", "1", "1", "1", "1", "1", "1",
-        //"1","1","1","1","1","1","1","1","1","1"};
-        //this.PokemonList(20,b);
+        //string[,] b = {{"1", "1", "1" },{ "1", "1", "1" }, {"1", "1", "1" },{ "1",
+        //"1","1" },{"1","1","1" },{"1","1","1" },{"1","1","1"} };
+        //this.PokemonList(21, b);
     }
 
     //method to create BrowsingBar
@@ -40,6 +42,7 @@ public partial class BrowsingView : Panel
 
         //change the browsingBar properties
         browsingBar.Height = 120;
+        browsingBar.VerticalAlignment = VerticalAlignment.Top;
         browsingBar.HorizontalAlignment = HorizontalAlignment.Stretch;
         browsingBar.Background = Brushes.Gray;
 
@@ -60,7 +63,10 @@ public partial class BrowsingView : Panel
         searchBar.TextChanged += userInbutKeyWord;
 
         TextBlock pokemonFound_Textblock = PokemonFoundTextblock(nOfPokemonFound);
+        //set the pokemonFound_Textblock as the children of the browsingBar
         browsingBar.Children.Add(pokemonFound_Textblock);
+
+        //change the pokemonFound_Textblock properties
         pokemonFound_Textblock.Height= browsingBar.Height / 2;
         pokemonFound_Textblock.TextAlignment = TextAlignment.Center;
     }
@@ -91,11 +97,11 @@ public partial class BrowsingView : Panel
         //set the pokemonList_ScrollViewer as the children of the BrowsingView
         GridView.Children.Add(pokemonList_ScrollViewer);
         //set the pokemonList_ScrollViewer as the 3rd row of the BrowsingView
-        Grid.SetRow(pokemonList_ScrollViewer, 2);
+        Grid.SetRow(pokemonList_ScrollViewer, 1);
 
         //change the pokemonList_ScrollViewer properties
         pokemonList_ScrollViewer.Background = Brushes.White;
-        //pokemonList_ScrollViewer.VerticalAlignment = VerticalAlignment.Bottom;
+        pokemonList_ScrollViewer.VerticalAlignment = VerticalAlignment.Stretch;
         pokemonList_ScrollViewer.HorizontalAlignment = HorizontalAlignment.Stretch;
         
         StackPanel pokemonList = new StackPanel();
@@ -105,7 +111,12 @@ public partial class BrowsingView : Panel
         for (int i = 0; i < nOfDataCardRow; i++)
         {
             StackPanel pokemonRow = new StackPanel();
+
+            //change the pokemonRow properties
+            pokemonRow.HorizontalAlignment = HorizontalAlignment.Center;
             pokemonRow.Orientation = Orientation.Horizontal;
+
+            //add the dataCards to the pokemonRow
             for (int y = 0; y < 4; y++)
             {
                 if (nOfPokemonFound == 0)
@@ -115,13 +126,15 @@ public partial class BrowsingView : Panel
                 DataCard dataCard = new DataCard();
                 Border dataCard_Border = dataCard.SetDataCard(pokemonFound[i,2], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
                 pokemonRow.Children.Add(dataCard_Border);
+
+                //update index
                 nOfPokemonFound--;
                 index++;
             }
             pokemonList.Children.Add(pokemonRow);
         }
 
-        ////set the pokemonList as the children of the pokemonList_ScrollViewer
+        //set the pokemonList as the children of the pokemonList_ScrollViewer
         pokemonList_ScrollViewer.Content = pokemonList;
     }
 }
