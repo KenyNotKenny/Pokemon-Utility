@@ -31,6 +31,7 @@
       <None Remove="Views\TeamBuilder\" />
     </ItemGroup>
     <ItemGroup>
+      <Folder Include="Controls\" />
       <Folder Include="Views\TeamBuilder\" />
     </ItemGroup>
     <ItemGroup>
