@@ -1,16 +1,11 @@
 ﻿<Properties StartupConfiguration="{A102F7D7-03D3-4A7E-83A0-F35CA50F9CFD}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.Pokemon-Utility PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Pokemon-Utility/Views/Browsing/BrowsingView.axaml.cs">
     <Files>
-      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingView.axaml.cs" Line="11" Column="1" />
+      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingView.axaml.cs" Line="45" Column="1" />
       <File FileName="Pokemon-Utility/Views/Browsing/BrowsingQuery.cs" Line="60" Column="1" />
-      <File FileName="Pokemon-Utility/Views/Browsing/DataCard.cs" Line="1" Column="1" />
-      <File FileName="Pokemon-Utility/Models/Entities/PokemonType.cs" />
+      <File FileName="Pokemon-Utility/Views/Browsing/DataCard.cs" Line="112" Column="22" />
+      <File FileName="Pokemon-Utility/Models/Entities/PokemonType.cs" Line="1" Column="1" />
       <File FileName="Pokemon-Utility/Views/MainInterface.axaml.cs" Line="1" Column="1" />
     </Files>
     <Pads>
@@ -18,10 +13,15 @@
         <State name="__root__">
           <Option id="ShowAllFiles" value="True" />
           <Node name="Pokemon-Utility" expanded="True">
-            <Node name="Pokemon-Utility" expanded="True">
+            <Node name="Pokemon-Utility">
+              <Node name="Models" expanded="True">
+                <Node name="Entities" expanded="True" />
+              </Node>
               <Node name="Views" expanded="True">
                 <Node name="Browsing" expanded="True">
-                  <Node name="BrowsingView.axaml" expanded="True" />
+                  <Node name="BrowsingView.axaml" expanded="True">
+                    <Node name="BrowsingView.axaml.cs" selected="True" />
+                  </Node>
                 </Node>
                 <Node name="TeamBuilder" expanded="True">
                   <Node name="TeamView.axaml" expanded="True" />
@@ -36,5 +36,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

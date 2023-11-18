@@ -6,96 +6,103 @@ using Avalonia.Media;
 
 namespace PokemonUtility.Views.Browsing
 {
-	public class DataCard
-	{
-		public DataCard()
+    /// <summary>
+    /// DataCard
+    ///     dataCard
+    ///         pic
+    ///         id_name_icon_Border
+    ///             id_name_icon
+    /// </summary>
+	public class DataCard : Border
+    {
+        StackPanel dataCard;
+        StackPanel pic;
+        TextBlock id_name;
+        Border id_name_icon_Border;
+        StackPanel id_name_icon;
+
+        public DataCard(string Type, int id, string name)
 		{
-		}
-
-        //method to create the DataCard
-        public Border SetDataCard(string Type, int id, string name)
-        {
-            Border dataCard_Border = new Border();
-
             //change the datacard properties
-            dataCard_Border.Margin = Thickness.Parse("30");
-            dataCard_Border.CornerRadius = CornerRadius.Parse("5");
-            dataCard_Border.Width = 700 / 3;
-            dataCard_Border.Height = 150;
+            this.Margin = Thickness.Parse("30");
+            this.CornerRadius = CornerRadius.Parse("5");
+            this.Width = 700 / 3;
+            this.Height = 150;
             switch (Type)
             {
-               //the color according to the type of pokemon
-               case "fire":
-                    dataCard_Border.Background = Brushes.Red;
+                //the color according to the type of pokemon
+                case "fire":
+                    this.Background = Brushes.Red;
                     break;
-               case "ater":
-                    dataCard_Border.Background = Brushes.Blue;
+                case "ater":
+                    this.Background = Brushes.Blue;
                     break;
-               case "electric":
-                    dataCard_Border.Background = Brushes.Yellow;
+                case "electric":
+                    this.Background = Brushes.Yellow;
                     break;
-               case "grass":
-                    dataCard_Border.Background = Brushes.LightGreen;
+                case "grass":
+                    this.Background = Brushes.LightGreen;
                     break;
-               case "ice":
-                    dataCard_Border.Background = Brushes.PowderBlue;
+                case "ice":
+                    this.Background = Brushes.PowderBlue;
                     break;
-               case "lighting":
-                    dataCard_Border.Background = Brushes.Brown;
+                case "lighting":
+                    this.Background = Brushes.Brown;
                     break;
-               case "poison":
-                    dataCard_Border.Background = Brushes.Purple;
+                case "poison":
+                    this.Background = Brushes.Purple;
                     break;
-               case "ground":
-                    dataCard_Border.Background = Brushes.LightGoldenrodYellow;
+                case "ground":
+                    this.Background = Brushes.LightGoldenrodYellow;
                     break;
-               case "flying":
-                    dataCard_Border.Background = Brushes.Lavender;
+                case "flying":
+                    this.Background = Brushes.Lavender;
                     break;
-               case "psychic":
-                    dataCard_Border.Background = Brushes.DeepPink;
+                case "psychic":
+                    this.Background = Brushes.DeepPink;
                     break;
-               case "bug":
-                    dataCard_Border.Background = Brushes.DarkOliveGreen;
+                case "bug":
+                    this.Background = Brushes.DarkOliveGreen;
                     break;
-               case "rock":
-                    dataCard_Border.Background = Brushes.AntiqueWhite;
+                case "rock":
+                    this.Background = Brushes.AntiqueWhite;
                     break;
-               case "ghost":
-                    dataCard_Border.Background = Brushes.DarkMagenta;
+                case "ghost":
+                    this.Background = Brushes.DarkMagenta;
                     break;
-               case "fragon":
-                    dataCard_Border.Background = Brushes.MediumPurple;
+                case "fragon":
+                    this.Background = Brushes.MediumPurple;
                     break;
-               case "dark":
-                    dataCard_Border.Background = Brushes.SaddleBrown;
+                case "dark":
+                    this.Background = Brushes.SaddleBrown;
                     break;
-               case "steel":
-                    dataCard_Border.Background = Brushes.LightGray;
+                case "steel":
+                    this.Background = Brushes.LightGray;
                     break;
-               case "fairy":
-                    dataCard_Border.Background = Brushes.Pink;
+                case "fairy":
+                    this.Background = Brushes.Pink;
                     break;
-               default:
-                    dataCard_Border.Background = Brushes.Gray;
+                default:
+                    this.Background = Brushes.Gray;
                     break;
             }
-            StackPanel dataCard = new StackPanel();
+
+            dataCard = new StackPanel();
             //set the dataCard as the children of the dataCard_Border
-            dataCard_Border.Child = dataCard;
+            this.Child = dataCard;
 
             //change the dataCard properties
             dataCard.Orientation = Orientation.Horizontal;
 
-            StackPanel pic = new StackPanel();
+            pic = new StackPanel();
             //set the pic as the children of the dataCard
             dataCard.Children.Add(pic);
 
             //change the pic properties
-            pic.Width = dataCard_Border.Width / 2;
+            pic.Width = this.Width / 2;
             pic.VerticalAlignment = VerticalAlignment.Stretch;
 
-            Border id_name_icon_Border = new Border();
+            id_name_icon_Border = new Border();
             //set the id_name_icon_Border as the children of the dataCard
             dataCard.Children.Add(id_name_icon_Border);
 
@@ -103,16 +110,16 @@ namespace PokemonUtility.Views.Browsing
             id_name_icon_Border.Background = Brushes.WhiteSmoke;
             id_name_icon_Border.CornerRadius = new CornerRadius(0, 5, 5, 0);
 
-            StackPanel id_name_icon = new StackPanel();
+            id_name_icon = new StackPanel();
             //set the id_name_icon as the children of the id_name_icon_Border
             id_name_icon_Border.Child = id_name_icon;
 
             //change the id_name_icon properties
-            id_name_icon.Width = dataCard_Border.Width / 2;
+            id_name_icon.Width = this.Width / 2;
             id_name_icon.VerticalAlignment = VerticalAlignment.Stretch;
             id_name_icon.Orientation = Orientation.Vertical;
 
-            TextBlock id_name = new TextBlock();
+            id_name = new TextBlock();
             //set the id_name as the children of the id_name_icon
             id_name_icon.Children.Add(id_name);
 
@@ -121,9 +128,10 @@ namespace PokemonUtility.Views.Browsing
             id_name.Margin = Thickness.Parse("10");
             id_name.Text = $"#{id}\n{name}";
 
-            return dataCard_Border;
+            this.PointerPressed += (sender, e) =>
+            {
+                id_name.Text = id_name.Text + "\ncliked";
+            };
         }
     }
-
 }
-

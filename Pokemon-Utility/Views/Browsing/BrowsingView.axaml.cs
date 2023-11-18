@@ -8,9 +8,41 @@ using System;
 using Avalonia.Input;
 
 namespace Pokemon_Utility.Views.Browsing;
-
+/// <summary>
+/// BrowsingView
+///     browsingBar
+///         searchBar
+///         searchButton
+///     pokemonFound_Textblock
+///     pokemonList_ScrollViewer
+///         pokemonList
+///             pokemonRow
+///                 dataCard_Border
+///                 dataCard_Border
+///                 dataCard_Border
+///                 ...
+///             pokemonRow
+///                 dataCard_Border
+///                 dataCard_Border
+///                 dataCard_Border
+///                 ...
+///             pokemonRow
+///                 dataCard_Border
+///                 dataCard_Border
+///                 dataCard_Border
+///                 ...
+///             ...
+/// </summary>
 public partial class BrowsingView : Panel
 {
+    StackPanel browsingBar;
+    TextBox searchBar;
+    Button searchButton;
+    TextBlock pokemonFound_Textblock;
+    ScrollViewer pokemonList_ScrollViewer;
+    StackPanel pokemonList;
+    StackPanel pokemonRow;
+
     public BrowsingView()
     {
         InitializeComponent();
@@ -26,19 +58,18 @@ public partial class BrowsingView : Panel
         string[,] pokemons = a.PokemonQuery_byName("P");
         int nOfPokemon = a.NOfPokemonFound;
 
+        //string[,] pokemons = new string[1, 1];
+        //int nOfPokemon = 0;
+
         this.BrowsingBar();
         this.PokemonFoundTextblock(nOfPokemon);
         this.PokemonList(nOfPokemon, pokemons);
-
-        //string[,] b = {{"1", "1", "1" },{ "1", "1", "1" }, {"1", "1", "1" },{ "1",
-        //"1","1" },{"1","1","1" },{"1","1","1" },{"1","1","1"} };
-        //this.PokemonList(21, b);
     }
 
     //method to create BrowsingBar
     void BrowsingBar()
     {
-        StackPanel browsingBar = new StackPanel();
+        browsingBar = new StackPanel();
         //set the browsingBar as the children of the BrowsingView
         GridView.Children.Add(browsingBar);
         //set the browsingBar as the 1st row of the BrowsingView
@@ -48,8 +79,9 @@ public partial class BrowsingView : Panel
         browsingBar.Height = 80;
         browsingBar.HorizontalAlignment = HorizontalAlignment.Stretch;
         browsingBar.Background = Brushes.Gray;
+        browsingBar.Orientation = Orientation.Horizontal;
 
-        TextBox searchBar = new TextBox();
+        searchBar = new TextBox();
         //set the searchBar as the children of the browsingBar
         browsingBar.Children.Add(searchBar);
 
@@ -62,8 +94,29 @@ public partial class BrowsingView : Panel
         searchBar.HorizontalAlignment = HorizontalAlignment.Left;
         searchBar.VerticalContentAlignment = VerticalAlignment.Center;
 
+        searchButton = new Button();
+        browsingBar.Children.Add(searchButton);
+        searchButton.Width = searchButton.Height = 40;
+
         //create an event when the user input key word
-        //searchBar.KeyUp += userInbutKeyWord;
+        //searchBar.TextInput += (sender, e) =>
+        //{
+        //    //if (e.Key == Key.Enter)
+        //    //{
+
+        //    //}
+        //    GridView.Children.RemoveAt(1);
+        //    GridView.Children.RemoveAt(1);
+
+        //    string userInput = searchBar.Text;
+
+        //    BrowsingQuery a = new BrowsingQuery();
+        //    int nOfPokemon = a.NOfPokemonFound;
+        //    string[,] pokemons = a.PokemonQuery_byName(userInput);
+
+        //    this.PokemonFoundTextblock(nOfPokemon);
+        //    this.PokemonList(nOfPokemon, pokemons);
+        //};
     }
 
     //the event when the user input key word
@@ -88,7 +141,7 @@ public partial class BrowsingView : Panel
 
     void PokemonFoundTextblock(int nOfPokemonFound)
     {
-        TextBlock pokemonFound_Textblock = new TextBlock();
+        pokemonFound_Textblock = new TextBlock();
         //set the pokemonList_ScrollViewer as the children of the BrowsingView
         GridView.Children.Add(pokemonFound_Textblock);
         //set the pokemonList_ScrollViewer as the 3rd row of the BrowsingView
@@ -104,7 +157,7 @@ public partial class BrowsingView : Panel
     //method to create the PokemonList
     void PokemonList(int nOfPokemonFound, string[,] pokemonFound)
     {
-        ScrollViewer pokemonList_ScrollViewer = new ScrollViewer();
+        pokemonList_ScrollViewer = new ScrollViewer();
         //set the pokemonList_ScrollViewer as the children of the BrowsingView
         GridView.Children.Add(pokemonList_ScrollViewer);
         //set the pokemonList_ScrollViewer as the 3rd row of the BrowsingView
@@ -115,13 +168,13 @@ public partial class BrowsingView : Panel
         pokemonList_ScrollViewer.VerticalAlignment = VerticalAlignment.Stretch;
         pokemonList_ScrollViewer.HorizontalAlignment = HorizontalAlignment.Stretch;
         
-        StackPanel pokemonList = new StackPanel();
+        pokemonList = new StackPanel();
         //show the dataCards on the pokemonList
         int nOfDataCardRow = nOfPokemonFound % 4 == 0 ? (nOfPokemonFound / 4) : (nOfPokemonFound / 4 + 1);
         int index = 0;
         for (int i = 0; i < nOfDataCardRow; i++)
         {
-            StackPanel pokemonRow = new StackPanel();
+            pokemonRow = new StackPanel();
 
             //change the pokemonRow properties
             pokemonRow.HorizontalAlignment = HorizontalAlignment.Center;
@@ -134,8 +187,7 @@ public partial class BrowsingView : Panel
                 {
                     break;
                 }
-                DataCard dataCard = new DataCard();
-                Border dataCard_Border = dataCard.SetDataCard(pokemonFound[i,2], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
+                Border dataCard_Border = new DataCard(pokemonFound[i,2], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
                 pokemonRow.Children.Add(dataCard_Border);
 
                 //update index
