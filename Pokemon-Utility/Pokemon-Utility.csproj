@@ -32,9 +32,23 @@
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Controls\" />
-      <Folder Include="Views\TeamBuilder\" />
     </ItemGroup>
     <ItemGroup>
         <AvaloniaResource Include="Assets\**"/>
     </ItemGroup>
+    <ItemGroup>
+      <Compile Update="Views\TeamBuilder\TeamTopBar.axaml.cs">
+        <DependentUpon>TeamTopBar.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\TeamBuilder\TeamPanel.axaml.cs">
+        <DependentUpon>TeamPanel.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\TeamBuilder\AnalysisPanel.axaml.cs">
+        <DependentUpon>AnalysisPanel.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

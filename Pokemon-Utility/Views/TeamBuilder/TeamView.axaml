@@ -1,6 +1,12 @@
 <Panel xmlns="https://github.com/avaloniaui"
        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
        x:Class="Pokemon_Utility.Views.TeamBuilder.TeamView"
-       Margin="100,0,0,0">
-    <TextBlock>Team View</TextBlock>
+       Margin="80,0,0,0">
+    <Grid
+        Name="grid"
+        RowDefinitions="80,1*"
+        ColumnDefinitions="3*,2*"
+        >
+    </Grid>
+    
 </Panel>

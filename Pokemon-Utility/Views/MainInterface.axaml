@@ -71,6 +71,7 @@
                 <Image 
                     Height="60"
                     Width="60"
+                    Name="LogoImage"
                     Source="../Assets/pokeball.png"/>
             </Panel>
             <ListBox

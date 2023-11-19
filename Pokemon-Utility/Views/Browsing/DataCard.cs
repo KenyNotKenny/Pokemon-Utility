@@ -39,7 +39,7 @@ namespace PokemonUtility.Views.Browsing
                 case "fire":
                     this.Background = Brushes.Red;
                     break;
-                case "ater":
+                case "water":
                     this.Background = Brushes.Blue;
                     break;
                 case "electric":
@@ -51,7 +51,7 @@ namespace PokemonUtility.Views.Browsing
                 case "ice":
                     this.Background = Brushes.PowderBlue;
                     break;
-                case "lighting":
+                case "fighting":
                     this.Background = Brushes.Brown;
                     break;
                 case "poison":
@@ -75,7 +75,7 @@ namespace PokemonUtility.Views.Browsing
                 case "ghost":
                     this.Background = Brushes.DarkMagenta;
                     break;
-                case "fragon":
+                case "dragon":
                     this.Background = Brushes.MediumPurple;
                     break;
                 case "dark":

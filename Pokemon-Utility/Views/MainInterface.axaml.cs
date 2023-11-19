@@ -1,8 +1,11 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
 using Avalonia.Media;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 using Avalonia.Styling;
 using Pokemon;
 using Pokemon_Utility.Views.Browsing;
@@ -25,6 +28,7 @@ public partial class MainInterface : Panel
         TabBar.SelectedIndex = 0;
         LogoBox.Background = Design.Color.FgBlue;
         SideBar.Background = Design.Color.FgLightBlue;
+        // LogoImage.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/pokemon/1.png")));
         
 
         if (MainContext.Connected)
