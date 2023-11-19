@@ -8,7 +8,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace PokemonUtility.Views.Browsing
 {
-	public class BrowsingQuery
+    public class BrowsingQuery
 	{
         int nOfPokemonFound;
 
@@ -23,13 +23,23 @@ namespace PokemonUtility.Views.Browsing
             set { nOfPokemonFound = value; }
         }
 
+        //this is the query when the user input the keyword(name) in the search bar
         public string[,] PokemonQuery_byName(string name)
         {
             nOfPokemonFound = 0;
+            //get the number of pokemons found
             MainContext.Query(
                 onReceive: context =>
                 {
-                    var pokemon= context.Pokemons.Where(s => s.Name.Contains(name));
+                    var pokemon = from t1 in context.PokemonTypes
+                                  join t2 in context.Pokemons on t1.PokemonId equals t2.Id
+                                  where t2.Name.Contains(name) && t1.Slot==1
+                                  select new
+                                  {
+                                      Id = t2.Id,
+                                      Name = t2.Name,
+                                      Type = t1.Name
+                                  };
                     foreach (var entity in pokemon)
                     {
                         nOfPokemonFound++;
@@ -41,19 +51,19 @@ namespace PokemonUtility.Views.Browsing
             string[] pokemonName = new string[nOfPokemonFound];
             string[] pokemonType = new string[nOfPokemonFound];
             int[] pokemonId = new int[nOfPokemonFound];
+            //get the name, id, type of the pokemons found
             MainContext.Query(
                 onReceive: context =>
                 {
                     var pokemon = from t1 in context.PokemonTypes
                                 join t2 in context.Pokemons on t1.PokemonId equals t2.Id
-                                where t2.Name.Contains(name) && t1.Slot==1
-                                select new
+                                where t2.Name.Contains(name) && t1.Slot == 1
+                                  select new
                                 {
                                     Id=t2.Id,
                                     Name=t2.Name,
                                     Type=t1.Name
                                 };
-                    //var pokemon = query.ToList();
                     int index = 0;
                     foreach (var entity in pokemon)
                     {
@@ -66,6 +76,7 @@ namespace PokemonUtility.Views.Browsing
                 onFailure: () => nOfPokemonFound = 0
             );
 
+            //save the query infomation
             string[,] pokemonList = new string[nOfPokemonFound, 3];
             for(int i = 0; i < nOfPokemonFound; i++)
             {

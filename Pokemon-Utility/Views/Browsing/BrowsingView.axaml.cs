@@ -6,6 +6,9 @@ using PokemonUtility;
 using PokemonUtility.Views.Browsing;
 using System;
 using Avalonia.Input;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
+using System.Net.NetworkInformation;
 
 namespace Pokemon_Utility.Views.Browsing;
 /// <summary>
@@ -38,6 +41,7 @@ public partial class BrowsingView : Panel
     StackPanel browsingBar;
     TextBox searchBar;
     Button searchButton;
+    Image searchIcon;
     TextBlock pokemonFound_Textblock;
     ScrollViewer pokemonList_ScrollViewer;
     StackPanel pokemonList;
@@ -54,10 +58,6 @@ public partial class BrowsingView : Panel
         GridView.RowDefinitions.Add(new RowDefinition(3, GridUnitType.Star));
 
         //set up the UI
-        //BrowsingQuery a = new BrowsingQuery();
-        //string[,] pokemons = a.PokemonQuery_byName("P");
-        //int nOfPokemon = a.NOfPokemonFound;
-
         string[,] pokemons = new string[1, 1];
         int nOfPokemon = 0;
 
@@ -97,10 +97,11 @@ public partial class BrowsingView : Panel
         searchBar.VerticalContentAlignment = VerticalAlignment.Center;
 
         searchButton = new Button();
+        //set the searchButton as the children of the browsingBar
         browsingBar.Children.Add(searchButton);
         searchButton.Width = searchButton.Height = 40;
 
-        //create an event when the user input key word
+        //create an event when the user input key word and click the searchButton
         searchButton.Click += (sender, e) =>
         {
             GridView.Children.RemoveAt(1);
@@ -115,6 +116,10 @@ public partial class BrowsingView : Panel
             this.PokemonFoundTextblock(nOfPokemon);
             this.PokemonList(nOfPokemon, pokemons);
         };
+
+        searchIcon = new Image();
+        searchIcon.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/search_icon.png")));
+        //searchButton.Content = searchButton;
     }
 
     void PokemonFoundTextblock(int nOfPokemonFound)
@@ -165,7 +170,7 @@ public partial class BrowsingView : Panel
                 {
                     break;
                 }
-                Border dataCard_Border = new DataCard(pokemonFound[i,2], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
+                Border dataCard_Border = new DataCard(pokemonFound[index, 2], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
                 pokemonRow.Children.Add(dataCard_Border);
 
                 //update index
