@@ -1,4 +1,5 @@
 # Pokemon-Utility
+
 This is dev branch
 
 Hướng dẫn query database:
@@ -53,3 +54,4 @@ Lưu ý : khi không có kết nối, giao điện sẽ freeze cho đến khi c�
 
 *Gợi ý: nếu để lấy hàng theo primary key của table theo Primary Key thì dùng hàm Find() sẽ tốt hơn
 Hiện chỉ có table Pokemon và Move có Primery Key đơn là id
+
