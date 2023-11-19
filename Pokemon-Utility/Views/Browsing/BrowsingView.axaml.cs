@@ -54,17 +54,19 @@ public partial class BrowsingView : Panel
         GridView.RowDefinitions.Add(new RowDefinition(3, GridUnitType.Star));
 
         //set up the UI
-        BrowsingQuery a = new BrowsingQuery();
-        string[,] pokemons = a.PokemonQuery_byName("P");
-        int nOfPokemon = a.NOfPokemonFound;
+        //BrowsingQuery a = new BrowsingQuery();
+        //string[,] pokemons = a.PokemonQuery_byName("P");
+        //int nOfPokemon = a.NOfPokemonFound;
 
-        //string[,] pokemons = new string[1, 1];
-        //int nOfPokemon = 0;
+        string[,] pokemons = new string[1, 1];
+        int nOfPokemon = 0;
 
         this.BrowsingBar();
         this.PokemonFoundTextblock(nOfPokemon);
         this.PokemonList(nOfPokemon, pokemons);
     }
+
+
 
     //method to create BrowsingBar
     void BrowsingBar()
@@ -99,45 +101,21 @@ public partial class BrowsingView : Panel
         searchButton.Width = searchButton.Height = 40;
 
         //create an event when the user input key word
-        //searchBar.TextInput += (sender, e) =>
-        //{
-        //    //if (e.Key == Key.Enter)
-        //    //{
+        searchButton.Click += (sender, e) =>
+        {
+            GridView.Children.RemoveAt(1);
+            GridView.Children.RemoveAt(1);
 
-        //    //}
-        //    GridView.Children.RemoveAt(1);
-        //    GridView.Children.RemoveAt(1);
+            string userInput = searchBar.Text;
 
-        //    string userInput = searchBar.Text;
+            BrowsingQuery a = new BrowsingQuery();
+            string[,] pokemons = a.PokemonQuery_byName(userInput);
+            int nOfPokemon = a.NOfPokemonFound;
 
-        //    BrowsingQuery a = new BrowsingQuery();
-        //    int nOfPokemon = a.NOfPokemonFound;
-        //    string[,] pokemons = a.PokemonQuery_byName(userInput);
-
-        //    this.PokemonFoundTextblock(nOfPokemon);
-        //    this.PokemonList(nOfPokemon, pokemons);
-        //};
+            this.PokemonFoundTextblock(nOfPokemon);
+            this.PokemonList(nOfPokemon, pokemons);
+        };
     }
-
-    //the event when the user input key word
-    //public void userInbutKeyWord(object? sender, Avalonia.Input.KeyEventArgs e)
-    //{
-    //    if (e.Key == Key.Enter)
-    //    {
-    //        GridView.Children.RemoveAt(1);
-    //        GridView.Children.RemoveAt(1);
-            
-    //        TextBox textBox = (TextBox)sender;
-    //        string userInput = textBox.Text;
-
-    //        BrowsingQuery a = new BrowsingQuery();
-    //        int nOfPokemon = a.NOfPokemonFound;
-    //        string[,] pokemons = a.PokemonQuery_byName(userInput);
-
-    //        this.PokemonFoundTextblock(nOfPokemon);
-    //        this.PokemonList(nOfPokemon, pokemons);
-    //    }
-    //}
 
     void PokemonFoundTextblock(int nOfPokemonFound)
     {
