@@ -54,10 +54,6 @@ public partial class BrowsingView : Panel
         GridView.RowDefinitions.Add(new RowDefinition(3, GridUnitType.Star));
 
         //set up the UI
-        //BrowsingQuery a = new BrowsingQuery();
-        //string[,] pokemons = a.PokemonQuery_byName("P");
-        //int nOfPokemon = a.NOfPokemonFound;
-
         string[,] pokemons = new string[1, 1];
         int nOfPokemon = 0;
 
@@ -97,10 +93,11 @@ public partial class BrowsingView : Panel
         searchBar.VerticalContentAlignment = VerticalAlignment.Center;
 
         searchButton = new Button();
+        //set the searchButton as the children of the browsingBar
         browsingBar.Children.Add(searchButton);
         searchButton.Width = searchButton.Height = 40;
 
-        //create an event when the user input key word
+        //create an event when the user input key word and click the searchButton
         searchButton.Click += (sender, e) =>
         {
             GridView.Children.RemoveAt(1);

@@ -3,6 +3,9 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Layout;
 using Avalonia.Media;
+using Avalonia.Platform;
+using Brushes = Avalonia.Media.Brushes;
+using Avalonia.Media.Imaging;
 
 namespace PokemonUtility.Views.Browsing
 {
@@ -10,6 +13,7 @@ namespace PokemonUtility.Views.Browsing
     /// DataCard
     ///     dataCard
     ///         pic
+    ///             pnj
     ///         id_name_icon_Border
     ///             id_name_icon
     /// </summary>
@@ -17,6 +21,7 @@ namespace PokemonUtility.Views.Browsing
     {
         StackPanel dataCard;
         StackPanel pic;
+        Image png;
         TextBlock id_name;
         Border id_name_icon_Border;
         StackPanel id_name_icon;
@@ -100,7 +105,20 @@ namespace PokemonUtility.Views.Browsing
 
             //change the pic properties
             pic.Width = this.Width / 2;
-            pic.VerticalAlignment = VerticalAlignment.Stretch;
+            pic.VerticalAlignment = VerticalAlignment.Center;
+
+            png = new Image();
+            if(id<=1010)
+            {
+                png.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Pokemon-Utility/Assets/pokemon/{id}.png")));
+
+            }
+            else
+            {
+                png.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Pokemon-Utility/Assets/pokemon/1.png")));
+
+            }
+            pic.Children.Add(png);
 
             id_name_icon_Border = new Border();
             //set the id_name_icon_Border as the children of the dataCard

@@ -23,9 +23,11 @@ namespace PokemonUtility.Views.Browsing
             set { nOfPokemonFound = value; }
         }
 
+        //this is the query when the user input the keyword(name) in the search bar
         public string[,] PokemonQuery_byName(string name)
         {
             nOfPokemonFound = 0;
+            //get the number of pokemons found
             MainContext.Query(
                 onReceive: context =>
                 {
@@ -41,6 +43,7 @@ namespace PokemonUtility.Views.Browsing
             string[] pokemonName = new string[nOfPokemonFound];
             string[] pokemonType = new string[nOfPokemonFound];
             int[] pokemonId = new int[nOfPokemonFound];
+            //get the name, id, type of the pokemons found
             MainContext.Query(
                 onReceive: context =>
                 {
@@ -66,6 +69,7 @@ namespace PokemonUtility.Views.Browsing
                 onFailure: () => nOfPokemonFound = 0
             );
 
+            //save the query infomation
             string[,] pokemonList = new string[nOfPokemonFound, 3];
             for(int i = 0; i < nOfPokemonFound; i++)
             {
