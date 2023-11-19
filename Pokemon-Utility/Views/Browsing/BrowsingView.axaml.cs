@@ -6,6 +6,9 @@ using PokemonUtility;
 using PokemonUtility.Views.Browsing;
 using System;
 using Avalonia.Input;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
+using System.Net.NetworkInformation;
 
 namespace Pokemon_Utility.Views.Browsing;
 /// <summary>
@@ -38,6 +41,7 @@ public partial class BrowsingView : Panel
     StackPanel browsingBar;
     TextBox searchBar;
     Button searchButton;
+    Image searchIcon;
     TextBlock pokemonFound_Textblock;
     ScrollViewer pokemonList_ScrollViewer;
     StackPanel pokemonList;
@@ -112,6 +116,10 @@ public partial class BrowsingView : Panel
             this.PokemonFoundTextblock(nOfPokemon);
             this.PokemonList(nOfPokemon, pokemons);
         };
+
+        searchIcon = new Image();
+        searchIcon.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/search_icon.png")));
+        //searchButton.Content = searchButton;
     }
 
     void PokemonFoundTextblock(int nOfPokemonFound)
@@ -162,7 +170,7 @@ public partial class BrowsingView : Panel
                 {
                     break;
                 }
-                Border dataCard_Border = new DataCard(pokemonFound[i,2], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
+                Border dataCard_Border = new DataCard(pokemonFound[index, 2], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
                 pokemonRow.Children.Add(dataCard_Border);
 
                 //update index

@@ -8,7 +8,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace PokemonUtility.Views.Browsing
 {
-	public class BrowsingQuery
+    public class BrowsingQuery
 	{
         int nOfPokemonFound;
 
@@ -31,7 +31,15 @@ namespace PokemonUtility.Views.Browsing
             MainContext.Query(
                 onReceive: context =>
                 {
-                    var pokemon= context.Pokemons.Where(s => s.Name.Contains(name));
+                    var pokemon = from t1 in context.PokemonTypes
+                                  join t2 in context.Pokemons on t1.PokemonId equals t2.Id
+                                  where t2.Name.Contains(name) && t1.Slot==1
+                                  select new
+                                  {
+                                      Id = t2.Id,
+                                      Name = t2.Name,
+                                      Type = t1.Name
+                                  };
                     foreach (var entity in pokemon)
                     {
                         nOfPokemonFound++;
@@ -49,14 +57,13 @@ namespace PokemonUtility.Views.Browsing
                 {
                     var pokemon = from t1 in context.PokemonTypes
                                 join t2 in context.Pokemons on t1.PokemonId equals t2.Id
-                                where t2.Name.Contains(name) && t1.Slot==1
-                                select new
+                                where t2.Name.Contains(name) && t1.Slot == 1
+                                  select new
                                 {
                                     Id=t2.Id,
                                     Name=t2.Name,
                                     Type=t1.Name
                                 };
-                    //var pokemon = query.ToList();
                     int index = 0;
                     foreach (var entity in pokemon)
                     {

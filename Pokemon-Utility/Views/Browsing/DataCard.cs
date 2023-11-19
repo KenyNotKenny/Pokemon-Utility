@@ -148,7 +148,7 @@ namespace PokemonUtility.Views.Browsing
 
             this.PointerPressed += (sender, e) =>
             {
-                id_name.Text = id_name.Text + "\ncliked";
+                id_name.Text = id_name.Text + $"\n{Type}";
             };
         }
     }

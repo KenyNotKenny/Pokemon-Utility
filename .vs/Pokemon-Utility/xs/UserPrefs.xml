@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{A102F7D7-03D3-4A7E-83A0-F35CA50F9CFD}|Default">
   <MonoDevelop.Ide.ItemProperties.Pokemon-Utility PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Pokemon-Utility/Views/Browsing/DataCard.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pokemon-Utility/Views/Browsing/BrowsingQuery.cs">
     <Files>
       <File FileName="Pokemon-Utility/Views/Browsing/BrowsingView.axaml.cs" />
-      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingQuery.cs" Line="34" Column="83" />
-      <File FileName="Pokemon-Utility/Views/Browsing/DataCard.cs" Line="99" Column="45" />
+      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingQuery.cs" Line="18" Column="10" />
+      <File FileName="Pokemon-Utility/Views/Browsing/DataCard.cs" />
       <File FileName="Pokemon-Utility/Models/Entities/PokemonType.cs" />
       <File FileName="Pokemon-Utility/Views/MainInterface.axaml.cs" />
       <File FileName="Pokemon-Utility/Views/MainInterface.axaml" />
+      <File FileName="Pokemon-Utility/Program.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,8 +18,8 @@
             <Node name="Pokemon-Utility">
               <Node name="Views" expanded="True">
                 <Node name="Browsing" expanded="True">
+                  <Node name="BrowsingQuery.cs" selected="True" />
                   <Node name="BrowsingView.axaml" expanded="True" />
-                  <Node name="DataCard.cs" selected="True" />
                 </Node>
                 <Node name="MainInterface.axaml" expanded="True" />
               </Node>
