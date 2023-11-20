@@ -17,6 +17,7 @@ namespace Pokemon_Utility.Views.Browsing;
 ///     browsingBar
 ///         searchBar
 ///         searchButton
+///         filter
 ///     pokemonFound_Textblock
 ///     pokemonList_ScrollViewer
 ///         pokemonList
@@ -43,6 +44,7 @@ public partial class BrowsingView : Panel
     TextBox searchBar;
     Button searchButton;
     Image searchIcon;
+    Filter filter;
     TextBlock pokemonFound_Textblock;
     ScrollViewer pokemonList_ScrollViewer;
     StackPanel pokemonList;
@@ -102,6 +104,7 @@ public partial class BrowsingView : Panel
         browsingBar.Children.Add(searchButton);
         searchButton.Width = searchButton.Height = 40;
 
+
         //create an event when the user input key word and click the searchButton
         searchButton.Click += (sender, e) =>
         {
@@ -111,18 +114,20 @@ public partial class BrowsingView : Panel
             string userInput = searchBar.Text;
 
             BrowsingQuery a = new BrowsingQuery();
-            string[,] pokemons = a.PokemonQuery_byName(userInput);
+            string[,] pokemons = a.PokemonQuery_byName(userInput,filter.SelectedItem);
             int nOfPokemon = a.NOfPokemonFound;
 
             this.PokemonFoundTextblock(nOfPokemon);
             this.PokemonList(nOfPokemon, pokemons);
+            //filter.SelectedItem = "null";
         };
-        
+
         //searchIcon = new Image();
         //searchIcon.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/search_icon.png")));
         //searchButton.Content = searchButton;
-        Filter filter_combobox = new Filter();
-        browsingBar.Children.Add(filter_combobox);
+
+        filter = new Filter();
+        browsingBar.Children.Add(filter);
     }
 
     void PokemonFoundTextblock(int nOfPokemonFound)

@@ -1,50 +1,63 @@
-﻿using Avalonia.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Media;
+using Avalonia.Layout;
 
-namespace Pokemon
+namespace PokemonUtility.Views.Browsing
 {
-    public class Filter: ComboBox
+    public class Filter: Panel
     {
-        string selectedItem = string.Empty;
+        string selectedItem;
+
+        public string SelectedItem
+        {
+            get { return selectedItem; }
+            set { selectedItem = value; }
+        }
+
         public Filter()
         {
-            this.Width = this.Height = 40;
-            
-            this.Items.Add("water");
-            this.Items.Add("electric");
-            this.Items.Add("grass");
-            this.Items.Add("ice");
-            this.Items.Add("fighting");
-            this.Items.Add("poison");
-            this.Items.Add("ground");
-            this.Items.Add("flying");
-            this.Items.Add("psychic");
-            this.Items.Add("bug");
-            this.Items.Add("rock");
-            this.Items.Add("ghost");
-            this.Items.Add("dragon");
-            this.Items.Add("dark");
-            this.Items.Add("steel");
-            this.Items.Add("fairy");
+            this.Margin = new Thickness(30, 15);
+            this.Height = 40;
+            this.Width = 100;
 
-                // Handle the SelectionChanged event of the ComboBox
-                this.SelectionChanged += (sender, args) =>
+            ComboBox filter = new ComboBox();
+            this.Children.Add(filter);
+
+            filter.Items.Add("all");
+            filter.Items.Add("water");
+            filter.Items.Add("electric");
+            filter.Items.Add("grass");
+            filter.Items.Add("ice");
+            filter.Items.Add("fighting");
+            filter.Items.Add("poison");
+            filter.Items.Add("ground");
+            filter.Items.Add("flying");
+            filter.Items.Add("psychic");
+            filter.Items.Add("bug");
+            filter.Items.Add("rock");
+            filter.Items.Add("ghost");
+            filter.Items.Add("dragon");
+            filter.Items.Add("dark");
+            filter.Items.Add("steel");
+            filter.Items.Add("fairy");
+
+            filter.VerticalAlignment = VerticalAlignment.Center;
+            filter.Height = this.Height;
+            filter.Width = this.Width;
+
+            selectedItem = "all";
+            // Handle the SelectionChanged event of the ComboBox
+            filter.SelectionChanged += (sender, args) =>
+            {
+                if (args.Source is ComboBox cb)
                 {
-                    if (args.Source is ComboBox cb)
+                    if (cb.SelectedItem != null)
                     {
-                        if (cb.SelectedItem != null)
-                        {
-                            selectedItem = cb.SelectedItem.ToString();
-
-                        }
+                        selectedItem = cb.SelectedItem.ToString();
                     }
-                };
-        
-      
+                }
+            };
         }
 
     }

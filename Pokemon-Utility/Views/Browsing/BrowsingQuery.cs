@@ -24,7 +24,7 @@ namespace PokemonUtility.Views.Browsing
         }
 
         //this is the query when the user input the keyword(name) in the search bar
-        public string[,] PokemonQuery_byName(string name)
+        public string[,] PokemonQuery_byName(string name, string filter = "all")
         {
             nOfPokemonFound = 0;
             //get the number of pokemons found
@@ -33,7 +33,7 @@ namespace PokemonUtility.Views.Browsing
                 {
                     var pokemon = from t1 in context.PokemonTypes
                                   join t2 in context.Pokemons on t1.PokemonId equals t2.Id
-                                  where t2.Name.Contains(name) && t1.Slot==1
+                                  where t2.Name.Contains(name) && t1.Slot == 1 && t1.Name == (filter == "all" ? t1.Name : filter)
                                   select new
                                   {
                                       Id = t2.Id,
@@ -56,8 +56,8 @@ namespace PokemonUtility.Views.Browsing
                 onReceive: context =>
                 {
                     var pokemon = from t1 in context.PokemonTypes
-                                join t2 in context.Pokemons on t1.PokemonId equals t2.Id
-                                where t2.Name.Contains(name) && t1.Slot == 1
+                                  join t2 in context.Pokemons on t1.PokemonId equals t2.Id
+                                  where t2.Name.Contains(name) && t1.Slot == 1 && t1.Name == (filter == "all" ? t1.Name : filter)
                                   select new
                                 {
                                     Id=t2.Id,
