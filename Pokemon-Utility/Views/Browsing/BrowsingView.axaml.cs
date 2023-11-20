@@ -121,7 +121,6 @@ public partial class BrowsingView : Panel
         //searchIcon = new Image();
         //searchIcon.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/search_icon.png")));
         //searchButton.Content = searchButton;
-
         Filter filter_combobox = new Filter();
         browsingBar.Children.Add(filter_combobox);
     }
