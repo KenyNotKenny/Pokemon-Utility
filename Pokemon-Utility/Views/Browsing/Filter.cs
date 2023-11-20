@@ -10,9 +10,9 @@ namespace Pokemon
     public class Filter : ComboBox
     {
        public Filter()
-        {
+       {
 
-        }
+       }
        public Filter(ComboBox filter)
        {
 

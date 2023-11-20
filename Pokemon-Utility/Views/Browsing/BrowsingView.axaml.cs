@@ -9,6 +9,7 @@ using Avalonia.Input;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using System.Net.NetworkInformation;
+using Pokemon;
 
 namespace Pokemon_Utility.Views.Browsing;
 /// <summary>
@@ -117,9 +118,12 @@ public partial class BrowsingView : Panel
             this.PokemonList(nOfPokemon, pokemons);
         };
         
-        searchIcon = new Image();
-        searchIcon.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/search_icon.png")));
+        //searchIcon = new Image();
+        //searchIcon.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/search_icon.png")));
         //searchButton.Content = searchButton;
+
+        Filter filter_combobox = new Filter();
+        browsingBar.Children.Add(filter_combobox);
     }
 
     void PokemonFoundTextblock(int nOfPokemonFound)
