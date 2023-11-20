@@ -34,7 +34,7 @@
       <Folder Include="Controls\" />
     </ItemGroup>
     <ItemGroup>
-        <AvaloniaResource Include="Assets\**"/>
+        <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
     <ItemGroup>
       <Compile Update="Views\TeamBuilder\TeamTopBar.axaml.cs">
