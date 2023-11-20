@@ -5,8 +5,8 @@
     <Grid
         Name="grid"
         RowDefinitions="80,1*"
-        ColumnDefinitions="3*,2*"
         >
+ 
     </Grid>
     
 </Panel>

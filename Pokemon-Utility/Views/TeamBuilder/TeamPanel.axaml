@@ -5,4 +5,8 @@
        Background = "LightBlue"
        >
     <TextBlock>Team Panel</TextBlock>
+    <Panel Background="Bisque"
+           VerticalAlignment="Bottom"
+           Height="80"
+           />
 </Panel>
