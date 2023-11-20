@@ -49,6 +49,10 @@
         <DependentUpon>AnalysisPanel.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+      <Compile Update="Views\TeamBuilder\CRUDButton.axaml.cs">
+        <DependentUpon>CRUDButton.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

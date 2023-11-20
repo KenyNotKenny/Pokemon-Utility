@@ -11,9 +11,11 @@ public partial class TeamPanel : Panel
     // Ông phải có hiện hình của pokemon, tất cả file hình có trong Assests/pokemon
     // tên hình là id của con poekmon đó + ".png"
     // Trang trí sao cho đẹp là đc, nhớ chừa 80 pixel ở bên dưới để người khác thêm các nút chức năng khác
+    private CRUDButton _crudButton = new CRUDButton{ };
     public TeamPanel()
     {
         InitializeComponent();
+        this.Children.Add(_crudButton);
     }
     public TeamPanel( List<PokemonInfoTeam> pokemonList ) : this()
     {
