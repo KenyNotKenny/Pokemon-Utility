@@ -22,6 +22,7 @@ namespace PokemonUtility.Views.Browsing
         StackPanel dataCard;
         StackPanel pic;
         Image png;
+        public int ID;
         TextBlock id_name;
         Border id_name_icon_Border;
         StackPanel id_name_icon;
@@ -33,6 +34,7 @@ namespace PokemonUtility.Views.Browsing
             this.CornerRadius = CornerRadius.Parse("5");
             this.Width = 700 / 3;
             this.Height = 150;
+            this.ID = id;
             switch (Type)
             {
                 //the color according to the type of pokemon

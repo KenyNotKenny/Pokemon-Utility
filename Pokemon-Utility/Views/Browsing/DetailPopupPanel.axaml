@@ -1,0 +1,11 @@
+<Panel xmlns="https://github.com/avaloniaui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       x:Class="Pokemon_Utility.Views.Browsing.DetailPopupPanel"
+       Margin="80,0,0,0"
+       Height="500"
+       Background="Bisque"
+       VerticalAlignment="Bottom"
+       >
+       <TextBlock Name="testText"></TextBlock>
+    
+</Panel>

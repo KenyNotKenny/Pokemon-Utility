@@ -178,7 +178,8 @@ public partial class BrowsingView : Panel
                 {
                     break;
                 }
-                Border dataCard_Border = new DataCard(pokemonFound[index, 2], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
+                DataCard dataCard_Border = new DataCard(pokemonFound[index, 2], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
+                dataCard_Border.PointerPressed += (sender, args) => { this.Children.Add( new  DetailPopupPanel(dataCard_Border.ID));};
                 pokemonRow.Children.Add(dataCard_Border);
 
                 //update index
@@ -191,4 +192,6 @@ public partial class BrowsingView : Panel
         //set the pokemonList as the children of the pokemonList_ScrollViewer
         pokemonList_ScrollViewer.Content = pokemonList;
     }
+    
+
 }
