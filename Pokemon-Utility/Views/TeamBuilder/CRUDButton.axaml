@@ -6,5 +6,5 @@
        Height="80"
        VerticalAlignment="Bottom"
        >
-    <TextBlock>Buttons</TextBlock>
+    <TextBlock>Chủ's Buttons</TextBlock>
 </Panel>
