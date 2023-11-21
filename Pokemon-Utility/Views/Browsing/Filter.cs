@@ -8,6 +8,7 @@ namespace PokemonUtility.Views.Browsing
     public class Filter: Panel
     {
         string selectedItem;
+        ComboBox filter;
 
         public string SelectedItem
         {
@@ -21,7 +22,7 @@ namespace PokemonUtility.Views.Browsing
             this.Height = 40;
             this.Width = 100;
 
-            ComboBox filter = new ComboBox();
+            filter = new ComboBox();
             this.Children.Add(filter);
 
             filter.Items.Add("all");

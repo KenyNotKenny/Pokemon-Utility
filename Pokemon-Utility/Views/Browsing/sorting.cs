@@ -1,13 +1,29 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Layout;
+using PokemonUtility.Views.Browsing;
 using System;
 using System.Linq;
 
-public class SortingButton : Button
+public class SortingButton : Panel
 {
+    Button sorter;
     // Constructor
     public SortingButton()
     {
-        this.Content = "Sort";
+        this.Margin = new Thickness(30, 15);
+        this.Height = 40;
+        this.Width = 100;
+
+        sorter = new Button();
+        this.Children.Add(sorter);
+
+        sorter.Content = "Sort";
+        sorter.VerticalContentAlignment = VerticalAlignment.Center;
+        sorter.HorizontalContentAlignment = HorizontalAlignment.Center;
+        sorter.VerticalAlignment = VerticalAlignment.Center;
+        sorter.Height = this.Height;
+        sorter.Width = this.Width;
     }
 
     // Method to sort the 2D array by name
