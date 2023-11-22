@@ -18,6 +18,7 @@ namespace Pokemon_Utility.Views.Browsing;
 ///         searchBar
 ///         searchButton
 ///         filter
+///         sorter
 ///     pokemonFound_Textblock
 ///     pokemonList_ScrollViewer
 ///         pokemonList
@@ -45,6 +46,7 @@ public partial class BrowsingView : Panel
     Button searchButton;
     Image searchIcon;
     Filter filter;
+    SortingButton sorter;
     TextBlock pokemonFound_Textblock;
     ScrollViewer pokemonList_ScrollViewer;
     StackPanel pokemonList;
@@ -128,6 +130,9 @@ public partial class BrowsingView : Panel
 
         filter = new Filter();
         browsingBar.Children.Add(filter);
+
+        sorter = new SortingButton();
+        browsingBar.Children.Add(sorter);
     }
 
     void PokemonFoundTextblock(int nOfPokemonFound)

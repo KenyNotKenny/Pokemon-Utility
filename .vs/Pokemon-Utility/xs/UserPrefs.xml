@@ -1,12 +1,11 @@
 ﻿<Properties StartupConfiguration="{A102F7D7-03D3-4A7E-83A0-F35CA50F9CFD}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Pokemon-Utility/Views/Browsing/Filter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pokemon-Utility/Views/Browsing/sorting.cs">
     <Files>
-      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingView.axaml.cs" Line="114" Column="47" />
-      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingQuery.cs" Line="60" Column="109" />
-      <File FileName="Pokemon-Utility/Views/Browsing/DataCard.cs" Line="41" Column="27" />
-      <File FileName="Pokemon-Utility/Views/Browsing/Filter.cs" Line="43" Column="39" />
+      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingView.axaml.cs" Line="126" Column="1" />
+      <File FileName="Pokemon-Utility/Views/Browsing/BrowsingQuery.cs" />
+      <File FileName="Pokemon-Utility/Views/Browsing/DataCard.cs" />
+      <File FileName="Pokemon-Utility/Views/Browsing/sorting.cs" Line="16" Column="26" />
+      <File FileName="Pokemon-Utility/Views/Browsing/Filter.cs" Line="46" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,10 +13,10 @@
           <Option id="ShowAllFiles" value="True" />
           <Node name="Pokemon-Utility">
             <Node name="Pokemon-Utility">
-              <Node name="Views" expanded="True">
-                <Node name="Browsing" expanded="True">
+              <Node name="Views">
+                <Node name="Browsing">
                   <Node name="BrowsingView.axaml" expanded="True" />
-                  <Node name="Filter.cs" selected="True" />
+                  <Node name="sorting.cs" selected="True" />
                 </Node>
                 <Node name="MainInterface.axaml" expanded="True" />
               </Node>
@@ -27,9 +26,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Pokemon-Utility PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
 </Properties>
