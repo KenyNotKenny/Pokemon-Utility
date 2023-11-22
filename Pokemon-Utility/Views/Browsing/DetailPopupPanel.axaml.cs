@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
@@ -29,6 +31,7 @@ public partial class DetailPopupPanel : Panel
         InitializeComponent();
         HeaderBar.Background = Design.Color.FgBlue;
         MoveListPanel.Background = Design.Color.BgLightGray;
+        typeText.Foreground = Design.Color.FgBlack;
         
         CloseButton.Click += (sender, args) => { (this.Parent as Panel).Children.Remove(this);};
     }
@@ -74,8 +77,7 @@ public partial class DetailPopupPanel : Panel
                 
                 // Set up
                 HeaderTextBox.Text = string.Format("#{0} {1}",id,name);
-                Type1TextBox.Text = type1;
-                Type2TextBox.Text = (type2.IsNullOrEmpty()) ? "" : type2;
+                typeText.Text = type1 +"/"+ ((type2.IsNullOrEmpty()) ? "" : type2);
                 bool bgFlip = true;
                 foreach (var move in moveList)
                 {
@@ -98,48 +100,88 @@ public partial class DetailPopupPanel : Panel
     {
         
         PokeApiNet.Pokemon pokemon = await MainContext.ApiClient.GetResourceAsync<PokeApiNet.Pokemon>(id);
-        name = pokemon.Name;
         
-        type1 = pokemon.Types[0].Type.Name;
-        if (pokemon.Types.Count >1)
-        {
-            type2 = pokemon.Types[1].Type.Name;
-
-        }
-        
-
         FetchMove(pokemon);
         
         // Set up
-        HeaderTextBox.Text = string.Format("#{0} {1}",id,name);
-        Type1TextBox.Text = type1;
-        Type2TextBox.Text = (type2.IsNullOrEmpty()) ? "" : type2;
+        HeaderTextBox.Text = string.Format("#{0} {1}",id,pokemon.Name);
+        foreach (var type in pokemon.Types)
+        {
+            typePanel.Children.Add( new Image
+            {
+                Margin = new Thickness(20,0,0,0),
+                Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Pokemon-Utility/Assets/Types/{type.Type.Name}.png"))),
+            });
+        }
+        string abiltities = "Ability:\t";
         foreach (var ability in pokemon.Abilities)
         {
-            infoStackPanel.Children.Add( new TextBlock
+            abiltities += ability.Ability.Name + "\t";
+        }
+        infoStackPanel.Children.Add( new TextBlock
+        {
+            Foreground = Design.Color.FgBlack,
+            FontWeight = FontWeight.Bold,
+            FontSize = 30,
+            Text = abiltities,
+        });
+        Grid statGrid = new Grid
+        {
+            ColumnDefinitions = new ColumnDefinitions("120,1*"),
+            RowDefinitions = new RowDefinitions("1*,1*,1*,1*,1*,1*"),
+            Height = 300,
+        };
+        infoStackPanel.Children.Add(statGrid);
+        for (int i = 0; i < 6; i++)
+        {
+            TextBlock statName = new TextBlock
             {
-                FontWeight = FontWeight.Bold,
+                Foreground = Design.Color.FgBlack,
                 FontSize = 30,
-                Text = ability.Ability.Name,
-            });
+            };
+            switch (i)
+            {
+                case 0 : statName.Text = "HP"; break;
+                case 1 : statName.Text = "ATK"; break;
+                case 2 : statName.Text = "DEF"; break;
+                case 3 : statName.Text = "S.ATK"; break;
+                case 4 : statName.Text = "S.DEF"; break;
+                case 5 : statName.Text = "SPD"; break;
+                default: break;
+            }
+            statGrid.Children.Add(statName);
+            Grid.SetColumn(statName,0);
+            Grid.SetRow(statName,i);
+            // Border statBar = new Border
+            // {
+            //     Background = Design.Color.FgBlue,
+            //     CornerRadius = new CornerRadius(10),
+            //     Width = pokemon.Stats[i].BaseStat*4,
+            //     HorizontalAlignment = HorizontalAlignment.Left,
+            //     Margin = new Thickness(0,0,0,10)
+            // };
+            StatBar statBar = new StatBar(pokemon.Stats[i].BaseStat);
+            statGrid.Children.Add( statBar);
+            Grid.SetColumn(statBar,1);
+            Grid.SetRow(statBar,i);
         }
 
-        foreach (var stat in pokemon.Stats)
-        {
-            infoStackPanel.Children.Add( new TextBlock
-            {
-                FontWeight = FontWeight.Bold,
-                FontSize = 30,
-                Text = stat.Stat.Name +": " +stat.BaseStat,
-            });
-            
-        }
+        // foreach (var stat in pokemon.Stats)
+        // {
+        //     infoStackPanel.Children.Add( new TextBlock
+        //     {
+        //         FontWeight = FontWeight.Bold,
+        //         FontSize = 30,
+        //         Text = stat.Stat.Name +": " +stat.BaseStat,
+        //     });
+        // }
         
         
         
 
         Debug.WriteLine("Fetch Done");
     }
+    
 
     private async Task FetchMove( PokeApiNet.Pokemon pokemon)
     {
@@ -151,7 +193,8 @@ public partial class DetailPopupPanel : Panel
             bgFlip = !bgFlip;
         }
 
-        moveTitle.Text = "Name \t Type \t Power \t Acc \t PP";
+        moveTitle.Children.Clear();
+        moveTitle.Children.Add( new  MoveCard("Name","Type","Power","Acc","PP",false));
 
     }
 
