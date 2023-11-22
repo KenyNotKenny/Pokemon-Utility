@@ -22,6 +22,13 @@
                             </Animation>
                      </Style.Animations>
               </Style>
+              <Style Selector="TextBlock.description">
+                     <Setter Property="FontSize"  Value="40"/>
+                     <Setter Property="FontWeight"  Value="Bold"/>
+                     <Setter Property="Foreground"  Value="#333333"/>
+
+                     
+              </Style>
        </Panel.Styles>
        <Border
               Classes="slide"
@@ -60,21 +67,60 @@
                      </Border>
                      <Grid
                             Margin="0,80,0,0"
-                            ColumnDefinitions="1*,1*"
+                            ColumnDefinitions="1*,2*"
                             RowDefinitions="1*,1*"
                             >
-                            <Image 
+                            <Image Name="PokemonImage"
                                    Grid.Column="0"
                                    Grid.Row="0"
-                                   Source="../../Assets/pokemon/6.png"
+                                   Source="../../Assets/pokemon/0.png"
                                    Stretch="Uniform"
                                    RenderOptions.BitmapInterpolationMode="LowQuality"></Image>
                             <StackPanel
+                                   Name="infoStackPanel"
+                                   Grid.Column="0"
+                                   Grid.Row="1">
+                                   <TextBlock
+                                          FontWeight="Bold"
+                                          FontSize="40">Type:</TextBlock>
+                                   <TextBlock Name="Type1TextBox"
+                                              Classes="description"></TextBlock>
+                                   <TextBlock Name="Type2TextBox"
+                                              Classes="description"></TextBlock>
+                            </StackPanel>
+                            <Grid
                                    Name="MoveListPanel"
+                                   RowDefinitions="80,1*"
                                    Grid.Column="1"
                                    Grid.Row="0"
                                    Grid.RowSpan="2"
-                                   ></StackPanel>
+                                   >
+                                   <TextBlock
+                                          Name="moveTitle"
+                                          Grid.Row="0"
+                                          Classes="description"
+                                          Text="Loading move...">
+                                   </TextBlock>
+                                   <ScrollViewer
+                                          
+                                          Grid.Row="1">
+                                          <StackPanel
+                                                 Name="scrollViewerContent"
+                                                 Orientation="Vertical"
+                                                 ></StackPanel>
+                                          
+                                   </ScrollViewer>
+                            </Grid>
+                            <!-- <StackPanel -->
+                            <!--         -->
+                            <!--        Grid.Column="1" -->
+                            <!--        Grid.Row="0" -->
+                            <!--        Grid.RowSpan="2" -->
+                            <!--        Orientation="Vertical" -->
+                            <!--        > -->
+                            <!--         -->
+                            <!--         -->
+                            <!-- </StackPanel> -->
                             
                      </Grid>
                      <TextBlock Name="testText"></TextBlock>                     

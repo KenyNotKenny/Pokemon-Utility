@@ -29,7 +29,7 @@ namespace PokemonUtility.Views.Browsing
             nOfPokemonFound = 0;
             //get the number of pokemons found
             MainContext.Query(
-                onReceive: context =>
+                onReceive: async context =>
                 {
                     var pokemon = from t1 in context.PokemonTypes
                                   join t2 in context.Pokemons on t1.PokemonId equals t2.Id
@@ -53,7 +53,7 @@ namespace PokemonUtility.Views.Browsing
             int[] pokemonId = new int[nOfPokemonFound];
             //get the name, id, type of the pokemons found
             MainContext.Query(
-                onReceive: context =>
+                onReceive: async context =>
                 {
                     var pokemon = from t1 in context.PokemonTypes
                                   join t2 in context.Pokemons on t1.PokemonId equals t2.Id
