@@ -104,8 +104,10 @@ public partial class BrowsingView : Panel
         searchButton = new Button();
         //set the searchButton as the children of the browsingBar
         browsingBar.Children.Add(searchButton);
-        searchButton.Width = searchButton.Height = 40;
 
+        //change the searchButton properties
+        searchButton.Width = searchButton.Height = 40;
+        searchButton.Background = Design.Color.FgBlue;
 
         //create an event when the user input key word and click the searchButton
         searchButton.Click += (sender, e) =>
@@ -124,14 +126,17 @@ public partial class BrowsingView : Panel
             //filter.SelectedItem = "null";
         };
 
-        //searchIcon = new Image();
-        //searchIcon.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/search_icon.png")));
-        //searchButton.Content = searchButton;
+        searchIcon = new Image();
+        searchIcon.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/search_icon.png")));
+        //set the searchIcon as the children of the searchButton
+        searchButton.Content = searchIcon;
 
         filter = new Filter();
+        //set the filter as the children of the browsingBar
         browsingBar.Children.Add(filter);
 
         sorter = new SortingButton();
+        //set the sorter as the children of the browsingBar
         browsingBar.Children.Add(sorter);
     }
 
@@ -183,7 +188,7 @@ public partial class BrowsingView : Panel
                 {
                     break;
                 }
-                DataCard dataCard_Border = new DataCard(pokemonFound[index, 2], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
+                DataCard dataCard_Border = new DataCard(pokemonFound[index, 2], pokemonFound[index, 3], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
                 dataCard_Border.PointerPressed += (sender, args) => { this.Children.Add( new  DetailPopupPanel(dataCard_Border.ID));};
                 pokemonRow.Children.Add(dataCard_Border);
 
