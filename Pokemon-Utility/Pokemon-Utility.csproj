@@ -54,6 +54,18 @@
         <DependentUpon>CRUDButton.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+      <Compile Update="Views\TeamBuilder\TypeChartBar.axaml.cs">
+        <DependentUpon>StatBar.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\TeamBuilder\RightChartBar.axaml.cs">
+        <DependentUpon>StatBar.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\TeamBuilder\LeftChartBar.axaml.cs">
+        <DependentUpon>LeftChartBar.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

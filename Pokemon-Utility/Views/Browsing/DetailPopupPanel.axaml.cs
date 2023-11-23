@@ -127,7 +127,7 @@ public partial class DetailPopupPanel : Panel
         });
         Grid statGrid = new Grid
         {
-            ColumnDefinitions = new ColumnDefinitions("170,1*"),
+            ColumnDefinitions = new ColumnDefinitions("140,1*"),
             RowDefinitions = new RowDefinitions("1*,1*,1*,1*,1*,1*"),
             Height = 300,
         };
@@ -150,15 +150,15 @@ public partial class DetailPopupPanel : Panel
                 default: break;
             }
             statGrid.Children.Add(statName);
-            var statValue = new TextBlock
-            {
-                Text = pokemon.Stats[i].BaseStat.ToString()+" ",
-                HorizontalAlignment = HorizontalAlignment.Right,
-                FontSize = 30,
-            };
-            statGrid.Children.Add(statValue);
-            Grid.SetColumn(statValue,0);
-            Grid.SetRow(statValue,i);
+            // var statValue = new TextBlock
+            // {
+            //     Text = pokemon.Stats[i].BaseStat.ToString()+" ",
+            //     HorizontalAlignment = HorizontalAlignment.Right,
+            //     FontSize = 30,
+            // };
+            // statGrid.Children.Add(statValue);
+            // Grid.SetColumn(statValue,0);
+            // Grid.SetRow(statValue,i);
             Grid.SetColumn(statName,0);
             Grid.SetRow(statName,i);
             // Border statBar = new Border
@@ -169,10 +169,35 @@ public partial class DetailPopupPanel : Panel
             //     HorizontalAlignment = HorizontalAlignment.Left,
             //     Margin = new Thickness(0,0,0,10)
             // };
-            StatBar statBar = new StatBar(pokemon.Stats[i].BaseStat);
-            statGrid.Children.Add( statBar);
-            Grid.SetColumn(statBar,1);
-            Grid.SetRow(statBar,i);
+            
+            
+            if (pokemon.Stats[i].BaseStat < 15)
+            {
+                var rL = new RelativePanel();
+                RightChartBar statBar = new RightChartBar(pokemon.Stats[i].BaseStat);
+                rL.Children.Add(statBar);
+                var statText = new TextBlock
+                {
+                    Text = pokemon.Stats[i].BaseStat.ToString(),
+                    FontSize = 18,
+                    Foreground = Design.Color.FgBlue,
+                    VerticalAlignment = VerticalAlignment.Center
+                };
+                rL.Children.Add(statText);
+                RelativePanel.SetRightOf(statText, statBar);
+                statGrid.Children.Add( rL);
+                Grid.SetColumn(rL,1);
+                Grid.SetRow(rL,i);
+            }
+            else
+            {
+                RightChartBar statBar = new RightChartBar(pokemon.Stats[i].BaseStat);
+                statGrid.Children.Add( statBar);
+                Grid.SetColumn(statBar,1);
+                Grid.SetRow(statBar,i);
+            }
+
+            
         }
 
         // foreach (var stat in pokemon.Stats)

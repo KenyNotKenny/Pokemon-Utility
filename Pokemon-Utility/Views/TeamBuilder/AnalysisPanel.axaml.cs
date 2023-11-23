@@ -20,6 +20,7 @@ public partial class AnalysisPanel : Panel
 public AnalysisPanel(List<PokemonInfoTeam> pokemonList)
     {
         InitializeComponent();
+        this.Background = Design.Color.FgLightBlue;
         var testString = String.Empty;
         foreach (var pokemon in pokemonList)
         {
@@ -33,14 +34,31 @@ public AnalysisPanel(List<PokemonInfoTeam> pokemonList)
         foreach (var type in teamTypeList)
         {
             teamTypeNumList[typeList.IndexOf(type)]++;
+            setCoeffiecent(type);
         }
 
-        foreach (var num in teamTypeNumList)
+        foreach (var num in coefficientlist)
         {
+            
             testString += num.ToString();
         }
 
+        for (int i = 0; i < coefficientlist.Count; i++)
+        {
+            if (coefficientlist[i]!= 0)
+            {
+                anaStackPanel.Children.Add( new TypeChartBar(typeList[i],coefficientlist[i]));
+            }
+
+        }
+
         TestTextBlock.Text = testString;
+        
+
+
+
+
+
     }
 
 
