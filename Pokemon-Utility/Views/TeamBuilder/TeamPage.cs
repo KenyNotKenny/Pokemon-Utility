@@ -7,15 +7,16 @@ public class TeamPage : Grid
 {
     private static List<PokemonInfoTeam> temp = new List<PokemonInfoTeam>
     {
-        new PokemonInfoTeam{Id = 1},
-        new PokemonInfoTeam{ Id = 6},
-        new PokemonInfoTeam{ Id = 12},
-        new PokemonInfoTeam{ Id = 15},
-        new PokemonInfoTeam{ Id = 31},
-        
+        new PokemonInfoTeam(1),
+        new PokemonInfoTeam(3),
+        new PokemonInfoTeam(6),
+        new PokemonInfoTeam(12),
+        new PokemonInfoTeam(23),
+        new PokemonInfoTeam(63),
+
     };
     private TeamPanel _teamPanel = new TeamPanel(temp);
-    private AnalysisPanel _analysisPanel = new AnalysisPanel();
+    private AnalysisPanel _analysisPanel = new AnalysisPanel(temp);
     public TeamPage()
     {
         this.Children.Add(_teamPanel);

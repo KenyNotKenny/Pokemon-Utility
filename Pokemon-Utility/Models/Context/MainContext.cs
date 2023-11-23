@@ -25,7 +25,7 @@ public class MainContext : PokemonContext
     //     return await instance.Database.CanConnectAsync();
     // }
 
-    public static async Task Query(Func<MainContext,Task> onReceive, Action onFailure)
+    public static void Query(Action<MainContext> onReceive, Action onFailure)
     {
         if ( Connected)
         {

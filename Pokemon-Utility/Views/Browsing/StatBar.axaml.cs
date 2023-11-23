@@ -9,7 +9,7 @@ public partial class StatBar : Panel
     {
         InitializeComponent();
         bar.Background = Design.Color.FgBlue;
-        this.Width = value*3;
-        statNumber.Text = value.ToString();
+        this.Width = (value < 180) ? value * 3 : 180*3;
+        // statNumber.Text = value.ToString();
     }
 }

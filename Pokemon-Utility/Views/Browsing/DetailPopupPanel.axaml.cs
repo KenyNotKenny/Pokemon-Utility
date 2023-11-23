@@ -127,7 +127,7 @@ public partial class DetailPopupPanel : Panel
         });
         Grid statGrid = new Grid
         {
-            ColumnDefinitions = new ColumnDefinitions("120,1*"),
+            ColumnDefinitions = new ColumnDefinitions("170,1*"),
             RowDefinitions = new RowDefinitions("1*,1*,1*,1*,1*,1*"),
             Height = 300,
         };
@@ -150,6 +150,15 @@ public partial class DetailPopupPanel : Panel
                 default: break;
             }
             statGrid.Children.Add(statName);
+            var statValue = new TextBlock
+            {
+                Text = pokemon.Stats[i].BaseStat.ToString()+" ",
+                HorizontalAlignment = HorizontalAlignment.Right,
+                FontSize = 30,
+            };
+            statGrid.Children.Add(statValue);
+            Grid.SetColumn(statValue,0);
+            Grid.SetRow(statValue,i);
             Grid.SetColumn(statName,0);
             Grid.SetRow(statName,i);
             // Border statBar = new Border

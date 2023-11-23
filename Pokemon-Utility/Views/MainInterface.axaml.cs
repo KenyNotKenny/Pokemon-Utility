@@ -59,6 +59,7 @@ public partial class MainInterface : Panel
         else
         {
             this.Children[1] = teamView;
+            teamView.SetUp();
         }
     }
     

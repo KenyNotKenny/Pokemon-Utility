@@ -4,5 +4,7 @@
        Margin="0,0,0,0"
        Background = "LightGreen"
        >
-    <TextBlock>Analysis</TextBlock>
+    <TextBlock
+        Name="TestTextBlock"
+        >Analysis</TextBlock>
 </Panel>

@@ -21,11 +21,12 @@ public partial class TeamView : Panel
     public void SetUp()
     {
         grid.Children.Clear();
-        grid.Children.Add(_teamTopBar);
+        _teamTopBar = new TeamTopBar(new List<string> { "First team", "Second Team" });
+        _teamPage = new TeamPage();
+        grid.Children.Add(_teamTopBar) ;
         grid.Children.Add(_teamPage);
         Grid.SetRow(_teamTopBar,0);
         Grid.SetRow(_teamPage,1);
-        grid.Children.Add(new TeamTopBar(new List<string>{ "First team","Second Team"})) ;
-        grid.Children.Add(new TeamPage());
+
     }
 }

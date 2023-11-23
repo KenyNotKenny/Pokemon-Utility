@@ -21,17 +21,18 @@
             </Style.Animations>
         </Style>
     </Panel.Styles>
+    
     <Border Name="bar"
             Classes="slide"
             CornerRadius="10"
             HorizontalAlignment="Stretch"
     >
-        <TextBlock Name="statNumber"
-                   FontSize="18"
-                   Foreground="White"
-                   HorizontalAlignment="Right"
-                   VerticalAlignment="Center"
-                   Margin="10"
-                   ></TextBlock>
+        <!-- <TextBlock Name="statNumber" -->
+        <!--            FontSize="18" -->
+        <!--            Foreground="White" -->
+        <!--            HorizontalAlignment="Right" -->
+        <!--            VerticalAlignment="Center" -->
+        <!--            Margin="10" -->
+        <!--            ></TextBlock> -->
     </Border>
 </Panel>

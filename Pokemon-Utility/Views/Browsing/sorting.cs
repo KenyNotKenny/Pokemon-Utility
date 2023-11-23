@@ -1,7 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Layout;
-using PokemonUtility.Views.Browsing;
 using System;
 using System.Linq;
 
