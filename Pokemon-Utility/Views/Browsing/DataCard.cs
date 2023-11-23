@@ -2,17 +2,16 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Layout;
-using Avalonia.Media;
 using Avalonia.Platform;
 using Brushes = Avalonia.Media.Brushes;
 using Avalonia.Media.Imaging;
 
-namespace PokemonUtility.Views.Browsing
+namespace Pokemon_Utility.Views.Browsing
 {
     /// <summary>
     /// DataCard
     ///     dataCard
-    ///         pic
+    ///         pokemonPic
     ///             pnj
     ///         id_name_icon_Border
     ///             id_name_icon
@@ -156,16 +155,20 @@ namespace PokemonUtility.Views.Browsing
             id_name.Text = $"#{id}\n{name}";
 
             typePic = new StackPanel();
+            //set the typePic as the children of the id_name_icon
             id_name_icon.Children.Add(typePic);
 
+            //change the typePic properties
             typePic.Orientation = Orientation.Horizontal;
             typePic.VerticalAlignment = VerticalAlignment.Stretch;
             typePic.HorizontalAlignment = HorizontalAlignment.Center;
 
             typeIcon1 = new Image();
             typeIcon1.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Pokemon-Utility/Assets/Types/{Type1}.png")));
+            //set the typeIcon1 as the children of the typePic
             typePic.Children.Add(typeIcon1);
 
+            //change the typeIcon1 properties
             typeIcon1.Width = typeIcon1.Height = 40;
             typeIcon1.HorizontalAlignment = HorizontalAlignment.Left;
             typeIcon1.VerticalAlignment = VerticalAlignment.Bottom;
@@ -175,8 +178,10 @@ namespace PokemonUtility.Views.Browsing
             {
                 typeIcon2 = new Image();
                 typeIcon2.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Pokemon-Utility/Assets/Types/{Type2}.png")));
+                //set the typeIcon2 as the children of the typePic
                 typePic.Children.Add(typeIcon2);
 
+                //change the typeIcon2 properties
                 typeIcon2.Width = typeIcon1.Height = 40;
                 typeIcon2.HorizontalAlignment = HorizontalAlignment.Right;
                 typeIcon2.VerticalAlignment = VerticalAlignment.Bottom;
