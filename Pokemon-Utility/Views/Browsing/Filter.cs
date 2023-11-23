@@ -1,13 +1,13 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Media;
 using Avalonia.Layout;
 
-namespace PokemonUtility.Views.Browsing
+namespace Pokemon_Utility.Views.Browsing
 {
     public class Filter: Panel
     {
         string selectedItem;
+        ComboBox filter;
 
         public string SelectedItem
         {
@@ -17,13 +17,16 @@ namespace PokemonUtility.Views.Browsing
 
         public Filter()
         {
+            //change the Filter class properties
             this.Margin = new Thickness(30, 15);
             this.Height = 40;
             this.Width = 100;
 
-            ComboBox filter = new ComboBox();
+            filter = new ComboBox();
+            //set the filter as the children of the Filter class
             this.Children.Add(filter);
 
+            //add the items to the filter
             filter.Items.Add("all");
             filter.Items.Add("water");
             filter.Items.Add("electric");
@@ -42,9 +45,11 @@ namespace PokemonUtility.Views.Browsing
             filter.Items.Add("steel");
             filter.Items.Add("fairy");
 
+            //change the filter properties
             filter.VerticalAlignment = VerticalAlignment.Center;
             filter.Height = this.Height;
             filter.Width = this.Width;
+            filter.Background = Design.Color.FgBlue;
 
             selectedItem = "all";
             // Handle the SelectionChanged event of the ComboBox

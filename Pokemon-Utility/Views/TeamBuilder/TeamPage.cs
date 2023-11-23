@@ -5,7 +5,16 @@ namespace Pokemon_Utility.Views.TeamBuilder;
 
 public class TeamPage : Grid
 {
-    private TeamPanel _teamPanel = new TeamPanel();
+    private static List<PokemonInfoTeam> temp = new List<PokemonInfoTeam>
+    {
+        new PokemonInfoTeam{Id = 1},
+        new PokemonInfoTeam{ Id = 6},
+        new PokemonInfoTeam{ Id = 12},
+        new PokemonInfoTeam{ Id = 15},
+        new PokemonInfoTeam{ Id = 31},
+        
+    };
+    private TeamPanel _teamPanel = new TeamPanel(temp);
     private AnalysisPanel _analysisPanel = new AnalysisPanel();
     public TeamPage()
     {

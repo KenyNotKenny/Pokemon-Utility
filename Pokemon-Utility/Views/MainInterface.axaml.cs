@@ -30,19 +30,24 @@ public partial class MainInterface : Panel
         SideBar.Background = Design.Color.FgLightBlue;
         // LogoImage.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/pokemon/1.png")));
         
-
+        //
         if (MainContext.Connected)
         {
-
+        
             this.Children.Add(browsingView);
-
+        
             TabBar.SelectionChanged += OnSelect;
-
+        
         }
-        else
-        {
 
-        }
+        // MainContext.Query(
+        //     onReceive: async context =>
+        //     {
+        //         this.Children.Add(browsingView);
+        //         TabBar.SelectionChanged += OnSelect;
+        //     },
+        //     onFailure: () => { }
+        // );
     }
 
     private void OnSelect(object? sender, SelectionChangedEventArgs e)

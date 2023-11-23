@@ -1,12 +1,7 @@
-﻿using System;
-using System.Linq;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Layout;
+﻿using System.Linq;
 using Pokemon;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace PokemonUtility.Views.Browsing
+namespace Pokemon_Utility.Views.Browsing
 {
     public class BrowsingQuery
 	{
@@ -29,7 +24,7 @@ namespace PokemonUtility.Views.Browsing
             nOfPokemonFound = 0;
             //get the number of pokemons found
             MainContext.Query(
-                onReceive: context =>
+                onReceive: async context =>
                 {
                     var pokemon = from t1 in context.PokemonTypes
                                   join t2 in context.Pokemons on t1.PokemonId equals t2.Id
@@ -49,13 +44,14 @@ namespace PokemonUtility.Views.Browsing
             );
 
             string[] pokemonName = new string[nOfPokemonFound];
-            string[] pokemonType = new string[nOfPokemonFound];
+            string[] pokemonT1 = new string[nOfPokemonFound];
+            string[] pokemonT2 = new string[nOfPokemonFound];
             int[] pokemonId = new int[nOfPokemonFound];
             //get the name, id, type of the pokemons found
             MainContext.Query(
-                onReceive: context =>
+                onReceive: async context =>
                 {
-                    var pokemon = from t1 in context.PokemonTypes
+                    var pokemonType1 = from t1 in context.PokemonTypes
                                   join t2 in context.Pokemons on t1.PokemonId equals t2.Id
                                   where t2.Name.Contains(name) && t1.Slot == 1 && t1.Name == (filter == "all" ? t1.Name : filter)
                                   select new
@@ -64,12 +60,33 @@ namespace PokemonUtility.Views.Browsing
                                     Name=t2.Name,
                                     Type=t1.Name
                                 };
+                    var pokemonType2 = from t1 in context.PokemonTypes
+                                  join t2 in context.Pokemons on t1.PokemonId equals t2.Id
+                                  where t2.Name.Contains(name) && t1.Slot == 2 && t1.Name == (filter == "all" ? t1.Name : filter)
+                                  select new
+                                  {
+                                      Id = t2.Id,
+                                      Type = t1.Name
+                                  };
+                    var query = from t1 in pokemonType1
+                                join t2 in pokemonType2 on t1.Id equals t2.Id into joinedEntities
+                                from j in joinedEntities.DefaultIfEmpty()
+                                select new
+                                {
+                                    Id = t1.Id,
+                                    Name = t1.Name,
+                                    Type1 = t1.Type,
+                                    Type2 = j.Type == null ? "null" : j.Type
+                                  };
+
+                    var pokemon = query.ToList();
                     int index = 0;
                     foreach (var entity in pokemon)
                     {
                         pokemonName[index] = entity.Name;
                         pokemonId[index] = entity.Id;
-                        pokemonType[index] = entity.Type;
+                        pokemonT1[index] = entity.Type1;
+                        pokemonT2[index] = entity.Type2;
                         index++;
                     }
                 },
@@ -77,12 +94,13 @@ namespace PokemonUtility.Views.Browsing
             );
 
             //save the query infomation
-            string[,] pokemonList = new string[nOfPokemonFound, 3];
+            string[,] pokemonList = new string[nOfPokemonFound, 4];
             for(int i = 0; i < nOfPokemonFound; i++)
             {
                 pokemonList[i, 0] = pokemonId[i].ToString();
                 pokemonList[i, 1] = pokemonName[i];
-                pokemonList[i, 2] = pokemonType[i];
+                pokemonList[i, 2] = pokemonT1[i];
+                pokemonList[i, 3] = pokemonT2[i];
             }
 
             return pokemonList;
