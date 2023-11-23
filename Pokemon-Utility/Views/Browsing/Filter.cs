@@ -1,6 +1,5 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Media;
 using Avalonia.Layout;
 
 namespace Pokemon_Utility.Views.Browsing

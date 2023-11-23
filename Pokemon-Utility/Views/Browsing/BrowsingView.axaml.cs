@@ -2,14 +2,9 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Layout;
-using PokemonUtility;
-using PokemonUtility.Views.Browsing;
 using System;
-using Avalonia.Input;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
-using System.Net.NetworkInformation;
-using Pokemon;
 
 namespace Pokemon_Utility.Views.Browsing;
 /// <summary>
@@ -202,6 +197,4 @@ public partial class BrowsingView : Panel
         //set the pokemonList as the children of the pokemonList_ScrollViewer
         pokemonList_ScrollViewer.Content = pokemonList;
     }
-    
-
 }

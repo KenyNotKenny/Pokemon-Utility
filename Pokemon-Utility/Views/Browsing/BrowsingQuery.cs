@@ -1,12 +1,7 @@
-﻿using System;
-using System.Linq;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Layout;
+﻿using System.Linq;
 using Pokemon;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace PokemonUtility.Views.Browsing
+namespace Pokemon_Utility.Views.Browsing
 {
     public class BrowsingQuery
 	{
