@@ -29,6 +29,7 @@ namespace Pokemon_Utility.Views.Browsing
 
             //add the items to the filter
             filter.Items.Add("all");
+            filter.Items.Add("normal");
             filter.Items.Add("water");
             filter.Items.Add("electric");
             filter.Items.Add("grass");

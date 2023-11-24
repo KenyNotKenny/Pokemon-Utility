@@ -95,6 +95,8 @@ public partial class BrowsingView : Panel
         searchBar.VerticalAlignment = VerticalAlignment.Center;
         searchBar.HorizontalAlignment = HorizontalAlignment.Left;
         searchBar.VerticalContentAlignment = VerticalAlignment.Center;
+        searchBar.Background = Brushes.White;
+        searchBar.Foreground = Brushes.Gray;
 
         searchButton = new Button();
         //set the searchButton as the children of the browsingBar
