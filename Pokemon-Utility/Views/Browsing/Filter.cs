@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Layout;
+using Avalonia.Media;
 
 namespace Pokemon_Utility.Views.Browsing
 {
@@ -50,6 +51,9 @@ namespace Pokemon_Utility.Views.Browsing
             filter.Height = this.Height;
             filter.Width = this.Width;
             filter.Background = Design.Color.FgBlue;
+            filter.BorderBrush = new SolidColorBrush(Colors.White);
+            filter.BorderThickness = Thickness.Parse("1");
+            filter.Margin = new Thickness(15, 0, 0, 0);
 
             selectedItem = "all";
             // Handle the SelectionChanged event of the ComboBox
