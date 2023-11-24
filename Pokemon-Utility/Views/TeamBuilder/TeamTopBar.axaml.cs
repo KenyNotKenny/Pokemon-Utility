@@ -13,9 +13,24 @@ public partial class TeamTopBar : Panel
     public TeamTopBar()
     {
         InitializeComponent();
+        tabBar.Background = Design.Color.BgLightGray;
     }
     public TeamTopBar( List<string> teamName) : this()
     {
-        //TO-DO
+        
+        foreach (var team in teamName)
+        {
+            // this.Children.Add(new TextBlock{ Text = team });
+            tabBar.Items.Add(team);
+
+            tabBar.SelectionChanged += OnSelect;
+        }
+        if (teamName.Count > 0) {tabBar.SelectedIndex = 0 ;}
     }
+
+    private void OnSelect(object? sender, SelectionChangedEventArgs e)
+    {
+        
+    }
+    
 }

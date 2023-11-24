@@ -13,6 +13,7 @@ public class PokemonInfoTeam
 
     public PokemonInfoTeam(int id)
     {
+        this.Id = id;
         MainContext.Query(
             onReceive: context =>
             {
