@@ -45,18 +45,16 @@ public AnalysisPanel(List<PokemonInfoTeam> pokemonList)
 
         for (int i = 0; i < coefficientlist.Count; i++)
         {
+            anaStackPanel.Children.Add( new TypeChartBar(typeList[i],coefficientlist[i])); //TO-DO
             if (coefficientlist[i]!= 0)
             {
-                anaStackPanel.Children.Add( new TypeChartBar(typeList[i],coefficientlist[i]));
+                
             }
 
         }
 
         TestTextBlock.Text = testString;
         
-
-
-
 
 
     }
