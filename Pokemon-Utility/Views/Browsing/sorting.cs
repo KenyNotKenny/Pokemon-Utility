@@ -22,13 +22,16 @@ namespace Pokemon_Utility.Views.Browsing
         // Constructor
         public SortingButton()
         {
+            //change the SortingButton class properties
             this.Margin = new Thickness(30, 15);
             this.Height = 40;
             this.Width = 150;
 
             sorter = new Button();
+            //set the sorter as the children of the SortingButton class
             this.Children.Add(sorter);
 
+            //change the sorter properties
             content = "Sort";
             sorter.Content = content;
             sorter.VerticalContentAlignment = VerticalAlignment.Center;
@@ -36,12 +39,8 @@ namespace Pokemon_Utility.Views.Browsing
             sorter.VerticalAlignment = VerticalAlignment.Center;
             sorter.Height = this.Height;
             sorter.Width = this.Width;
-
-            // Change text color to black
             sorter.Foreground = new SolidColorBrush(Colors.White);
-            // Set button background to light blue 
             sorter.Background = Design.Color.FgBlue;
-            //// Set button border to white
             sorter.BorderBrush = new SolidColorBrush(Colors.White);
             sorter.BorderThickness = new Thickness(1);
 
