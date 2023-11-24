@@ -66,6 +66,10 @@
         <DependentUpon>LeftChartBar.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+      <Compile Update="Views\TypeChart.axaml.cs">
+        <DependentUpon>TeamPanel.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

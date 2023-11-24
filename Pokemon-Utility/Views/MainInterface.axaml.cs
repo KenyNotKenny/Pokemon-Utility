@@ -7,6 +7,7 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.Styling;
+using PokeApiNet;
 using Pokemon;
 using Pokemon_Utility.Views.Browsing;
 using Pokemon_Utility.Views.TeamBuilder;
@@ -23,6 +24,7 @@ public partial class MainInterface : Panel
     {
         InitializeComponent();
         TabBar.Items.Add("Browse");
+        TabBar.Items.Add("Type");
         TabBar.Items.Add("Team");
         TabBar.Foreground = Design.Color.FgBlue;
         TabBar.SelectedIndex = 0;
@@ -56,10 +58,14 @@ public partial class MainInterface : Panel
         {
             this.Children[1] = browsingView;
         }
-        else
+        else if((sender as ListBox).SelectedIndex == 2)
         {
             this.Children[1] = teamView;
             teamView.SetUp();
+        }
+        else
+        {
+            this.Children[1] = new TypeChart();
         }
     }
     

@@ -29,7 +29,7 @@ public class TeamPage : Grid
     public TeamPage(List<PokemonInfoTeam> pokemonList ) : this()
     {
         this.Children.Clear();
-        this.Children.Add( new TeamPanel());
+        this.Children.Add( new TypeChart());
         this.Children.Add(_analysisPanel);
         Grid.SetColumn(_teamPanel,0);
         Grid.SetColumn(_analysisPanel,1);

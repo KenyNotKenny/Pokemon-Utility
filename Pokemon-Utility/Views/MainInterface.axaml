@@ -81,5 +81,5 @@
                     
                 </ListBox.ItemContainerTheme>
             </ListBox>
-        </StackPanel>
+    </StackPanel>
 </Panel>
