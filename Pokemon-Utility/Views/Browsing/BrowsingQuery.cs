@@ -22,27 +22,6 @@ namespace Pokemon_Utility.Views.Browsing
         public string[,] PokemonQuery_byName(string name, string filter = "all")
         {
             nOfPokemonFound = 0;
-            //get the number of pokemons found
-            MainContext.Query(
-                onReceive: async context =>
-                {
-                    var pokemon = from t1 in context.PokemonTypes
-                                  join t2 in context.Pokemons on t1.PokemonId equals t2.Id
-                                  where t2.Name.Contains(name) && t1.Slot == 1 && t1.Name == (filter == "all" ? t1.Name : filter)
-                                  select new
-                                  {
-                                      Id = t2.Id,
-                                      Name = t2.Name,
-                                      Type = t1.Name
-                                  };
-                    foreach (var entity in pokemon)
-                    {
-                        nOfPokemonFound++;
-                    }
-                },
-                onFailure: () => nOfPokemonFound = 0
-            );
-
             string[] pokemonName = new string[nOfPokemonFound];
             string[] pokemonT1 = new string[nOfPokemonFound];
             string[] pokemonT2 = new string[nOfPokemonFound];
@@ -53,7 +32,7 @@ namespace Pokemon_Utility.Views.Browsing
                 {
                     var pokemonType1 = from t1 in context.PokemonTypes
                                   join t2 in context.Pokemons on t1.PokemonId equals t2.Id
-                                  where t2.Name.Contains(name) && t1.Slot == 1 && t1.Name == (filter == "all" ? t1.Name : filter)
+                                  where t2.Name.Contains(name) && t1.Slot == 1
                                   select new
                                 {
                                     Id=t2.Id,
@@ -62,15 +41,16 @@ namespace Pokemon_Utility.Views.Browsing
                                 };
                     var pokemonType2 = from t1 in context.PokemonTypes
                                   join t2 in context.Pokemons on t1.PokemonId equals t2.Id
-                                  where t2.Name.Contains(name) && t1.Slot == 2 && t1.Name == (filter == "all" ? t1.Name : filter)
+                                  where t2.Name.Contains(name) && t1.Slot == 2
                                   select new
                                   {
                                       Id = t2.Id,
                                       Type = t1.Name
                                   };
-                    var query = from t1 in pokemonType1
+                    var pokemon = from t1 in pokemonType1
                                 join t2 in pokemonType2 on t1.Id equals t2.Id into joinedEntities
                                 from j in joinedEntities.DefaultIfEmpty()
+                                where t1.Type == (filter == "all" ? t1.Type : filter) || j.Type == (filter == "all" ? j.Type : filter)
                                 select new
                                 {
                                     Id = t1.Id,
@@ -79,7 +59,17 @@ namespace Pokemon_Utility.Views.Browsing
                                     Type2 = j.Type == null ? "null" : j.Type
                                   };
 
-                    var pokemon = query.ToList();
+                    //var pokemon = query.ToList();
+                    foreach (var entity in pokemon)
+                    {
+                        nOfPokemonFound++;
+                    }
+
+                    pokemonName = new string[nOfPokemonFound];
+                    pokemonT1 = new string[nOfPokemonFound];
+                    pokemonT2 = new string[nOfPokemonFound];
+                    pokemonId = new int[nOfPokemonFound];
+
                     int index = 0;
                     foreach (var entity in pokemon)
                     {
