@@ -114,6 +114,14 @@ public partial class BrowsingView : Panel
 
             BrowsingQuery a = new BrowsingQuery();
             string[,] pokemons = a.PokemonQuery_byName(userInput,filter.SelectedItem);
+            if (sorter.Content== "Sort by: Name")
+            {
+                pokemons = SortingButton.SortingByName(pokemons);
+            }
+            else if (sorter.Content == "Sort by: ID")
+            {
+                pokemons = SortingButton.SortingById(pokemons);
+            }
             int nOfPokemon = a.NOfPokemonFound;
 
             this.PokemonFoundTextblock(nOfPokemon);
@@ -125,6 +133,8 @@ public partial class BrowsingView : Panel
         searchIcon.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/search_icon.png")));
         //set the searchIcon as the children of the searchButton
         searchButton.Content = searchIcon;
+        searchButton.BorderBrush = Brushes.White;
+        searchButton.BorderThickness = Thickness.Parse("1");
 
         filter = new Filter();
         //set the filter as the children of the browsingBar
