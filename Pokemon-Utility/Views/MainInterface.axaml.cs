@@ -8,7 +8,7 @@ using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.Styling;
 using PokeApiNet;
-using Pokemon;
+using Pokemon_Utility.Models.Context;
 using Pokemon_Utility.Views.Browsing;
 using Pokemon_Utility.Views.TeamBuilder;
 

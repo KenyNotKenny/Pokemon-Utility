@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-namespace Pokemon;
+namespace Pokemon_Utility.Models.Entity;
 
 public partial class Pokemon
 {
@@ -17,4 +18,6 @@ public partial class Pokemon
     public virtual Pokemon? EvolvesFromSpecies { get; set; }
 
     public virtual ICollection<Pokemon> InverseEvolvesFromSpecies { get; set; } = new List<Pokemon>();
+
+    public virtual ICollection<TeamPokemon> TeamPokemons { get; set; } = new List<TeamPokemon>();
 }

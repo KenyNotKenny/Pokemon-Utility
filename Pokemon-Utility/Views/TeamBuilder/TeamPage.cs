@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Controls;
-using Pokemon;
+using Pokemon_Utility.Models.Context;
 
 namespace Pokemon_Utility.Views.TeamBuilder;
 
@@ -29,6 +29,7 @@ public class TeamPage : Grid
         // this.Children.Add(_teamPanel);
         // this.Children.Add(_analysisPanel);
         this.ColumnDefinitions = ColumnDefinitions.Parse("3*,2*");
+        this.RowDefinitions = RowDefinitions.Parse("1*,80");
         // Grid.SetColumn(_teamPanel,0);
         // Grid.SetColumn(_analysisPanel,1);
     }
@@ -59,14 +60,20 @@ public class TeamPage : Grid
 
                     }
                 }
-                this.Children.Add( new TextBlock{Text = pokemonList[0].Name});
 
                 var teamPanel = new TeamPanel(pokemonList);
-                var teamAnalysis = new AnalysisPanel(pokemonList);
                 this.Children.Add(teamPanel );
-                this.Children.Add(teamAnalysis);
                 Grid.SetColumn(teamPanel,0);
+                var teamAnalysis = new AnalysisPanel(pokemonList);
+                this.Children.Add(teamAnalysis);
                 Grid.SetColumn(teamAnalysis,1);
+                Grid.SetRowSpan(teamAnalysis,2);
+                var cRUDbutton = new CRUDButton(teamID);
+                this.Children.Add(cRUDbutton );
+                Grid.SetColumn(cRUDbutton,0);
+                Grid.SetRow(cRUDbutton,1);
+
+
             },
             onFailure: () => { }
             );

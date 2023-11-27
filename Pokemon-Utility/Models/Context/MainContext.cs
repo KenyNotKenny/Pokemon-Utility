@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using PokeApiNet;
 
-namespace Pokemon;
+namespace Pokemon_Utility.Models.Context;
 
 public class MainContext : PokemonContext
 {

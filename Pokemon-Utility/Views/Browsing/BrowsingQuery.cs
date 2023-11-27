@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Pokemon;
+using Pokemon_Utility.Models.Context;
 
 namespace Pokemon_Utility.Views.Browsing
 {

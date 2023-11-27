@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Controls;
-using Pokemon;
+using Pokemon_Utility.Models.Context;
+using Pokemon_Utility.Models.Entity;
 
 namespace Pokemon_Utility.Views.TeamBuilder;
 
@@ -64,6 +65,7 @@ public partial class TeamView : Panel
     }
     private void OnSelect(object? sender, SelectionChangedEventArgs e)
     {
+        grid.Children.Remove(_teamPage);
         _teamPage = new TeamPage(teamList[(sender as ListBox).SelectedIndex].Id);
         grid.Children.Add(_teamPage);
         Grid.SetRow(_teamPage,1);

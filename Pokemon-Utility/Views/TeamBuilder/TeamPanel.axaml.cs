@@ -9,13 +9,11 @@ namespace Pokemon_Utility.Views.TeamBuilder
 {
     public partial class TeamPanel : Panel
     {
-        private CRUDButton _crudButton = new CRUDButton(2);
         private List<PokemonInfoTeam> _pokemonList;
 
         public TeamPanel()
         {
             InitializeComponent();
-            this.Children.Add(_crudButton);
         }
 
         public TeamPanel(List<PokemonInfoTeam> pokemonList) : this()

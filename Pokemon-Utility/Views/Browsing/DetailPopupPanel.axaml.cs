@@ -12,8 +12,8 @@ using Avalonia.Platform;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using PokeApiNet;
-using Pokemon;
-using Move = Pokemon.Move;
+using Pokemon_Utility.Models.Context;
+using Move = Pokemon_Utility.Models.Entity.Move;
 
 namespace Pokemon_Utility.Views.Browsing;
 

@@ -1,4 +1,7 @@
-﻿namespace Pokemon;
+﻿using System;
+using System.Collections.Generic;
+
+namespace Pokemon_Utility.Models.Entity;
 
 public partial class TeamPokemon
 {
@@ -6,7 +9,7 @@ public partial class TeamPokemon
 
     public int? PokemonId { get; set; }
 
-    public int? MovesetId { get; set; }
+    public int MovesetId { get; set; }
 
     public virtual Pokemon? Pokemon { get; set; }
 

@@ -1,4 +1,7 @@
-﻿namespace Pokemon;
+﻿using System;
+using System.Collections.Generic;
+
+namespace Pokemon_Utility.Models.Entity;
 
 public partial class PokemonMove
 {
