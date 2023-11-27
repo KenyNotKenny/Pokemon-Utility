@@ -21,6 +21,10 @@ public partial class TeamView : Panel
         grid.Children.Add(_teamPage);
         Grid.SetRow(_teamTopBar,0);
         Grid.SetRow(_teamPage,1);
+        refreshButton.Click += (sender, args) =>
+        {
+            SetUp();
+        };
     }
 
     public void SetUp()

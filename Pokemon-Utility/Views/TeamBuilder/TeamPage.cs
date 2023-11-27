@@ -9,21 +9,10 @@ namespace Pokemon_Utility.Views.TeamBuilder;
 public class TeamPage : Grid
 {
     private int teamID;
-    private static List<PokemonInfoTeam> temp = new List<PokemonInfoTeam>
-    {
-        new PokemonInfoTeam(1),
-        new PokemonInfoTeam(3),
-        new PokemonInfoTeam(6),
-        new PokemonInfoTeam(12),
-        new PokemonInfoTeam(23),
-        new PokemonInfoTeam(63),
 
-    };
 
     private List<PokemonInfoTeam> pokemonList = new List<PokemonInfoTeam>();
-
-    private TeamPanel _teamPanel = new TeamPanel(temp);
-    private AnalysisPanel _analysisPanel = new AnalysisPanel(temp);
+    
     public TeamPage()
     {
         // this.Children.Add(_teamPanel);
@@ -56,7 +45,7 @@ public class TeamPage : Grid
                 {
                     if (pokemon.PokemonId != null)
                     {
-                        pokemonList.Add( new PokemonInfoTeam((int)pokemon.PokemonId));
+                        pokemonList.Add( new PokemonInfoTeam((int)pokemon.PokemonId, pokemon.MovesetId));
 
                     }
                 }

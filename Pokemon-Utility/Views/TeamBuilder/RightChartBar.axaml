@@ -2,7 +2,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
        x:Class="Pokemon_Utility.Views.TeamBuilder.RightChartBar"
        HorizontalAlignment="Left"
-       Margin="0,0,0,10"
+       Margin="0,0,0,0"
        Height="40">
     <Panel.Styles>
         <Style Selector="Border.slide">
@@ -26,6 +26,12 @@
             Background="LightGreen"
             CornerRadius="10"
             HorizontalAlignment="Stretch">
+        <TextBlock Name="mutiplierTextBlock"
+                   HorizontalAlignment="Right"
+                   Foreground="White"
+                   FontSize="20"
+                   Padding="0,0,10,0"
+                   VerticalAlignment="Center"></TextBlock>
     </Border>
    
 </Panel>

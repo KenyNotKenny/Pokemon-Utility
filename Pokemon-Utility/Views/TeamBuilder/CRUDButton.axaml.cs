@@ -59,74 +59,74 @@ public partial class CRUDButton : Panel
         // then click on OK will add the Pokemon to the Team
         AddPokemonButton.Click += delegate
         {
-            // create a textbox
-            TextBox input = new TextBox()
+            int currentTeamSize = 0;
+            MainContext.Query( 
+                onReceive: context => { currentTeamSize = context.TeamPokemons.Where(s => s.TeamId == team_id).Count();},
+                onFailure: () => { currentTeamSize = 6;});
+            if (currentTeamSize < 6)
             {
-                Width = 100,
-                Height = 50,
-                Margin = new Thickness(10, 0, 0, 0)
-            };
-            // create a button
-            Button ok = new Button()
-            {
-                Content = "OK",
-                Margin = new Thickness(130, 100, 0, 0)
-            };
-            // create a panel to hold the textbox and the button
-            Panel panel = new Panel()
-            {
-                Margin = new Thickness(0, 100, 0, 0)
-            };
-            // add the textbox and the button to the panel
-            panel.Children.Add(input);
-            panel.Children.Add(ok);
-            // create a window to hold the panel
-            Window window = new Window()
-            {
-                Width = 300,
-                Height = 300,
-                Content = panel
-            };
-            // click on the button will add the Pokemon to the Team
-            ok.Click += delegate
-            {
-                // TO-DO
-                if (int.TryParse(input.Text, out _))
+                
+                // create a textbox
+                TextBox input = new TextBox()
                 {
-                    var newId = int.Parse(input.Text);
-                    if (newId > 0 && newId <= 1010)
+                    Width = 100,
+                    Height = 50,
+                    Margin = new Thickness(10, 0, 0, 0)
+                };
+                // create a button
+                Button ok = new Button()
+                {
+                    Content = "OK",
+                    Margin = new Thickness(130, 100, 0, 0)
+                };
+                // create a panel to hold the textbox and the button
+                Panel panel = new Panel()
+                {
+                    Margin = new Thickness(0, 100, 0, 0)
+                };
+                // add the textbox and the button to the panel
+                panel.Children.Add(input);
+                panel.Children.Add(ok);
+                // create a window to hold the panel
+                Window window = new Window()
+                {
+                    Width = 300,
+                    Height = 300,
+                    Content = panel
+                };
+                // click on the button will add the Pokemon to the Team
+                ok.Click += delegate
+                {
+                    // TO-DO
+                
+                
+                    if (int.TryParse(input.Text, out _))
                     {
-                        ok.Content = "Valid";
-                        MainContext.Query(
-                            onReceive: context =>
-                            {
-                                var newPokemon = new TeamPokemon { TeamId = team_id, PokemonId = newId };
-                                context.TeamPokemons.Add(newPokemon);
-                                context.SaveChanges();
-                                window.Close();
-                            },
-                            onFailure: () => { });
+                        var newId = int.Parse(input.Text);
+                        if (newId > 0 && newId <= 1010)
+                        {
+                            ok.Content = "Valid";
+                            MainContext.Query(
+                                onReceive: context =>
+                                {
+                                    var newPokemon = new TeamPokemon { TeamId = team_id, PokemonId = newId };
+                                    context.TeamPokemons.Add(newPokemon);
+                                    context.SaveChanges();
+                                    window.Close();
+                                },
+                                onFailure: () => { });
+                        }
                     }
-                }
 
-            };
-            // show the window
-            window.Show();
-        };
-
-
-
-
-        // Create and add the Remove Pokemon button
-        RemovePokemonButton = new Button()
-        {
-            Content = "Remove Pokemon",
+                };
+                // show the window
+                window.Show();
+            }
 
 
         };
 
-        Children.Add(RemovePokemonButton);
-        RemovePokemonButton.Margin = new Thickness(135, 0, 0, 0);
+        
 
         // Create and add the Add Team button
         AddTeamButton = new Button()

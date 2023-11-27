@@ -8,5 +8,22 @@
         >
  
     </Grid>
+    <Button
+        Name="refreshButton"
+        Content="Refresh Page"
+        FontWeight="Bold"
+        FontSize="20"
+        Padding="10"
+        Margin="8"
+        Background="#C4C4C4"
+        Foreground="White"
+        CornerRadius="10"
+        Height="64"
+        VerticalAlignment="Top"
+        HorizontalAlignment="Right"
+        VerticalContentAlignment="Center"
+        >
+        
+    </Button>
     
 </Panel>

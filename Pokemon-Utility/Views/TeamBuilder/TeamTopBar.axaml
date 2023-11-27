@@ -21,6 +21,8 @@
                                         HorizontalContentAlignment="Center"
                                         Width="300"
                                         TextAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Height="64"
                                         />
                     </ControlTemplate>
                   </Setter>

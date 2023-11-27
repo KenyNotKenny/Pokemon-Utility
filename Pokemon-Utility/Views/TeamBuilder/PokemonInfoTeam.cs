@@ -10,10 +10,12 @@ public class PokemonInfoTeam
     public string Name;
     public string Type1;
     public string? Type2 = null;
+    public int MovesetId;
 
-    public PokemonInfoTeam(int id)
+    public PokemonInfoTeam(int id, int movesetId)
     {
         this.Id = id;
+        this.MovesetId = movesetId;
         MainContext.Query(
             onReceive: context =>
             {
