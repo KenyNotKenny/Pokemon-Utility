@@ -57,11 +57,11 @@
 
 			<!-- Type Labels -->
 			<TextBlock Grid.Row="1" Grid.RowSpan="0" Grid.ColumnSpan="1" Text="" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-			<TextBlock Grid.Row="2" Grid.RowSpan="19" Grid.Column="0" Text="Attack" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-			<TextBlock Grid.Column="2" Grid.ColumnSpan="19" Text="Defense" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+			<TextBlock Grid.Row="2" Grid.RowSpan="19" Grid.Column="0" Text="ATTACK" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+			<TextBlock Grid.Column="2" Grid.ColumnSpan="19" Text="DEFENSE" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
 
-			<TextBlock Grid.Row="1" Grid.Column="2" Background="#808080" Text="NORMAL" />
+			<TextBlock Grid.Row="1" Grid.Column="2" Background="#808080" Text="NORMAL" VerticalAlignment="" HorizontalAlignment="Center" />
 			<TextBlock Grid.Row="1" Grid.Column="3" Text="FIGHTING" />
 			<TextBlock Grid.Row="1" Grid.Column="4" Text="FLYING" />
 			<TextBlock Grid.Row="1" Grid.Column="5" Text="POISON" />
@@ -102,7 +102,7 @@
 			<!-- Type Effectiveness Values -->
 			<!-- Row: NORMAL ½×-->
 			<TextBlock Grid.Row="2" Grid.Column="2" Text="1×" />
-			<TextBlock Grid.Row="3" Grid.Column="2" Text="1×" />
+			<TextBlock Grid.Row="2" Grid.Column="3" Text="1×" />
 			<TextBlock Grid.Row="2" Grid.Column="4" Text="1×" />
 			<TextBlock Grid.Row="2" Grid.Column="5" Text="1×" />
 			<TextBlock Grid.Row="2" Grid.Column="6" Text="1×" />
@@ -121,343 +121,343 @@
 			<TextBlock Grid.Row="2" Grid.Column="19" Text="1×" />
 
 			<!-- Row: FIGHTING -->
-			<TextBlock Grid.Row="3" Grid.Column="1" Text="2×" />
-			<TextBlock Grid.Row="3" Grid.Column="2" Text="1×" />
-			<TextBlock Grid.Row="3" Grid.Column="3" Text="½×" />
+			<TextBlock Grid.Row="3" Grid.Column="2" Text="2×" />
+			<TextBlock Grid.Row="3" Grid.Column="3" Text="1×" />
 			<TextBlock Grid.Row="3" Grid.Column="4" Text="½×" />
-			<TextBlock Grid.Row="3" Grid.Column="5" Text="1×" />
-			<TextBlock Grid.Row="3" Grid.Column="6" Text="2×" />
-			<TextBlock Grid.Row="3" Grid.Column="7" Text="½×" />
-			<TextBlock Grid.Row="3" Grid.Column="8" Text="0×" />
-			<TextBlock Grid.Row="3" Grid.Column="9" Text="2×" />
-			<TextBlock Grid.Row="3" Grid.Column="10" Text="1×" />
+			<TextBlock Grid.Row="3" Grid.Column="5" Text="½×" />
+			<TextBlock Grid.Row="3" Grid.Column="6" Text="1×" />
+			<TextBlock Grid.Row="3" Grid.Column="7" Text="2×" />
+			<TextBlock Grid.Row="3" Grid.Column="8" Text="½×" />
+			<TextBlock Grid.Row="3" Grid.Column="9" Text="0×" />
+			<TextBlock Grid.Row="3" Grid.Column="10" Text="2×" />
 			<TextBlock Grid.Row="3" Grid.Column="11" Text="1×" />
 			<TextBlock Grid.Row="3" Grid.Column="12" Text="1×" />
 			<TextBlock Grid.Row="3" Grid.Column="13" Text="1×" />
-			<TextBlock Grid.Row="3" Grid.Column="14" Text="½×" />
-			<TextBlock Grid.Row="3" Grid.Column="15" Text="2×" />
-			<TextBlock Grid.Row="3" Grid.Column="16" Text="1×" />
-			<TextBlock Grid.Row="3" Grid.Column="17" Text="2×" />
-			<TextBlock Grid.Row="3" Grid.Column="18" Text="½×" />
+			<TextBlock Grid.Row="3" Grid.Column="14" Text="1×" />
+			<TextBlock Grid.Row="3" Grid.Column="15" Text="½×" />
+			<TextBlock Grid.Row="3" Grid.Column="16" Text="2×" />
+			<TextBlock Grid.Row="3" Grid.Column="17" Text="1×" />
+			<TextBlock Grid.Row="3" Grid.Column="18" Text="2×" />
+			<TextBlock Grid.Row="3" Grid.Column="19" Text="½×" />
 
 			<!-- Row: FLYING -->
-			<TextBlock Grid.Row="4" Grid.Column="1" Text="1×" />
-			<TextBlock Grid.Row="4" Grid.Column="2" Text="2×" />
-			<TextBlock Grid.Row="4" Grid.Column="3" Text="1x" />
-			<TextBlock Grid.Row="4" Grid.Column="4" Text="1×" />
+			<TextBlock Grid.Row="4" Grid.Column="2" Text="1×" />
+			<TextBlock Grid.Row="4" Grid.Column="3" Text="2×" />
+			<TextBlock Grid.Row="4" Grid.Column="4" Text="1x" />
 			<TextBlock Grid.Row="4" Grid.Column="5" Text="1×" />
-			<TextBlock Grid.Row="4" Grid.Column="6" Text="2×" />
-			<TextBlock Grid.Row="4" Grid.Column="7" Text="1×" />
-			<TextBlock Grid.Row="4" Grid.Column="8" Text="½×" />
+			<TextBlock Grid.Row="4" Grid.Column="6" Text="1×" />
+			<TextBlock Grid.Row="4" Grid.Column="7" Text="2×" />
+			<TextBlock Grid.Row="4" Grid.Column="8" Text="1×" />
 			<TextBlock Grid.Row="4" Grid.Column="9" Text="½×" />
-			<TextBlock Grid.Row="4" Grid.Column="10" Text="1×" />
+			<TextBlock Grid.Row="4" Grid.Column="10" Text="½×" />
 			<TextBlock Grid.Row="4" Grid.Column="11" Text="1×" />
-			<TextBlock Grid.Row="4" Grid.Column="12" Text="2×" />
-			<TextBlock Grid.Row="4" Grid.Column="13" Text="½×" />
-			<TextBlock Grid.Row="4" Grid.Column="14" Text="1×" />
+			<TextBlock Grid.Row="4" Grid.Column="12" Text="1×" />
+			<TextBlock Grid.Row="4" Grid.Column="13" Text="2×" />
+			<TextBlock Grid.Row="4" Grid.Column="14" Text="½×" />
 			<TextBlock Grid.Row="4" Grid.Column="15" Text="1×" />
 			<TextBlock Grid.Row="4" Grid.Column="16" Text="1×" />
 			<TextBlock Grid.Row="4" Grid.Column="17" Text="1×" />
 			<TextBlock Grid.Row="4" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="4" Grid.Column="19" Text="1×" />
 
 			<!-- Row: POISON -->
-			<TextBlock Grid.Row="5" Grid.Column="1" Text="1×" />
 			<TextBlock Grid.Row="5" Grid.Column="2" Text="1×" />
 			<TextBlock Grid.Row="5" Grid.Column="3" Text="1×" />
-			<TextBlock Grid.Row="5" Grid.Column="4" Text="½×" />
+			<TextBlock Grid.Row="5" Grid.Column="4" Text="1×" />
 			<TextBlock Grid.Row="5" Grid.Column="5" Text="½×" />
 			<TextBlock Grid.Row="5" Grid.Column="6" Text="½×" />
-			<TextBlock Grid.Row="5" Grid.Column="7" Text="1×" />
-			<TextBlock Grid.Row="5" Grid.Column="8" Text="½×" />
-			<TextBlock Grid.Row="5" Grid.Column="9" Text="0×" />
-			<TextBlock Grid.Row="5" Grid.Column="10" Text="1×" />
+			<TextBlock Grid.Row="5" Grid.Column="7" Text="½×" />
+			<TextBlock Grid.Row="5" Grid.Column="8" Text="1×" />
+			<TextBlock Grid.Row="5" Grid.Column="9" Text="½×" />
+			<TextBlock Grid.Row="5" Grid.Column="10" Text="0×" />
 			<TextBlock Grid.Row="5" Grid.Column="11" Text="1×" />
-			<TextBlock Grid.Row="5" Grid.Column="12" Text="2×" />
-			<TextBlock Grid.Row="5" Grid.Column="13" Text="1×" />
+			<TextBlock Grid.Row="5" Grid.Column="12" Text="1×" />
+			<TextBlock Grid.Row="5" Grid.Column="13" Text="2×" />
 			<TextBlock Grid.Row="5" Grid.Column="14" Text="1×" />
 			<TextBlock Grid.Row="5" Grid.Column="15" Text="1×" />
 			<TextBlock Grid.Row="5" Grid.Column="16" Text="1×" />
 			<TextBlock Grid.Row="5" Grid.Column="17" Text="1×" />
-			<TextBlock Grid.Row="5" Grid.Column="18" Text="2×" />
+			<TextBlock Grid.Row="5" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="5" Grid.Column="19" Text="2×" />
 
 			<!-- Row: GROUND -->
-			<TextBlock Grid.Row="6" Grid.Column="1" Text="1×" />
 			<TextBlock Grid.Row="6" Grid.Column="2" Text="1×" />
-			<TextBlock Grid.Row="6" Grid.Column="3" Text="0×" />
-			<TextBlock Grid.Row="6" Grid.Column="4" Text="2×" />
-			<TextBlock Grid.Row="6" Grid.Column="5" Text="1x" />
-			<TextBlock Grid.Row="6" Grid.Column="6" Text="2×" />
-			<TextBlock Grid.Row="6" Grid.Column="7" Text="½x" />
-			<TextBlock Grid.Row="6" Grid.Column="8" Text="1×" />
-			<TextBlock Grid.Row="6" Grid.Column="9" Text="2×" />
+			<TextBlock Grid.Row="6" Grid.Column="3" Text="1×" />
+			<TextBlock Grid.Row="6" Grid.Column="4" Text="0×" />
+			<TextBlock Grid.Row="6" Grid.Column="5" Text="2×" />
+			<TextBlock Grid.Row="6" Grid.Column="6" Text="1x" />
+			<TextBlock Grid.Row="6" Grid.Column="7" Text="2×" />
+			<TextBlock Grid.Row="6" Grid.Column="8" Text="½x" />
+			<TextBlock Grid.Row="6" Grid.Column="9" Text="1×" />
 			<TextBlock Grid.Row="6" Grid.Column="10" Text="2×" />
-			<TextBlock Grid.Row="6" Grid.Column="11" Text="1×" />
-			<TextBlock Grid.Row="6" Grid.Column="12" Text="½×" />
-			<TextBlock Grid.Row="6" Grid.Column="13" Text="2×" />
-			<TextBlock Grid.Row="6" Grid.Column="14" Text="1×" />
+			<TextBlock Grid.Row="6" Grid.Column="11" Text="2×" />
+			<TextBlock Grid.Row="6" Grid.Column="12" Text="1×" />
+			<TextBlock Grid.Row="6" Grid.Column="13" Text="½×" />
+			<TextBlock Grid.Row="6" Grid.Column="14" Text="2×" />
 			<TextBlock Grid.Row="6" Grid.Column="15" Text="1×" />
 			<TextBlock Grid.Row="6" Grid.Column="16" Text="1×" />
 			<TextBlock Grid.Row="6" Grid.Column="17" Text="1×" />
 			<TextBlock Grid.Row="6" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="6" Grid.Column="19" Text="1×" />
 
 			<!-- Row: ROCK -->
-			<TextBlock Grid.Row="7" Grid.Column="1" Text="1×" />
-			<TextBlock Grid.Row="7" Grid.Column="2" Text="½×" />
-			<TextBlock Grid.Row="7" Grid.Column="3" Text="2×" />
-			<TextBlock Grid.Row="7" Grid.Column="4" Text="1×" />
-			<TextBlock Grid.Row="7" Grid.Column="5" Text="½x" />
-			<TextBlock Grid.Row="7" Grid.Column="6" Text="1×" />
-			<TextBlock Grid.Row="7" Grid.Column="7" Text="2x" />
-			<TextBlock Grid.Row="7" Grid.Column="8" Text="1×" />
-			<TextBlock Grid.Row="7" Grid.Column="9" Text="½×" />
-			<TextBlock Grid.Row="7" Grid.Column="10" Text="2×" />
-			<TextBlock Grid.Row="7" Grid.Column="11" Text="1×" />
+			<TextBlock Grid.Row="7" Grid.Column="2" Text="1×" />
+			<TextBlock Grid.Row="7" Grid.Column="3" Text="½×" />
+			<TextBlock Grid.Row="7" Grid.Column="4" Text="2×" />
+			<TextBlock Grid.Row="7" Grid.Column="5" Text="1×" />
+			<TextBlock Grid.Row="7" Grid.Column="6" Text="½x" />
+			<TextBlock Grid.Row="7" Grid.Column="7" Text="1×" />
+			<TextBlock Grid.Row="7" Grid.Column="8" Text="2x" />
+			<TextBlock Grid.Row="7" Grid.Column="9" Text="1×" />
+			<TextBlock Grid.Row="7" Grid.Column="10" Text="½×" />
+			<TextBlock Grid.Row="7" Grid.Column="11" Text="2×" />
 			<TextBlock Grid.Row="7" Grid.Column="12" Text="1×" />
 			<TextBlock Grid.Row="7" Grid.Column="13" Text="1×" />
 			<TextBlock Grid.Row="7" Grid.Column="14" Text="1×" />
-			<TextBlock Grid.Row="7" Grid.Column="15" Text="2×" />
-			<TextBlock Grid.Row="7" Grid.Column="16" Text="1×" />
+			<TextBlock Grid.Row="7" Grid.Column="15" Text="1×" />
+			<TextBlock Grid.Row="7" Grid.Column="16" Text="2×" />
 			<TextBlock Grid.Row="7" Grid.Column="17" Text="1×" />
 			<TextBlock Grid.Row="7" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="7" Grid.Column="19" Text="1×" />
 
 			<!-- Row: BUG -->
-			<TextBlock Grid.Row="8" Grid.Column="1" Text="1×" />
-			<TextBlock Grid.Row="8" Grid.Column="2" Text="½×" />
+			<TextBlock Grid.Row="8" Grid.Column="2" Text="1×" />
 			<TextBlock Grid.Row="8" Grid.Column="3" Text="½×" />
 			<TextBlock Grid.Row="8" Grid.Column="4" Text="½×" />
-			<TextBlock Grid.Row="8" Grid.Column="5" Text="1x" />
-			<TextBlock Grid.Row="8" Grid.Column="6" Text="1×" />
-			<TextBlock Grid.Row="8" Grid.Column="7" Text="1x" />
-			<TextBlock Grid.Row="8" Grid.Column="8" Text="½×" />
+			<TextBlock Grid.Row="8" Grid.Column="5" Text="½×" />
+			<TextBlock Grid.Row="8" Grid.Column="6" Text="1x" />
+			<TextBlock Grid.Row="8" Grid.Column="7" Text="1×" />
+			<TextBlock Grid.Row="8" Grid.Column="8" Text="1x" />
 			<TextBlock Grid.Row="8" Grid.Column="9" Text="½×" />
 			<TextBlock Grid.Row="8" Grid.Column="10" Text="½×" />
-			<TextBlock Grid.Row="8" Grid.Column="11" Text="1×" />
-			<TextBlock Grid.Row="8" Grid.Column="12" Text="2×" />
-			<TextBlock Grid.Row="8" Grid.Column="13" Text="1×" />
-			<TextBlock Grid.Row="8" Grid.Column="14" Text="2×" />
-			<TextBlock Grid.Row="8" Grid.Column="15" Text="1×" />
+			<TextBlock Grid.Row="8" Grid.Column="11" Text="½×" />
+			<TextBlock Grid.Row="8" Grid.Column="12" Text="1×" />
+			<TextBlock Grid.Row="8" Grid.Column="13" Text="2×" />
+			<TextBlock Grid.Row="8" Grid.Column="14" Text="1×" />
+			<TextBlock Grid.Row="8" Grid.Column="15" Text="2×" />
 			<TextBlock Grid.Row="8" Grid.Column="16" Text="1×" />
-			<TextBlock Grid.Row="8" Grid.Column="17" Text="2×" />
-			<TextBlock Grid.Row="8" Grid.Column="18" Text="½×" />
+			<TextBlock Grid.Row="8" Grid.Column="17" Text="1×" />
+			<TextBlock Grid.Row="8" Grid.Column="18" Text="2×" />
+			<TextBlock Grid.Row="8" Grid.Column="19" Text="½×" />
 
 			<!-- Row: GHOST -->
-			<TextBlock Grid.Row="9" Grid.Column="1" Text="0×" />
-			<TextBlock Grid.Row="9" Grid.Column="2" Text="1×" />
+			<TextBlock Grid.Row="9" Grid.Column="2" Text="0×" />
 			<TextBlock Grid.Row="9" Grid.Column="3" Text="1×" />
 			<TextBlock Grid.Row="9" Grid.Column="4" Text="1×" />
-			<TextBlock Grid.Row="9" Grid.Column="5" Text="1x" />
-			<TextBlock Grid.Row="9" Grid.Column="6" Text="1×" />
-			<TextBlock Grid.Row="9" Grid.Column="7" Text="1x" />
-			<TextBlock Grid.Row="9" Grid.Column="8" Text="2×" />
-			<TextBlock Grid.Row="9" Grid.Column="9" Text="1×" />
+			<TextBlock Grid.Row="9" Grid.Column="5" Text="1×" />
+			<TextBlock Grid.Row="9" Grid.Column="6" Text="1x" />
+			<TextBlock Grid.Row="9" Grid.Column="7" Text="1×" />
+			<TextBlock Grid.Row="9" Grid.Column="8" Text="1x" />
+			<TextBlock Grid.Row="9" Grid.Column="9" Text="2×" />
 			<TextBlock Grid.Row="9" Grid.Column="10" Text="1×" />
 			<TextBlock Grid.Row="9" Grid.Column="11" Text="1×" />
 			<TextBlock Grid.Row="9" Grid.Column="12" Text="1×" />
 			<TextBlock Grid.Row="9" Grid.Column="13" Text="1×" />
-			<TextBlock Grid.Row="9" Grid.Column="14" Text="2×" />
-			<TextBlock Grid.Row="9" Grid.Column="15" Text="1×" />
+			<TextBlock Grid.Row="9" Grid.Column="14" Text="1×" />
+			<TextBlock Grid.Row="9" Grid.Column="15" Text="2×" />
 			<TextBlock Grid.Row="9" Grid.Column="16" Text="1×" />
-			<TextBlock Grid.Row="9" Grid.Column="17" Text="½×" />
-			<TextBlock Grid.Row="9" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="9" Grid.Column="17" Text="1×" />
+			<TextBlock Grid.Row="9" Grid.Column="18" Text="½×" />
+			<TextBlock Grid.Row="9" Grid.Column="19" Text="1×" />
 
 			<!-- Row: STEEL -->
-			<TextBlock Grid.Row="10" Grid.Column="1" Text="1×" />
 			<TextBlock Grid.Row="10" Grid.Column="2" Text="1×" />
 			<TextBlock Grid.Row="10" Grid.Column="3" Text="1×" />
 			<TextBlock Grid.Row="10" Grid.Column="4" Text="1×" />
-			<TextBlock Grid.Row="10" Grid.Column="5" Text="1x" />
-			<TextBlock Grid.Row="10" Grid.Column="6" Text="2×" />
-			<TextBlock Grid.Row="10" Grid.Column="7" Text="1x" />
-			<TextBlock Grid.Row="10" Grid.Column="8" Text="1×" />
-			<TextBlock Grid.Row="10" Grid.Column="9" Text="½×" />
+			<TextBlock Grid.Row="10" Grid.Column="5" Text="1×" />
+			<TextBlock Grid.Row="10" Grid.Column="6" Text="1x" />
+			<TextBlock Grid.Row="10" Grid.Column="7" Text="2×" />
+			<TextBlock Grid.Row="10" Grid.Column="8" Text="1x" />
+			<TextBlock Grid.Row="10" Grid.Column="9" Text="1×" />
 			<TextBlock Grid.Row="10" Grid.Column="10" Text="½×" />
 			<TextBlock Grid.Row="10" Grid.Column="11" Text="½×" />
-			<TextBlock Grid.Row="10" Grid.Column="12" Text="1×" />
-			<TextBlock Grid.Row="10" Grid.Column="13" Text="½×" />
-			<TextBlock Grid.Row="10" Grid.Column="14" Text="1×" />
-			<TextBlock Grid.Row="10" Grid.Column="15" Text="2×" />
-			<TextBlock Grid.Row="10" Grid.Column="16" Text="1×" />
+			<TextBlock Grid.Row="10" Grid.Column="12" Text="½×" />
+			<TextBlock Grid.Row="10" Grid.Column="13" Text="1×" />
+			<TextBlock Grid.Row="10" Grid.Column="14" Text="½×" />
+			<TextBlock Grid.Row="10" Grid.Column="15" Text="1×" />
+			<TextBlock Grid.Row="10" Grid.Column="16" Text="2×" />
 			<TextBlock Grid.Row="10" Grid.Column="17" Text="1×" />
-			<TextBlock Grid.Row="10" Grid.Column="18" Text="2×" />
+			<TextBlock Grid.Row="10" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="10" Grid.Column="19" Text="2×" />
 
 			<!-- Row: FIRE -->
-			<TextBlock Grid.Row="11" Grid.Column="1" Text="1×" />
 			<TextBlock Grid.Row="11" Grid.Column="2" Text="1×" />
 			<TextBlock Grid.Row="11" Grid.Column="3" Text="1×" />
 			<TextBlock Grid.Row="11" Grid.Column="4" Text="1×" />
-			<TextBlock Grid.Row="11" Grid.Column="5" Text="1x" />
-			<TextBlock Grid.Row="11" Grid.Column="6" Text="½×" />
-			<TextBlock Grid.Row="11" Grid.Column="7" Text="2x" />
-			<TextBlock Grid.Row="11" Grid.Column="8" Text="1×" />
-			<TextBlock Grid.Row="11" Grid.Column="9" Text="2×" />
-			<TextBlock Grid.Row="11" Grid.Column="10" Text="½×" />
+			<TextBlock Grid.Row="11" Grid.Column="5" Text="1×" />
+			<TextBlock Grid.Row="11" Grid.Column="6" Text="1x" />
+			<TextBlock Grid.Row="11" Grid.Column="7" Text="½×" />
+			<TextBlock Grid.Row="11" Grid.Column="8" Text="2x" />
+			<TextBlock Grid.Row="11" Grid.Column="9" Text="1×" />
+			<TextBlock Grid.Row="11" Grid.Column="10" Text="2×" />
 			<TextBlock Grid.Row="11" Grid.Column="11" Text="½×" />
-			<TextBlock Grid.Row="11" Grid.Column="12" Text="2×" />
-			<TextBlock Grid.Row="11" Grid.Column="13" Text="1×" />
+			<TextBlock Grid.Row="11" Grid.Column="12" Text="½×" />
+			<TextBlock Grid.Row="11" Grid.Column="13" Text="2×" />
 			<TextBlock Grid.Row="11" Grid.Column="14" Text="1×" />
-			<TextBlock Grid.Row="11" Grid.Column="15" Text="2×" />
-			<TextBlock Grid.Row="11" Grid.Column="16" Text="½×" />
-			<TextBlock Grid.Row="11" Grid.Column="17" Text="1×" />
+			<TextBlock Grid.Row="11" Grid.Column="15" Text="1×" />
+			<TextBlock Grid.Row="11" Grid.Column="16" Text="2×" />
+			<TextBlock Grid.Row="11" Grid.Column="17" Text="½×" />
 			<TextBlock Grid.Row="11" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="11" Grid.Column="19" Text="1×" />
 
 			<!-- Row: WATER -->
-			<TextBlock Grid.Row="12" Grid.Column="1" Text="1×" />
 			<TextBlock Grid.Row="12" Grid.Column="2" Text="1×" />
 			<TextBlock Grid.Row="12" Grid.Column="3" Text="1×" />
 			<TextBlock Grid.Row="12" Grid.Column="4" Text="1×" />
-			<TextBlock Grid.Row="12" Grid.Column="5" Text="2x" />
-			<TextBlock Grid.Row="12" Grid.Column="6" Text="2×" />
-			<TextBlock Grid.Row="12" Grid.Column="7" Text="1x" />
-			<TextBlock Grid.Row="12" Grid.Column="8" Text="1×" />
+			<TextBlock Grid.Row="12" Grid.Column="5" Text="1×" />
+			<TextBlock Grid.Row="12" Grid.Column="6" Text="2x" />
+			<TextBlock Grid.Row="12" Grid.Column="7" Text="2×" />
+			<TextBlock Grid.Row="12" Grid.Column="8" Text="1x" />
 			<TextBlock Grid.Row="12" Grid.Column="9" Text="1×" />
-			<TextBlock Grid.Row="12" Grid.Column="10" Text="2×" />
-			<TextBlock Grid.Row="12" Grid.Column="11" Text="½×" />
+			<TextBlock Grid.Row="12" Grid.Column="10" Text="1×" />
+			<TextBlock Grid.Row="12" Grid.Column="11" Text="2×" />
 			<TextBlock Grid.Row="12" Grid.Column="12" Text="½×" />
-			<TextBlock Grid.Row="12" Grid.Column="13" Text="1×" />
+			<TextBlock Grid.Row="12" Grid.Column="13" Text="½×" />
 			<TextBlock Grid.Row="12" Grid.Column="14" Text="1×" />
 			<TextBlock Grid.Row="12" Grid.Column="15" Text="1×" />
-			<TextBlock Grid.Row="12" Grid.Column="16" Text="½×" />
-			<TextBlock Grid.Row="12" Grid.Column="17" Text="1×" />
+			<TextBlock Grid.Row="12" Grid.Column="16" Text="1×" />
+			<TextBlock Grid.Row="12" Grid.Column="17" Text="½×" />
 			<TextBlock Grid.Row="12" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="12" Grid.Column="19" Text="1×" />
 
 			<!-- Row: GRASS -->
-			<TextBlock Grid.Row="13" Grid.Column="1" Text="1×" />
 			<TextBlock Grid.Row="13" Grid.Column="2" Text="1×" />
-			<TextBlock Grid.Row="13" Grid.Column="3" Text="½×" />
+			<TextBlock Grid.Row="13" Grid.Column="3" Text="1×" />
 			<TextBlock Grid.Row="13" Grid.Column="4" Text="½×" />
-			<TextBlock Grid.Row="13" Grid.Column="5" Text="2x" />
-			<TextBlock Grid.Row="13" Grid.Column="6" Text="2×" />
-			<TextBlock Grid.Row="13" Grid.Column="7" Text="½x" />
-			<TextBlock Grid.Row="13" Grid.Column="8" Text="1×" />
-			<TextBlock Grid.Row="13" Grid.Column="9" Text="½×" />
+			<TextBlock Grid.Row="13" Grid.Column="5" Text="½×" />
+			<TextBlock Grid.Row="13" Grid.Column="6" Text="2x" />
+			<TextBlock Grid.Row="13" Grid.Column="7" Text="2×" />
+			<TextBlock Grid.Row="13" Grid.Column="8" Text="½x" />
+			<TextBlock Grid.Row="13" Grid.Column="9" Text="1×" />
 			<TextBlock Grid.Row="13" Grid.Column="10" Text="½×" />
-			<TextBlock Grid.Row="13" Grid.Column="11" Text="2×" />
-			<TextBlock Grid.Row="13" Grid.Column="12" Text="½×" />
-			<TextBlock Grid.Row="13" Grid.Column="13" Text="1×" />
+			<TextBlock Grid.Row="13" Grid.Column="11" Text="½×" />
+			<TextBlock Grid.Row="13" Grid.Column="12" Text="2×" />
+			<TextBlock Grid.Row="13" Grid.Column="13" Text="½×" />
 			<TextBlock Grid.Row="13" Grid.Column="14" Text="1×" />
 			<TextBlock Grid.Row="13" Grid.Column="15" Text="1×" />
-			<TextBlock Grid.Row="13" Grid.Column="16" Text="½×" />
-			<TextBlock Grid.Row="13" Grid.Column="17" Text="1×" />
+			<TextBlock Grid.Row="13" Grid.Column="16" Text="1×" />
+			<TextBlock Grid.Row="13" Grid.Column="17" Text="½×" />
 			<TextBlock Grid.Row="13" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="13" Grid.Column="19" Text="1×" />
 
 			<!-- Row: ELECTRIC -->
-			<TextBlock Grid.Row="14" Grid.Column="1" Text="1×" />
 			<TextBlock Grid.Row="14" Grid.Column="2" Text="1×" />
-			<TextBlock Grid.Row="14" Grid.Column="3" Text="2×" />
-			<TextBlock Grid.Row="14" Grid.Column="4" Text="1×" />
-			<TextBlock Grid.Row="14" Grid.Column="5" Text="0x" />
-			<TextBlock Grid.Row="14" Grid.Column="6" Text="1×" />
-			<TextBlock Grid.Row="14" Grid.Column="7" Text="1x" />
-			<TextBlock Grid.Row="14" Grid.Column="8" Text="1×" />
+			<TextBlock Grid.Row="14" Grid.Column="3" Text="1×" />
+			<TextBlock Grid.Row="14" Grid.Column="4" Text="2×" />
+			<TextBlock Grid.Row="14" Grid.Column="5" Text="1×" />
+			<TextBlock Grid.Row="14" Grid.Column="6" Text="0x" />
+			<TextBlock Grid.Row="14" Grid.Column="7" Text="1×" />
+			<TextBlock Grid.Row="14" Grid.Column="8" Text="1x" />
 			<TextBlock Grid.Row="14" Grid.Column="9" Text="1×" />
 			<TextBlock Grid.Row="14" Grid.Column="10" Text="1×" />
-			<TextBlock Grid.Row="14" Grid.Column="11" Text="2×" />
-			<TextBlock Grid.Row="14" Grid.Column="12" Text="½×" />
+			<TextBlock Grid.Row="14" Grid.Column="11" Text="1×" />
+			<TextBlock Grid.Row="14" Grid.Column="12" Text="2×" />
 			<TextBlock Grid.Row="14" Grid.Column="13" Text="½×" />
-			<TextBlock Grid.Row="14" Grid.Column="14" Text="1×" />
+			<TextBlock Grid.Row="14" Grid.Column="14" Text="½×" />
 			<TextBlock Grid.Row="14" Grid.Column="15" Text="1×" />
-			<TextBlock Grid.Row="14" Grid.Column="16" Text="½×" />
-			<TextBlock Grid.Row="14" Grid.Column="17" Text="1×" />
+			<TextBlock Grid.Row="14" Grid.Column="16" Text="1×" />
+			<TextBlock Grid.Row="14" Grid.Column="17" Text="½×" />
 			<TextBlock Grid.Row="14" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="14" Grid.Column="19" Text="1×" />
 			<!-- Row: PSYCHIC -->
-			<TextBlock Grid.Row="15" Grid.Column="1" Text="1×" />
-			<TextBlock Grid.Row="15" Grid.Column="2" Text="2×" />
-			<TextBlock Grid.Row="15" Grid.Column="3" Text="1×" />
-			<TextBlock Grid.Row="15" Grid.Column="4" Text="2×" />
-			<TextBlock Grid.Row="15" Grid.Column="5" Text="1x" />
-			<TextBlock Grid.Row="15" Grid.Column="6" Text="1×" />
-			<TextBlock Grid.Row="15" Grid.Column="7" Text="1x" />
-			<TextBlock Grid.Row="15" Grid.Column="8" Text="1×" />
-			<TextBlock Grid.Row="15" Grid.Column="9" Text="½×" />
-			<TextBlock Grid.Row="15" Grid.Column="10" Text="1×" />
+			<TextBlock Grid.Row="15" Grid.Column="2" Text="1×" />
+			<TextBlock Grid.Row="15" Grid.Column="3" Text="2×" />
+			<TextBlock Grid.Row="15" Grid.Column="4" Text="1×" />
+			<TextBlock Grid.Row="15" Grid.Column="5" Text="2×" />
+			<TextBlock Grid.Row="15" Grid.Column="6" Text="1x" />
+			<TextBlock Grid.Row="15" Grid.Column="7" Text="1×" />
+			<TextBlock Grid.Row="15" Grid.Column="8" Text="1x" />
+			<TextBlock Grid.Row="15" Grid.Column="9" Text="1×" />
+			<TextBlock Grid.Row="15" Grid.Column="10" Text="½×" />
 			<TextBlock Grid.Row="15" Grid.Column="11" Text="1×" />
 			<TextBlock Grid.Row="15" Grid.Column="12" Text="1×" />
 			<TextBlock Grid.Row="15" Grid.Column="13" Text="1×" />
-			<TextBlock Grid.Row="15" Grid.Column="14" Text="½×" />
-			<TextBlock Grid.Row="15" Grid.Column="15" Text="1×" />
+			<TextBlock Grid.Row="15" Grid.Column="14" Text="1×" />
+			<TextBlock Grid.Row="15" Grid.Column="15" Text="½×" />
 			<TextBlock Grid.Row="15" Grid.Column="16" Text="1×" />
-			<TextBlock Grid.Row="15" Grid.Column="17" Text="0×" />
-			<TextBlock Grid.Row="15" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="15" Grid.Column="17" Text="1×" />
+			<TextBlock Grid.Row="15" Grid.Column="18" Text="0×" />
+			<TextBlock Grid.Row="15" Grid.Column="19" Text="1×" />
 
 			<!-- Row: ICE -->
-			<TextBlock Grid.Row="16" Grid.Column="1" Text="1×" />
 			<TextBlock Grid.Row="16" Grid.Column="2" Text="1×" />
-			<TextBlock Grid.Row="16" Grid.Column="3" Text="2×" />
-			<TextBlock Grid.Row="16" Grid.Column="4" Text="1×" />
-			<TextBlock Grid.Row="16" Grid.Column="5" Text="2x" />
-			<TextBlock Grid.Row="16" Grid.Column="6" Text="1×" />
-			<TextBlock Grid.Row="16" Grid.Column="7" Text="1x" />
-			<TextBlock Grid.Row="16" Grid.Column="8" Text="1×" />
-			<TextBlock Grid.Row="16" Grid.Column="9" Text="½×" />
+			<TextBlock Grid.Row="16" Grid.Column="3" Text="1×" />
+			<TextBlock Grid.Row="16" Grid.Column="4" Text="2×" />
+			<TextBlock Grid.Row="16" Grid.Column="5" Text="1×" />
+			<TextBlock Grid.Row="16" Grid.Column="6" Text="2x" />
+			<TextBlock Grid.Row="16" Grid.Column="7" Text="1×" />
+			<TextBlock Grid.Row="16" Grid.Column="8" Text="1x" />
+			<TextBlock Grid.Row="16" Grid.Column="9" Text="1×" />
 			<TextBlock Grid.Row="16" Grid.Column="10" Text="½×" />
 			<TextBlock Grid.Row="16" Grid.Column="11" Text="½×" />
-			<TextBlock Grid.Row="16" Grid.Column="12" Text="2×" />
-			<TextBlock Grid.Row="16" Grid.Column="13" Text="1×" />
+			<TextBlock Grid.Row="16" Grid.Column="12" Text="½×" />
+			<TextBlock Grid.Row="16" Grid.Column="13" Text="2×" />
 			<TextBlock Grid.Row="16" Grid.Column="14" Text="1×" />
-			<TextBlock Grid.Row="16" Grid.Column="15" Text="½×" />
-			<TextBlock Grid.Row="16" Grid.Column="16" Text="2×" />
-			<TextBlock Grid.Row="16" Grid.Column="17" Text="1×" />
+			<TextBlock Grid.Row="16" Grid.Column="15" Text="1×" />
+			<TextBlock Grid.Row="16" Grid.Column="16" Text="½×" />
+			<TextBlock Grid.Row="16" Grid.Column="17" Text="2×" />
 			<TextBlock Grid.Row="16" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="16" Grid.Column="19" Text="1×" />
 
 			<!-- Row: DRAGON -->
-			<TextBlock Grid.Row="17" Grid.Column="1" Text="1×" />
 			<TextBlock Grid.Row="17" Grid.Column="2" Text="1×" />
 			<TextBlock Grid.Row="17" Grid.Column="3" Text="1×" />
 			<TextBlock Grid.Row="17" Grid.Column="4" Text="1×" />
-			<TextBlock Grid.Row="17" Grid.Column="5" Text="1x" />
-			<TextBlock Grid.Row="17" Grid.Column="6" Text="1×" />
-			<TextBlock Grid.Row="17" Grid.Column="7" Text="1x" />
-			<TextBlock Grid.Row="17" Grid.Column="8" Text="1×" />
-			<TextBlock Grid.Row="17" Grid.Column="9" Text="½×" />
-			<TextBlock Grid.Row="17" Grid.Column="10" Text="1×" />
+			<TextBlock Grid.Row="17" Grid.Column="5" Text="1×" />
+			<TextBlock Grid.Row="17" Grid.Column="6" Text="1x" />
+			<TextBlock Grid.Row="17" Grid.Column="7" Text="1×" />
+			<TextBlock Grid.Row="17" Grid.Column="8" Text="1x" />
+			<TextBlock Grid.Row="17" Grid.Column="9" Text="1×" />
+			<TextBlock Grid.Row="17" Grid.Column="10" Text="½×" />
 			<TextBlock Grid.Row="17" Grid.Column="11" Text="1×" />
 			<TextBlock Grid.Row="17" Grid.Column="12" Text="1×" />
 			<TextBlock Grid.Row="17" Grid.Column="13" Text="1×" />
 			<TextBlock Grid.Row="17" Grid.Column="14" Text="1×" />
 			<TextBlock Grid.Row="17" Grid.Column="15" Text="1×" />
-			<TextBlock Grid.Row="17" Grid.Column="16" Text="2×" />
-			<TextBlock Grid.Row="17" Grid.Column="17" Text="1×" />
-			<TextBlock Grid.Row="17" Grid.Column="18" Text="0×" />
+			<TextBlock Grid.Row="17" Grid.Column="16" Text="1×" />
+			<TextBlock Grid.Row="17" Grid.Column="17" Text="2×" />
+			<TextBlock Grid.Row="17" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="17" Grid.Column="19" Text="0×" />
 
 			<!-- Row: DARK -->
-			<TextBlock Grid.Row="18" Grid.Column="1" Text="1×" />
-			<TextBlock Grid.Row="18" Grid.Column="2" Text="½×" />
-			<TextBlock Grid.Row="18" Grid.Column="3" Text="1×" />
+			<TextBlock Grid.Row="18" Grid.Column="2" Text="1×" />
+			<TextBlock Grid.Row="18" Grid.Column="3" Text="½×" />
 			<TextBlock Grid.Row="18" Grid.Column="4" Text="1×" />
-			<TextBlock Grid.Row="18" Grid.Column="5" Text="1x" />
-			<TextBlock Grid.Row="18" Grid.Column="6" Text="1×" />
-			<TextBlock Grid.Row="18" Grid.Column="7" Text="1x" />
-			<TextBlock Grid.Row="18" Grid.Column="8" Text="2×" />
-			<TextBlock Grid.Row="18" Grid.Column="9" Text="1×" />
+			<TextBlock Grid.Row="18" Grid.Column="5" Text="1×" />
+			<TextBlock Grid.Row="18" Grid.Column="6" Text="1x" />
+			<TextBlock Grid.Row="18" Grid.Column="7" Text="1×" />
+			<TextBlock Grid.Row="18" Grid.Column="8" Text="1x" />
+			<TextBlock Grid.Row="18" Grid.Column="9" Text="2×" />
 			<TextBlock Grid.Row="18" Grid.Column="10" Text="1×" />
 			<TextBlock Grid.Row="18" Grid.Column="11" Text="1×" />
 			<TextBlock Grid.Row="18" Grid.Column="12" Text="1×" />
 			<TextBlock Grid.Row="18" Grid.Column="13" Text="1×" />
-			<TextBlock Grid.Row="18" Grid.Column="14" Text="2×" />
-			<TextBlock Grid.Row="18" Grid.Column="15" Text="1×" />
+			<TextBlock Grid.Row="18" Grid.Column="14" Text="1×" />
+			<TextBlock Grid.Row="18" Grid.Column="15" Text="2×" />
 			<TextBlock Grid.Row="18" Grid.Column="16" Text="1×" />
-			<TextBlock Grid.Row="18" Grid.Column="17" Text="½×" />
+			<TextBlock Grid.Row="18" Grid.Column="17" Text="1×" />
 			<TextBlock Grid.Row="18" Grid.Column="18" Text="½×" />
+			<TextBlock Grid.Row="18" Grid.Column="19" Text="½×" />
 
 			<!-- Row: FAIRY -->
-			<TextBlock Grid.Row="19" Grid.Column="1" Text="1×" />
-			<TextBlock Grid.Row="19" Grid.Column="2" Text="2×" />
-			<TextBlock Grid.Row="19" Grid.Column="3" Text="1×" />
-			<TextBlock Grid.Row="19" Grid.Column="4" Text="½×" />
-			<TextBlock Grid.Row="19" Grid.Column="5" Text="1x" />
-			<TextBlock Grid.Row="19" Grid.Column="6" Text="1×" />
-			<TextBlock Grid.Row="19" Grid.Column="7" Text="1x" />
-			<TextBlock Grid.Row="19" Grid.Column="8" Text="1×" />
-			<TextBlock Grid.Row="19" Grid.Column="9" Text="½×" />
+			<TextBlock Grid.Row="19" Grid.Column="2" Text="1×" />
+			<TextBlock Grid.Row="19" Grid.Column="3" Text="2×" />
+			<TextBlock Grid.Row="19" Grid.Column="4" Text="1×" />
+			<TextBlock Grid.Row="19" Grid.Column="5" Text="½×" />
+			<TextBlock Grid.Row="19" Grid.Column="6" Text="1x" />
+			<TextBlock Grid.Row="19" Grid.Column="7" Text="1×" />
+			<TextBlock Grid.Row="19" Grid.Column="8" Text="1x" />
+			<TextBlock Grid.Row="19" Grid.Column="9" Text="1×" />
 			<TextBlock Grid.Row="19" Grid.Column="10" Text="½×" />
-			<TextBlock Grid.Row="19" Grid.Column="11" Text="1×" />
+			<TextBlock Grid.Row="19" Grid.Column="11" Text="½×" />
 			<TextBlock Grid.Row="19" Grid.Column="12" Text="1×" />
 			<TextBlock Grid.Row="19" Grid.Column="13" Text="1×" />
 			<TextBlock Grid.Row="19" Grid.Column="14" Text="1×" />
 			<TextBlock Grid.Row="19" Grid.Column="15" Text="1×" />
-			<TextBlock Grid.Row="19" Grid.Column="16" Text="2×" />
+			<TextBlock Grid.Row="19" Grid.Column="16" Text="1×" />
 			<TextBlock Grid.Row="19" Grid.Column="17" Text="2×" />
-			<TextBlock Grid.Row="19" Grid.Column="18" Text="1×" />
+			<TextBlock Grid.Row="19" Grid.Column="18" Text="2×" />
+			<TextBlock Grid.Row="19" Grid.Column="19" Text="1×" />
 		</Grid>
 	</Border>
 </Panel>
