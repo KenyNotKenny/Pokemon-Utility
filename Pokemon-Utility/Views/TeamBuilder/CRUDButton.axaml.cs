@@ -2,8 +2,11 @@ using Avalonia;
 using Avalonia.Controls;
 using System.Drawing;
 using System.Linq;
+using Avalonia.Layout;
+using Avalonia.Media;
 using Pokemon_Utility.Models.Context;
 using Pokemon_Utility.Models.Entity;
+using Brushes = Avalonia.Media.Brushes;
 
 namespace Pokemon_Utility.Views.TeamBuilder;
 
@@ -47,14 +50,19 @@ public partial class CRUDButton : Panel
         AddPokemonButton = new Button()
         {
             Content = "Add Pokemon",
-
-
+            FontSize = 30,
+            FontWeight = FontWeight.Bold,
+            VerticalContentAlignment = VerticalAlignment.Center,
+            Height = 60,
+            CornerRadius = new CornerRadius(20),
+            Background = Design.Color.FgLightBlue,
+            Foreground = Brushes.White,
         };
 
-        Children.Add(AddPokemonButton);
-        AddPokemonButton.Margin = new Thickness(20, 0, 0, 0);
+        stackPanelButton.Children.Add(AddPokemonButton);
+        AddPokemonButton.Margin = new Thickness(160, 0, 0, 0);
 
-        // click on AddPokemonButton will open a Textbox        // click on AddPokemonButton will open a Textbox
+        // click on AddPokemonButton will open a Textbox 
         // user input the Pokemon ID
         // then click on OK will add the Pokemon to the Team
         AddPokemonButton.Click += delegate
@@ -99,7 +107,6 @@ public partial class CRUDButton : Panel
                 {
                     // TO-DO
                 
-                
                     if (int.TryParse(input.Text, out _))
                     {
                         var newId = int.Parse(input.Text);
@@ -132,11 +139,17 @@ public partial class CRUDButton : Panel
         AddTeamButton = new Button()
         {
             Content = "Add Team",
-
+            FontSize = 30,
+            FontWeight = FontWeight.Bold,
+            VerticalContentAlignment = VerticalAlignment.Center,
+            Height = 60,
+            CornerRadius = new CornerRadius(20),
+            Background = Design.Color.FgLightBlue,
+            Foreground = Brushes.White,
         };
 
-        Children.Add(AddTeamButton);
-        AddTeamButton.Margin = new Thickness(285, 0, 0, 0);
+        stackPanelButton.Children.Add(AddTeamButton);
+        AddTeamButton.Margin = new Thickness(40, 0, 0, 0);
         AddTeamButton.Click += delegate
         {
             // create a textbox
@@ -193,11 +206,17 @@ public partial class CRUDButton : Panel
         RemoveTeamButton = new Button()
         {
             Content = "Remove Team",
-
+            FontSize = 30,
+            FontWeight = FontWeight.Bold,
+            VerticalContentAlignment = VerticalAlignment.Center,
+            Height = 60,
+            CornerRadius = new CornerRadius(20),
+            Background = Design.Color.FgLightBlue,
+            Foreground = Brushes.White,
         };
 
-        Children.Add(RemoveTeamButton);
-        RemoveTeamButton.Margin = new Thickness(375, 0, 0, 0);
+        stackPanelButton.Children.Add(RemoveTeamButton);
+        RemoveTeamButton.Margin = new Thickness(40, 0, 0, 0);
         RemoveTeamButton.Click += delegate
         {
             // create a textbox

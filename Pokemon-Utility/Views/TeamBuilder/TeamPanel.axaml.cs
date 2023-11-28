@@ -32,33 +32,36 @@ namespace Pokemon_Utility.Views.TeamBuilder
             this.Children.Clear();
 
             // Tạo WrapPanel để chứa các Pokemon
-            WrapPanel wrapPanel = new WrapPanel();
-            wrapPanel.Orientation = Orientation.Horizontal;
-            wrapPanel.VerticalAlignment = VerticalAlignment.Center;
-
+            
+            int rowSeparation = 0;
+            StackPanel upperRow = new StackPanel
+            {
+                Orientation = Orientation.Horizontal,
+            };
+            StackPanel lowerRow = new StackPanel
+            {
+                Orientation = Orientation.Horizontal,
+            };
+            StackPanel teamOuterPanel = new StackPanel
+            {
+                Orientation = Orientation.Vertical,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Children = { upperRow, lowerRow}
+            };
             foreach (var pokemon in _pokemonList)
             {
-                // Tạo control hiển thị hình ảnh
-                Image imgPokemon = new Image();
-                Bitmap pokemonImage = new Bitmap(AssetLoader.Open(new Uri($"avares://Pokemon-Utility/Assets/pokemon/{pokemon.Id}.png")));
-                imgPokemon.Source = pokemonImage;
-                imgPokemon.Width = 120;
-                imgPokemon.Height = 120;
-
-                // Tạo control hiển thị tên Pokemon
-                Label lblPokemonName = new Label();
-                lblPokemonName.Content = pokemon.Name;
-                lblPokemonName.FontSize = 14;
-                lblPokemonName.HorizontalAlignment = HorizontalAlignment.Center;
+                rowSeparation++;
                 
+
                 // Create delete button
                 Button deleteButton = new Button
                 {
-                    Content = "x",
+                    Content = "\u00d7",
                     Background = Design.Color.BgGray,
                     Foreground = Brushes.White,
-                    Height = 28,
-                    Width = 28,
+                    Height = 26,
+                    Width = 26,
                     CornerRadius = new CornerRadius(16),
                     HorizontalAlignment = HorizontalAlignment.Right,
                     VerticalAlignment = VerticalAlignment.Top,
@@ -73,24 +76,78 @@ namespace Pokemon_Utility.Views.TeamBuilder
                         },
                         onFailure: () => { });
                 };
-                
-
-                // Thêm các controls vào một StackPanel
-                StackPanel stackPanel = new StackPanel();
-                stackPanel.Children.Add(deleteButton);
-                stackPanel.Children.Add(imgPokemon);
-                stackPanel.Children.Add(lblPokemonName);
 
                 
-
-                // Thêm StackPanel vào WrapPanel
-                wrapPanel.Children.Add(stackPanel);
+                Bitmap pokemonImage = new Bitmap(AssetLoader.Open(new Uri($"avares://Pokemon-Utility/Assets/pokemon/{pokemon.Id}.png")));
+                Image imgPokemon = new Image
+                {
+                    Height = 200,
+                    Width = 200,
+                    Source = pokemonImage,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    Stretch = Stretch.Uniform,
+                };
+                // Tạo control hiển thị hình ảnh
+                Border imageBorder = new Border
+                {
+                    Height = 200,
+                    Width = 200,
+                    Margin = new Thickness(0,10,0,10),
+                    CornerRadius = new CornerRadius(100),
+                    Background = Brushes.White,
+                    Child = imgPokemon,
+                };
+                // Tạo control hiển thị tên Pokemon
+                Label lblPokemonName = new Label();
+                lblPokemonName.Content = pokemon.Name;
+                lblPokemonName.FontSize = 20;
+                lblPokemonName.FontWeight = FontWeight.Bold;
+                lblPokemonName.Foreground = Brushes.White;
+                lblPokemonName.HorizontalAlignment = HorizontalAlignment.Center;
+                lblPokemonName.VerticalAlignment = VerticalAlignment.Center;
+                
+                Border labelBorder = new Border
+                {
+                    CornerRadius = new CornerRadius(20),
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    Background = Design.Color.FgBlue,
+                    Child = lblPokemonName,
+                };
+                
+                Grid grid = new Grid
+                {
+                    RowDefinitions = new RowDefinitions("220,80"),
+                    Children = { imageBorder,labelBorder },
+                };
+                Grid.SetRow(labelBorder,1);
+                Border cardBorder = new Border
+                {
+                    Height = 300,
+                    Width = 220,
+                    CornerRadius = new CornerRadius(20),
+                    Background = Design.Color.BgLightGray,
+                    Child = grid,
+                };
+                Panel cardPanel = new Panel
+                {
+                    Margin = new Thickness(20),
+                    Children = { cardBorder, deleteButton  }
+                };
+                if (rowSeparation <= 3)
+                {
+                    upperRow.Children.Add(cardPanel);
+                }
+                else
+                {
+                    lowerRow.Children.Add(cardPanel);
+                }
+                
             }
 
             // Thêm WrapPanel vào TeamPanel
-            this.Children.Add(wrapPanel);
-            
-            
+            this.Children.Add(teamOuterPanel);
         }
         
     }

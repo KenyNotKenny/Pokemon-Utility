@@ -45,10 +45,10 @@ namespace Pokemon_Utility.Views.Browsing
             {
                 //the color according to the type of pokemon
                 case "fire":
-                    this.Background = Brushes.Red;
+                    this.Background = Brushes.OrangeRed;
                     break;
                 case "water":
-                    this.Background = Brushes.Blue;
+                    this.Background = Brushes.CornflowerBlue;
                     break;
                 case "electric":
                     this.Background = Brushes.Yellow;
@@ -66,19 +66,19 @@ namespace Pokemon_Utility.Views.Browsing
                     this.Background = Brushes.Purple;
                     break;
                 case "ground":
-                    this.Background = Brushes.LightGoldenrodYellow;
+                    this.Background = Brushes.SandyBrown;
                     break;
                 case "flying":
                     this.Background = Brushes.Lavender;
                     break;
                 case "psychic":
-                    this.Background = Brushes.DeepPink;
+                    this.Background = Brushes.Pink;
                     break;
                 case "bug":
                     this.Background = Brushes.DarkOliveGreen;
                     break;
                 case "rock":
-                    this.Background = Brushes.AntiqueWhite;
+                    this.Background = Brushes.RosyBrown;
                     break;
                 case "ghost":
                     this.Background = Brushes.DarkMagenta;
@@ -87,13 +87,13 @@ namespace Pokemon_Utility.Views.Browsing
                     this.Background = Brushes.MediumPurple;
                     break;
                 case "dark":
-                    this.Background = Brushes.SaddleBrown;
+                    this.Background = Brushes.DimGray;
                     break;
                 case "steel":
-                    this.Background = Brushes.LightGray;
+                    this.Background = Brushes.SteelBlue;
                     break;
                 case "fairy":
-                    this.Background = Brushes.Pink;
+                    this.Background = Brushes.HotPink;
                     break;
                 default:
                     this.Background = Brushes.Gray;

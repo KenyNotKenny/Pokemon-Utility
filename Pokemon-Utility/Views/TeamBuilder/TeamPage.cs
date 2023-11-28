@@ -18,7 +18,7 @@ public class TeamPage : Grid
         // this.Children.Add(_teamPanel);
         // this.Children.Add(_analysisPanel);
         this.ColumnDefinitions = ColumnDefinitions.Parse("3*,2*");
-        this.RowDefinitions = RowDefinitions.Parse("1*,80");
+        this.RowDefinitions = RowDefinitions.Parse("1*,160");
         // Grid.SetColumn(_teamPanel,0);
         // Grid.SetColumn(_analysisPanel,1);
     }
