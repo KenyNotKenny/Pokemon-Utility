@@ -7,7 +7,10 @@
           BorderBrush="Black"
           BorderThickness="2"
           >
-		<Grid>
+		<Grid
+			Name ="TypeGrid"
+			ContextVerticalAlignment ="Center"
+			ContextHorizontalAlignment ="Center">
 			<!-- Row and Column Definitions -->
 			<Grid.RowDefinitions>
 				<RowDefinition />
@@ -57,11 +60,11 @@
 
 			<!-- Type Labels -->
 			<TextBlock Grid.Row="1" Grid.RowSpan="0" Grid.ColumnSpan="1" Text="" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-			<TextBlock Grid.Row="2" Grid.RowSpan="19" Grid.Column="0" Text="ATTACK" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+			<TextBlock Grid.Row="2" Grid.RowSpan="19" Grid.Column="0" Text="ATTACK" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Brown"/>
 			<TextBlock Grid.Column="2" Grid.ColumnSpan="19" Text="DEFENSE" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
 
-			<TextBlock Grid.Row="1" Grid.Column="2" Background="#808080" Text="NORMAL" VerticalAlignment="" HorizontalAlignment="Center" />
+			<TextBlock Grid.Row="1" Grid.Column="2" Background="#808080" Text="NORMAL" VerticalAlignment="" HorizontalAlignment="Center" ContextVerticalAlignment="center" ContextHorizontalAlignment="center" />
 			<TextBlock Grid.Row="1" Grid.Column="3" Text="FIGHTING" />
 			<TextBlock Grid.Row="1" Grid.Column="4" Text="FLYING" />
 			<TextBlock Grid.Row="1" Grid.Column="5" Text="POISON" />
@@ -420,7 +423,7 @@
 			<TextBlock Grid.Row="17" Grid.Column="19" Text="0×" />
 
 			<!-- Row: DARK -->
-			<TextBlock Grid.Row="18" Grid.Column="2" Text="1×" />
+			<TextBlock Grid.Row="18" Grid.Column="2" Text="1×"  />
 			<TextBlock Grid.Row="18" Grid.Column="3" Text="½×" />
 			<TextBlock Grid.Row="18" Grid.Column="4" Text="1×" />
 			<TextBlock Grid.Row="18" Grid.Column="5" Text="1×" />
