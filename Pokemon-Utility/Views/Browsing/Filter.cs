@@ -19,11 +19,12 @@ namespace Pokemon_Utility.Views.Browsing
         public Filter()
         {
             //change the Filter class properties
-            this.Margin = new Thickness(30, 15);
-            this.Height = 40;
+            this.Height = 60;
             this.Width = 100;
 
             filter = new ComboBox();
+            filter.Foreground = Brushes.White;
+            filter.FontSize = 20;
             //set the filter as the children of the Filter class
             this.Children.Add(filter);
 
@@ -52,10 +53,11 @@ namespace Pokemon_Utility.Views.Browsing
             filter.Height = this.Height;
             filter.Width = this.Width;
             filter.Background = Design.Color.FgBlue;
+            filter.CornerRadius = new CornerRadius(30) ;
             filter.BorderBrush = new SolidColorBrush(Colors.White);
             filter.BorderThickness = Thickness.Parse("1");
             filter.Margin = new Thickness(15, 0, 0, 0);
-
+            filter.SelectedItem = "all";
             selectedItem = "all";
             // Handle the SelectionChanged event of the ComboBox
             filter.SelectionChanged += (sender, args) =>

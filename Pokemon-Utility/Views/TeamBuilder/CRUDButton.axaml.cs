@@ -50,17 +50,18 @@ public partial class CRUDButton : Panel
         AddPokemonButton = new Button()
         {
             Content = "Add Pokemon",
-            FontSize = 30,
+            FontSize = 20,
             FontWeight = FontWeight.Bold,
             VerticalContentAlignment = VerticalAlignment.Center,
+            HorizontalAlignment = HorizontalAlignment.Center,
             Height = 60,
             CornerRadius = new CornerRadius(20),
             Background = Design.Color.FgLightBlue,
             Foreground = Brushes.White,
         };
 
-        stackPanelButton.Children.Add(AddPokemonButton);
-        AddPokemonButton.Margin = new Thickness(160, 0, 0, 0);
+        grid.Children.Add(AddPokemonButton);
+        Grid.SetColumn(AddPokemonButton,0);
 
         // click on AddPokemonButton will open a Textbox 
         // user input the Pokemon ID
@@ -73,33 +74,47 @@ public partial class CRUDButton : Panel
                 onFailure: () => { currentTeamSize = 6;});
             if (currentTeamSize < 6)
             {
-                
+
+                TextBlock textBox = new TextBlock()
+                {
+                    Text ="Enter pokemon ID:(search for ID in Browse Tab)",
+                    Margin = new Thickness(10),
+                    HorizontalAlignment = HorizontalAlignment.Center,
+
+                    
+                };
                 // create a textbox
                 TextBox input = new TextBox()
                 {
                     Width = 100,
                     Height = 50,
-                    Margin = new Thickness(10, 0, 0, 0)
+                    Margin = new Thickness(10),
+                    HorizontalAlignment = HorizontalAlignment.Center,
+
                 };
                 // create a button
                 Button ok = new Button()
                 {
-                    Content = "OK",
-                    Margin = new Thickness(130, 100, 0, 0)
+                    Content = "Add pokemon",
+                    Margin = new Thickness(10),
+                    HorizontalAlignment = HorizontalAlignment.Center,
                 };
                 // create a panel to hold the textbox and the button
-                Panel panel = new Panel()
+                StackPanel panel = new StackPanel()
                 {
-                    Margin = new Thickness(0, 100, 0, 0)
+                    Margin = new Thickness(0, 100, 0, 0),
+                    Orientation = Orientation.Vertical,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    Children = { textBox,input, ok},
                 };
                 // add the textbox and the button to the panel
-                panel.Children.Add(input);
-                panel.Children.Add(ok);
+                
                 // create a window to hold the panel
                 Window window = new Window()
                 {
-                    Width = 300,
-                    Height = 300,
+                    Height = 400,
+                    Width = 600,
                     Content = panel
                 };
                 // click on the button will add the Pokemon to the Team
@@ -123,6 +138,15 @@ public partial class CRUDButton : Panel
                                 },
                                 onFailure: () => { });
                         }
+                        else
+                        {
+                            ok.Content = "Invalid ID";
+                        }
+                    }
+                    else
+                    {
+                        ok.Content = "Invalid ID";
+
                     }
 
                 };
@@ -139,45 +163,57 @@ public partial class CRUDButton : Panel
         AddTeamButton = new Button()
         {
             Content = "Add Team",
-            FontSize = 30,
+            FontSize = 20,
             FontWeight = FontWeight.Bold,
             VerticalContentAlignment = VerticalAlignment.Center,
+            HorizontalAlignment = HorizontalAlignment.Center,
             Height = 60,
             CornerRadius = new CornerRadius(20),
             Background = Design.Color.FgLightBlue,
             Foreground = Brushes.White,
         };
 
-        stackPanelButton.Children.Add(AddTeamButton);
-        AddTeamButton.Margin = new Thickness(40, 0, 0, 0);
+        grid.Children.Add(AddTeamButton);
+        Grid.SetColumn(AddTeamButton,1);
         AddTeamButton.Click += delegate
         {
+            TextBlock textBox = new TextBlock()
+            {
+                Text ="Enter team name:",
+                Margin = new Thickness(10),
+                HorizontalAlignment = HorizontalAlignment.Center,
+
+                    
+            };
             // create a textbox
             TextBox input = new TextBox()
             {
                 Width = 100,
                 Height = 50,
-                Margin = new Thickness(10, 0, 0, 0)
+                Margin = new Thickness(10),
+                HorizontalAlignment = HorizontalAlignment.Center,
             };
             // create a button
             Button ok = new Button()
             {
-                Content = "OK",
-                Margin = new Thickness(130, 100, 0, 0)
+                Content = "Add team",
+                Margin = new Thickness(10),
+                HorizontalAlignment = HorizontalAlignment.Center,
             };
             // create a panel to hold the textbox and the button
-            Panel panel = new Panel()
+            StackPanel panel = new StackPanel()
             {
-                Margin = new Thickness(0, 100, 0, 0)
+                Margin = new Thickness(0, 100, 0, 0),
+                Orientation = Orientation.Vertical,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Children = { textBox,input, ok},
             };
-            // add the textbox and the button to the panel
-            panel.Children.Add(input);
-            panel.Children.Add(ok);
             // create a window to hold the panel
             Window window = new Window()
             {
-                Width = 300,
-                Height = 300,
+                Height = 400,
+                Width = 600,
                 Content = panel
             };
             // click on the button will add the Pokemon to the Team
@@ -206,45 +242,55 @@ public partial class CRUDButton : Panel
         RemoveTeamButton = new Button()
         {
             Content = "Remove Team",
-            FontSize = 30,
+            FontSize = 20,
             FontWeight = FontWeight.Bold,
             VerticalContentAlignment = VerticalAlignment.Center,
+            HorizontalAlignment = HorizontalAlignment.Center,
             Height = 60,
             CornerRadius = new CornerRadius(20),
             Background = Design.Color.FgLightBlue,
             Foreground = Brushes.White,
         };
 
-        stackPanelButton.Children.Add(RemoveTeamButton);
-        RemoveTeamButton.Margin = new Thickness(40, 0, 0, 0);
+        grid.Children.Add(RemoveTeamButton);
+        Grid.SetColumn(RemoveTeamButton,2);
         RemoveTeamButton.Click += delegate
         {
+            TextBlock textBox = new TextBlock()
+            {
+                Text ="Are you sure you want to delete this team\nType \"yes\" to confirm",
+                Margin = new Thickness(10),
+                HorizontalAlignment = HorizontalAlignment.Center,
+            };
             // create a textbox
             TextBox input = new TextBox()
             {
                 Width = 100,
                 Height = 50,
-                Margin = new Thickness(10, 0, 0, 0)
+                Margin = new Thickness(10),
+                HorizontalAlignment = HorizontalAlignment.Center,
             };
             // create a button
             Button ok = new Button()
             {
                 Content = "Delete Team",
-                Margin = new Thickness(130, 100, 0, 0)
+                Margin = new Thickness(10),
+                HorizontalAlignment = HorizontalAlignment.Center,
             };
             // create a panel to hold the textbox and the button
-            Panel panel = new Panel()
+            StackPanel panel = new StackPanel()
             {
-                Margin = new Thickness(0, 100, 0, 0)
+                Margin = new Thickness(0, 100, 0, 0),
+                Orientation = Orientation.Vertical,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Children = { textBox,input, ok},
             };
-            // add the textbox and the button to the panel
-            panel.Children.Add(input);
-            panel.Children.Add(ok);
             // create a window to hold the panel
             Window window = new Window()
             {
-                Width = 300,
-                Height = 300,
+                Height = 400,
+                Width = 600,
                 Content = panel
             };
             // click on the button will add the Pokemon to the Team

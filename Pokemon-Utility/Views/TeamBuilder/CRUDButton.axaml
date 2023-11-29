@@ -3,7 +3,7 @@
        x:Class="Pokemon_Utility.Views.TeamBuilder.CRUDButton"
        Margin="0,0,0,0"
        >
-       <StackPanel Name="stackPanelButton"
-                   Orientation="Horizontal">
-       </StackPanel>
+       <Grid
+              Name="grid"
+              ColumnDefinitions="1*,1*,1*"></Grid>
 </Panel>

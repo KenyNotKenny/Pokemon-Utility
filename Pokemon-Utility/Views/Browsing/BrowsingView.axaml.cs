@@ -36,7 +36,7 @@ namespace Pokemon_Utility.Views.Browsing;
 /// </summary>
 public partial class BrowsingView : Panel
 {
-    StackPanel browsingBar;
+    Grid browsingBar;
     TextBox searchBar;
     Button searchButton;
     Image searchIcon;
@@ -71,29 +71,27 @@ public partial class BrowsingView : Panel
     //method to create BrowsingBar
     void BrowsingBar()
     {
-        browsingBar = new StackPanel();
+        browsingBar = new Grid()
+        {
+            ColumnDefinitions = new ColumnDefinitions("1*,160,160"),
+            Height = 80,
+        };
         //set the browsingBar as the children of the BrowsingView
         GridView.Children.Add(browsingBar);
         //set the browsingBar as the 1st row of the BrowsingView
         Grid.SetRow(browsingBar, 0);
 
         //change the browsingBar properties
-        browsingBar.Height = 80;
-        browsingBar.HorizontalAlignment = HorizontalAlignment.Stretch;
-        browsingBar.Background = Brushes.Gray;
-        browsingBar.Orientation = Orientation.Horizontal;
+        browsingBar.Background = Design.Color.BgGray;
 
         searchBar = new TextBox();
         //set the searchBar as the children of the browsingBar
-        browsingBar.Children.Add(searchBar);
 
         //change the searchBar properties
-        searchBar.Height = browsingBar.Height/1.5;
-        searchBar.Width = 900;
+        searchBar.Height = 60;
         searchBar.CornerRadius = CornerRadius.Parse("30");
-        searchBar.Margin = new Thickness(10, 13, 10, 10);
+        searchBar.Margin = new Thickness(10, 0, 80, 0);
         searchBar.VerticalAlignment = VerticalAlignment.Center;
-        searchBar.HorizontalAlignment = HorizontalAlignment.Left;
         searchBar.VerticalContentAlignment = VerticalAlignment.Center;
         searchBar.Background = Brushes.White;
         searchBar.Foreground = Brushes.Gray;
@@ -101,9 +99,17 @@ public partial class BrowsingView : Panel
         searchButton = new Button();
         //set the searchButton as the children of the browsingBar
         browsingBar.Children.Add(searchButton);
+        browsingBar.Children.Add(searchBar);
+        Grid.SetColumn(searchButton,0);
+        Grid.SetColumn(searchBar,0);
+
+
 
         //change the searchButton properties
-        searchButton.Width = searchButton.Height = 40;
+        searchButton.Width = 160;
+        searchButton.Height = 60;
+        searchButton.HorizontalAlignment = HorizontalAlignment.Right;
+        searchButton.CornerRadius = new CornerRadius(30);
         searchButton.Background = Design.Color.FgBlue;
 
         //create an event when the user input key word and click the searchButton
@@ -133,6 +139,10 @@ public partial class BrowsingView : Panel
 
         searchIcon = new Image();
         searchIcon.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/search_icon.png")));
+        searchIcon.Stretch = Stretch.Uniform;
+        searchIcon.Margin = new Thickness(0,0,10,0);
+        searchIcon.HorizontalAlignment = HorizontalAlignment.Right;
+        searchIcon.Height = searchIcon.Width = 30;
         //set the searchIcon as the children of the searchButton
         searchButton.Content = searchIcon;
         searchButton.BorderBrush = Brushes.White;
@@ -141,10 +151,14 @@ public partial class BrowsingView : Panel
         filter = new Filter();
         //set the filter as the children of the browsingBar
         browsingBar.Children.Add(filter);
+        Grid.SetColumn(filter,1);
+
 
         sorter = new SortingButton();
         //set the sorter as the children of the browsingBar
         browsingBar.Children.Add(sorter);
+        Grid.SetColumn(sorter,2);
+
     }
 
     void PokemonFoundTextblock(int nOfPokemonFound)
