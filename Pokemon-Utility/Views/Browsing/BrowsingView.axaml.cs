@@ -5,6 +5,7 @@ using Avalonia.Layout;
 using System;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using Pokemon_Utility.Controllers;
 
 namespace Pokemon_Utility.Views.Browsing;
 /// <summary>
@@ -36,16 +37,17 @@ namespace Pokemon_Utility.Views.Browsing;
 /// </summary>
 public partial class BrowsingView : Panel
 {
-    Grid browsingBar;
-    TextBox searchBar;
-    Button searchButton;
-    Image searchIcon;
-    Filter filter;
-    SortingButton sorter;
-    TextBlock pokemonFound_Textblock;
-    ScrollViewer pokemonList_ScrollViewer;
-    StackPanel pokemonList;
-    StackPanel pokemonRow;
+    
+    private Grid browsingBar;
+    private TextBox searchBar;
+    private Button searchButton;
+    private Image searchIcon;
+    private Filter filter;
+    private SortingButton sorter;
+    private TextBlock pokemonFound_Textblock;
+    private ScrollViewer pokemonList_ScrollViewer;
+    private StackPanel pokemonList;
+    private StackPanel pokemonRow;
 
     public BrowsingView()
     {
@@ -124,11 +126,11 @@ public partial class BrowsingView : Panel
             string[,] pokemons = a.PokemonQuery_byName(userInput,filter.SelectedItem);
             if (sorter.Content== "Sort by: Name")
             {
-                pokemons = SortingButton.SortingByName(pokemons);
+                pokemons = SortingButtonController.SortingByName(pokemons);
             }
             else if (sorter.Content == "Sort by: ID")
             {
-                pokemons = SortingButton.SortingById(pokemons);
+                pokemons = SortingButtonController.SortingById(pokemons);
             }
             int nOfPokemon = a.NOfPokemonFound;
 

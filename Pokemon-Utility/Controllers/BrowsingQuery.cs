@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Pokemon_Utility.Models.Context;
 
-namespace Pokemon_Utility.Views.Browsing
+namespace Pokemon_Utility.Controllers
 {
     public class BrowsingQuery
 	{
