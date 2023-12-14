@@ -2,7 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Pokemon_Utility.Models.Context;
 
-namespace Pokemon_Utility.Views.TeamBuilder;
+namespace Pokemon_Utility.Controllers;
 
 public class PokemonInfoTeam
 {

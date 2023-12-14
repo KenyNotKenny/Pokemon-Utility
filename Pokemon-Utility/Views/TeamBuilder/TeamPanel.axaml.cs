@@ -5,8 +5,8 @@ using Avalonia.Platform;
 using System;
 using System.Collections.Generic;
 using Avalonia;
-using Avalonia.Interactivity;
 using Avalonia.Media;
+using Pokemon_Utility.Controllers;
 using Pokemon_Utility.Models.Context;
 
 namespace Pokemon_Utility.Views.TeamBuilder
