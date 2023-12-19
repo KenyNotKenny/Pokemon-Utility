@@ -1,10 +1,13 @@
 using System;
+using System.Threading.Tasks;
+using PokeApiNet;
 
-namespace Pokemon;
+namespace Pokemon_Utility.Models.Context;
 
 public class MainContext : PokemonContext
 {
     private static MainContext instance;
+    public static PokeApiClient ApiClient = new PokeApiClient();
 
     static MainContext()
     {
@@ -14,12 +17,17 @@ public class MainContext : PokemonContext
 
     public static bool Connected
     {
-        get { return instance.Database.CanConnect(); }
+        get { return  instance.Database.CanConnect(); }
     }
+
+    // public static async Task<bool> HaveConected()
+    // {
+    //     return await instance.Database.CanConnectAsync();
+    // }
 
     public static void Query(Action<MainContext> onReceive, Action onFailure)
     {
-        if (Connected)
+        if ( Connected)
         {
             onReceive(instance);
         }

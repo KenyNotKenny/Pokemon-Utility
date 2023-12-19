@@ -2,13 +2,10 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Layout;
-using PokemonUtility;
-using PokemonUtility.Views.Browsing;
 using System;
-using Avalonia.Input;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
-using System.Net.NetworkInformation;
+using Pokemon_Utility.Controllers;
 
 namespace Pokemon_Utility.Views.Browsing;
 /// <summary>
@@ -16,6 +13,8 @@ namespace Pokemon_Utility.Views.Browsing;
 ///     browsingBar
 ///         searchBar
 ///         searchButton
+///         filter
+///         sorter
 ///     pokemonFound_Textblock
 ///     pokemonList_ScrollViewer
 ///         pokemonList
@@ -38,14 +37,17 @@ namespace Pokemon_Utility.Views.Browsing;
 /// </summary>
 public partial class BrowsingView : Panel
 {
-    StackPanel browsingBar;
-    TextBox searchBar;
-    Button searchButton;
-    Image searchIcon;
-    TextBlock pokemonFound_Textblock;
-    ScrollViewer pokemonList_ScrollViewer;
-    StackPanel pokemonList;
-    StackPanel pokemonRow;
+    
+    private Grid browsingBar;
+    private TextBox searchBar;
+    private Button searchButton;
+    private Image searchIcon;
+    private Filter filter;
+    private SortingButton sorter;
+    private TextBlock pokemonFound_Textblock;
+    private ScrollViewer pokemonList_ScrollViewer;
+    private StackPanel pokemonList;
+    private StackPanel pokemonRow;
 
     public BrowsingView()
     {
@@ -71,35 +73,46 @@ public partial class BrowsingView : Panel
     //method to create BrowsingBar
     void BrowsingBar()
     {
-        browsingBar = new StackPanel();
+        browsingBar = new Grid()
+        {
+            ColumnDefinitions = new ColumnDefinitions("1*,160,160"),
+            Height = 80,
+        };
         //set the browsingBar as the children of the BrowsingView
         GridView.Children.Add(browsingBar);
         //set the browsingBar as the 1st row of the BrowsingView
         Grid.SetRow(browsingBar, 0);
 
         //change the browsingBar properties
-        browsingBar.Height = 80;
-        browsingBar.HorizontalAlignment = HorizontalAlignment.Stretch;
-        browsingBar.Background = Brushes.Gray;
-        browsingBar.Orientation = Orientation.Horizontal;
+        browsingBar.Background = Design.Color.BgGray;
 
         searchBar = new TextBox();
         //set the searchBar as the children of the browsingBar
-        browsingBar.Children.Add(searchBar);
 
         //change the searchBar properties
-        searchBar.Height = browsingBar.Height/1.5;
-        searchBar.Width = 900;
+        searchBar.Height = 60;
         searchBar.CornerRadius = CornerRadius.Parse("30");
-        searchBar.Margin = new Thickness(10, 13, 10, 10);
+        searchBar.Margin = new Thickness(10, 0, 80, 0);
         searchBar.VerticalAlignment = VerticalAlignment.Center;
-        searchBar.HorizontalAlignment = HorizontalAlignment.Left;
         searchBar.VerticalContentAlignment = VerticalAlignment.Center;
+        searchBar.Background = Brushes.White;
+        searchBar.Foreground = Brushes.Gray;
 
         searchButton = new Button();
         //set the searchButton as the children of the browsingBar
         browsingBar.Children.Add(searchButton);
-        searchButton.Width = searchButton.Height = 40;
+        browsingBar.Children.Add(searchBar);
+        Grid.SetColumn(searchButton,0);
+        Grid.SetColumn(searchBar,0);
+
+
+
+        //change the searchButton properties
+        searchButton.Width = 160;
+        searchButton.Height = 60;
+        searchButton.HorizontalAlignment = HorizontalAlignment.Right;
+        searchButton.CornerRadius = new CornerRadius(30);
+        searchButton.Background = Design.Color.FgBlue;
 
         //create an event when the user input key word and click the searchButton
         searchButton.Click += (sender, e) =>
@@ -110,16 +123,44 @@ public partial class BrowsingView : Panel
             string userInput = searchBar.Text;
 
             BrowsingQuery a = new BrowsingQuery();
-            string[,] pokemons = a.PokemonQuery_byName(userInput);
+            string[,] pokemons = a.PokemonQuery_byName(userInput,filter.SelectedItem);
+            if (sorter.Content== "Sort by: Name")
+            {
+                pokemons = SortingButtonController.SortingByName(pokemons);
+            }
+            else if (sorter.Content == "Sort by: ID")
+            {
+                pokemons = SortingButtonController.SortingById(pokemons);
+            }
             int nOfPokemon = a.NOfPokemonFound;
 
             this.PokemonFoundTextblock(nOfPokemon);
             this.PokemonList(nOfPokemon, pokemons);
+            //filter.SelectedItem = "null";
         };
 
         searchIcon = new Image();
         searchIcon.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon-Utility/Assets/search_icon.png")));
-        //searchButton.Content = searchButton;
+        searchIcon.Stretch = Stretch.Uniform;
+        searchIcon.Margin = new Thickness(0,0,10,0);
+        searchIcon.HorizontalAlignment = HorizontalAlignment.Right;
+        searchIcon.Height = searchIcon.Width = 30;
+        //set the searchIcon as the children of the searchButton
+        searchButton.Content = searchIcon;
+        searchButton.BorderBrush = Brushes.White;
+        searchButton.BorderThickness = Thickness.Parse("1");
+
+        filter = new Filter();
+        //set the filter as the children of the browsingBar
+        browsingBar.Children.Add(filter);
+        Grid.SetColumn(filter,1);
+
+
+        sorter = new SortingButton();
+        //set the sorter as the children of the browsingBar
+        browsingBar.Children.Add(sorter);
+        Grid.SetColumn(sorter,2);
+
     }
 
     void PokemonFoundTextblock(int nOfPokemonFound)
@@ -170,7 +211,8 @@ public partial class BrowsingView : Panel
                 {
                     break;
                 }
-                Border dataCard_Border = new DataCard(pokemonFound[index, 2], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
+                DataCard dataCard_Border = new DataCard(pokemonFound[index, 2], pokemonFound[index, 3], int.Parse(pokemonFound[index,0]), pokemonFound[index,1]);
+                dataCard_Border.PointerPressed += (sender, args) => { this.Children.Add( new  DetailPopupPanel(dataCard_Border.ID));};
                 pokemonRow.Children.Add(dataCard_Border);
 
                 //update index

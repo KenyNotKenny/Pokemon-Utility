@@ -71,14 +71,15 @@
                 <Image 
                     Height="60"
                     Width="60"
+                    Name="LogoImage"
                     Source="../Assets/pokeball.png"/>
             </Panel>
             <ListBox
-              Background="#77B9FF"
+                Background="#77B9FF"
                 Name="TabBar">
                 <ListBox.ItemContainerTheme >
                     
                 </ListBox.ItemContainerTheme>
             </ListBox>
-        </StackPanel>
+    </StackPanel>
 </Panel>

@@ -26,12 +26,12 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="PokeApiNet" Version="4.0.0" />
     </ItemGroup>
     <ItemGroup>
       <None Remove="Views\TeamBuilder\" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Controls\" />
       <Folder Include="Views\TeamBuilder\" />
     </ItemGroup>
     <ItemGroup>

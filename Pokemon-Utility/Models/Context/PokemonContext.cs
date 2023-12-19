@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Pokemon_Utility.Models.Entity;
 
-namespace Pokemon;
+namespace Pokemon_Utility.Models.Context;
 
 public partial class PokemonContext : DbContext
 {
@@ -15,7 +18,7 @@ public partial class PokemonContext : DbContext
 
     public virtual DbSet<Move> Moves { get; set; }
 
-    public virtual DbSet<global::Pokemon.Pokemon> Pokemons { get; set; }
+    public virtual DbSet<Pokemon> Pokemons { get; set; }
 
     public virtual DbSet<PokemonAbility> PokemonAbilities { get; set; }
 
@@ -59,7 +62,7 @@ public partial class PokemonContext : DbContext
                 .HasColumnName("type");
         });
 
-        modelBuilder.Entity<global::Pokemon.Pokemon>(entity =>
+        modelBuilder.Entity<Pokemon>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("pokemon_pk");
 
@@ -165,19 +168,19 @@ public partial class PokemonContext : DbContext
 
         modelBuilder.Entity<TeamPokemon>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("team_pokemon");
+            entity.HasKey(e => e.MovesetId).HasName("pokemonteam_move_pk");
+
+            entity.ToTable("team_pokemon");
 
             entity.Property(e => e.MovesetId).HasColumnName("moveset_id");
             entity.Property(e => e.PokemonId).HasColumnName("pokemon_id");
             entity.Property(e => e.TeamId).HasColumnName("team_id");
 
-            entity.HasOne(d => d.Pokemon).WithMany()
+            entity.HasOne(d => d.Pokemon).WithMany(p => p.TeamPokemons)
                 .HasForeignKey(d => d.PokemonId)
                 .HasConstraintName("team_pokemon_pokemon_id_fk");
 
-            entity.HasOne(d => d.Team).WithMany()
+            entity.HasOne(d => d.Team).WithMany(p => p.TeamPokemons)
                 .HasForeignKey(d => d.TeamId)
                 .HasConstraintName("team_pokemon_team_id_fk");
         });
