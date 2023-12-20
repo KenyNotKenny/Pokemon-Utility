@@ -35,6 +35,6 @@
       <Folder Include="Views\TeamBuilder\" />
     </ItemGroup>
     <ItemGroup>
-        <AvaloniaResource Include="Assets\**"/>
+        <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
 </Project>

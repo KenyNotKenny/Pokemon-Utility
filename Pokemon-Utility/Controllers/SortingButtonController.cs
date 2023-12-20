@@ -21,25 +21,31 @@ public class SortingButtonController
     // Helper method to sort the array by a specified column index
     private static string[,] SortArray(string[,] pokemonList, int columnIndex)
     {
-        // Get the length of the second dimension 
-        int numColumns = pokemonList.GetLength(1);
-
-        // Sort the array by the values 
-        var sortedList = Enumerable.Range(0, pokemonList.GetLength(0))
+        // Get the length of the first dimension 
+        int numRows = pokemonList.GetLength(0);
+        var sortedList = Enumerable.Range(0, numRows)
             .Select(i => new
             {
-                Id = pokemonList[i, 0],
+                Id = int.Parse(pokemonList[i, 0]),
                 Name = pokemonList[i, 1],
                 Type1 = pokemonList[i, 2],
                 Type2 = pokemonList[i, 3]
             })
-            .OrderBy(item => columnIndex == 0 ? item.Id : item.Name, StringComparer.OrdinalIgnoreCase)
             .ToArray();
+        // Sort the array by the values
+        if (columnIndex == 0)
+        {
+            sortedList = sortedList.OrderBy(item => item.Id).ToArray(); ;
+        }
+        else
+        {
+            sortedList = sortedList.OrderBy(item => item.Name, StringComparer.OrdinalIgnoreCase).ToArray();
+        }
 
         // Update the original array with the sorted values
         for (int i = 0; i < sortedList.Length; i++)
         {
-            pokemonList[i, 0] = sortedList[i].Id;
+            pokemonList[i, 0] = sortedList[i].Id.ToString();
             pokemonList[i, 1] = sortedList[i].Name;
             pokemonList[i, 2] = sortedList[i].Type1;
             pokemonList[i, 3] = sortedList[i].Type2;
