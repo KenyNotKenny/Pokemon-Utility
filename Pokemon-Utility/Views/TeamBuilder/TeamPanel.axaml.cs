@@ -73,6 +73,7 @@ namespace Pokemon_Utility.Views.TeamBuilder
                         {
                             context.TeamPokemons.Remove(context.TeamPokemons.Find(pokemon.MovesetId));
                             context.SaveChanges();
+                            ((TeamView) this.Parent.Parent.Parent).SetUp();
                         },
                         onFailure: () => { });
                 };

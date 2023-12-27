@@ -20,12 +20,12 @@ public class TeamPage : Grid
         // Grid.SetColumn(_analysisPanel,1);
     }
 
-    public TeamPage(int teamID ) : this()
+    public TeamPage(int teamID ,int teamCount) : this()
     {
 
         teamPageController = new TeamPageController(teamID);
         this.Children.Clear();
-        Display();
+        Display(teamCount);
         // this.Children.Add( new TeamPanel());
         // this.Children.Add(_analysisPanel);
         // Grid.SetColumn(_teamPanel,0);
@@ -33,7 +33,7 @@ public class TeamPage : Grid
 
     }
 
-    private void Display()
+    private void Display(int teamCount)
     {
         var teamPanel = new TeamPanel(teamPageController.PokemonList);
         this.Children.Add(teamPanel);
@@ -42,7 +42,7 @@ public class TeamPage : Grid
         this.Children.Add(teamAnalysis);
         Grid.SetColumn(teamAnalysis, 1);
         Grid.SetRowSpan(teamAnalysis, 2);
-        var cRUDbutton = new CRUDButton(teamPageController.TeamID);
+        var cRUDbutton = new CRUDButton(teamPageController.TeamID,teamCount);
         this.Children.Add(cRUDbutton);
         Grid.SetColumn(cRUDbutton, 0);
         Grid.SetRow(cRUDbutton, 1);

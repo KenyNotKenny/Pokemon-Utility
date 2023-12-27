@@ -42,7 +42,7 @@ public partial class CRUDButton : Panel
     {
         InitializeComponent();
     }
-    public CRUDButton(int current_team_id) : this()
+    public CRUDButton(int current_team_id , int teamCount) : this()
     {
         team_id = current_team_id;
         // TO-DO
@@ -134,6 +134,7 @@ public partial class CRUDButton : Panel
                                     var newPokemon = new TeamPokemon { TeamId = team_id, PokemonId = newId };
                                     context.TeamPokemons.Add(newPokemon);
                                     context.SaveChanges();
+                                    Refresh();
                                     window.Close();
                                 },
                                 onFailure: () => { });
@@ -177,7 +178,9 @@ public partial class CRUDButton : Panel
         Grid.SetColumn(AddTeamButton,1);
         AddTeamButton.Click += delegate
         {
-            TextBlock textBox = new TextBlock()
+            if (teamCount < 5)
+            {
+                TextBlock textBox = new TextBlock()
             {
                 Text ="Enter team name:",
                 Margin = new Thickness(10),
@@ -226,6 +229,7 @@ public partial class CRUDButton : Panel
                         {
                             context.Teams.Add(new Team { Name = input.Text});
                             context.SaveChanges();
+                            Refresh();
                             window.Close();
                         },
                         onFailure: () => { });
@@ -234,6 +238,7 @@ public partial class CRUDButton : Panel
             };
             // show the window
             window.Show();
+            }
         };
 
 
@@ -305,7 +310,7 @@ public partial class CRUDButton : Panel
                             context.SaveChanges();
                             context.Teams.Remove(context.Teams.Find(team_id));
                             context.SaveChanges();
-
+                            Refresh();
                             window.Close();
                         },
                         onFailure: () => { });
@@ -315,5 +320,10 @@ public partial class CRUDButton : Panel
             // show the window
             window.Show();
         };
+    }
+
+    public void Refresh()
+    {
+        ((TeamView) this.Parent.Parent.Parent).SetUp();
     }
 }

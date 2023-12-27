@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Avalonia.Controls;
+using Avalonia.Controls.Presenters;
+using Avalonia.LogicalTree;
 
 namespace Pokemon_Utility.Views.TeamBuilder;
 
@@ -10,6 +12,8 @@ public partial class TeamTopBar : Panel
     // Cái listbox ông để public dể tui gán event
     // Lấy tên từ cái contructor thứ 2 để hiện thị cho mỗi tab
     // nhớ trang trí giống cái hình tui vẽ
+    public int _buttonSize = 30;
+
     public TeamTopBar()
     {
         InitializeComponent();
@@ -25,6 +29,8 @@ public partial class TeamTopBar : Panel
 
             tabBar.SelectionChanged += OnSelect;
         }
+
+      
         if (teamName.Count > 0) {tabBar.SelectedIndex = 0 ;}
     }
 

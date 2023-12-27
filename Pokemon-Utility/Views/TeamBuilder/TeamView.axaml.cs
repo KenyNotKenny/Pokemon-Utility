@@ -21,10 +21,7 @@ public partial class TeamView : Panel
         grid.Children.Add(_teamPage);
         Grid.SetRow(_teamTopBar,0);
         Grid.SetRow(_teamPage,1);
-        refreshButton.Click += (sender, args) =>
-        {
-            SetUp();
-        };
+
     }
 
     public void SetUp()
@@ -34,7 +31,7 @@ public partial class TeamView : Panel
         // Load First team
         if (teamList.Count > 0)
         {
-            _teamPage = new TeamPage(teamList[0].Id);
+            _teamPage = new TeamPage(teamList[0].Id, teamList.Count);
             grid.Children.Add(_teamPage);
             Grid.SetRow(_teamPage,1);
         }
@@ -70,7 +67,7 @@ public partial class TeamView : Panel
     private void OnSelect(object? sender, SelectionChangedEventArgs e)
     {
         grid.Children.Remove(_teamPage);
-        _teamPage = new TeamPage(teamList[(sender as ListBox).SelectedIndex].Id);
+        _teamPage = new TeamPage(teamList[(sender as ListBox).SelectedIndex].Id,teamList.Count);
         grid.Children.Add(_teamPage);
         Grid.SetRow(_teamPage,1);
 
